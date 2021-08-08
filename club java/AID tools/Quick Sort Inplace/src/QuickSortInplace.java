@@ -1,9 +1,6 @@
-package com.company;
-
-public class Main {
+public class QuickSortInplace {
 
     public static void main(String[] args) {
-	// write your code here
         int []A = {1,5,2,3,9,55,44};
         A = inPlaceQuickSort(A, 0, A.length-1);
         for(int x: A){
