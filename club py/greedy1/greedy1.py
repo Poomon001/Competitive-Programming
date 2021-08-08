@@ -1,0 +1,25 @@
+'''
+    Purpose: find the lowest number of coins (100, 20, 10, 5, 1 coins) that can form input number
+    Input: int - a number that want to form
+    Print: int - lowest number of coins that can sum to the input number
+    Pre-Condition: input not empty
+                 : input is integer
+    Post-Condition: none
+'''
+input = int(input())
+biggest = 100
+num = [100,20,10,5,1]
+x = 1
+count = 0
+
+while input != 0:
+    input = input - biggest
+    count += 1
+    if(input < 0):
+        input = input + biggest
+        biggest = num[x]
+        x += 1
+        count -= 1
+
+
+print(count)

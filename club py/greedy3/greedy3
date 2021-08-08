@@ -1,0 +1,21 @@
+#putpose to print string that doesnt contain any a duplicate character#
+#pre condition: array must not be empty
+             #: input must be in either upper or lower case
+input = "ABCDEDCBA"
+str = ""
+
+#loop through input char
+for x in range(0, len(input)):
+
+    #case 1: input contains only one char, print it ans finish program
+    if(len(input) == 1):
+        print(input)
+        break
+    #case 2: contain two or more char
+    #if a target char is in a str, print the result and finish loop
+    if((input[x] in str)):
+        print(str)
+        break
+
+    #store a current char in str
+    str += input[x]
