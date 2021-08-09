@@ -2,7 +2,7 @@
     Link: https://leetcode.com/problemset/all/
     Purpose: Return the index of the first occurrence of second String in first string, or -1 if not part matches.
     parameter: string - first string
-             : string - หำแนืก string
+             : string - second string
     Print: int - the index of the first occurrence of second string in first string
     Pre-Condition : all strings are in lowercase
     Post-Condition: none
