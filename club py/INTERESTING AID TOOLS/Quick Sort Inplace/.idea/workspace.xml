@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e12d4dd5-970d-4364-be2e-5309fecee6fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuickSortInplace.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/QuickSortInplace/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../club java/MergeTwoSortedList/src/StringBuffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../club java/sum2nums/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../club java/sum2nums/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +107,8 @@
       <workItem from="1624397287225" duration="87000" />
       <workItem from="1628409929086" duration="22000" />
       <workItem from="1628411336188" duration="198000" />
+      <workItem from="1628476380222" duration="652000" />
+      <workItem from="1628482147273" duration="21000" />
     </task>
     <servers />
   </component>
