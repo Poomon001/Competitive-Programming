@@ -20,7 +20,7 @@ def strStr(haystack: str, needle: str) -> int:
     if (not needle in haystack):
         return -1
 
-    # O(n)
+    # O(n^2)
     for i in range(len(haystack) + 1):
         if (needle in haystack[:i]):
             return (i - len(needle))

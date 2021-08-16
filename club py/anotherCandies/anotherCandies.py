@@ -1,3 +1,9 @@
+'''
+    Purpose: Find out whether the teacher can divide the candies into N exactly equal heaps.
+    Parameters: none
+    Returns: none
+    Post-Condition: none
+''' 
 numCase = int(input())
 
 for x in range(numCase):

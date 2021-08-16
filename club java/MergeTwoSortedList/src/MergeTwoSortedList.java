@@ -1,7 +1,21 @@
 import java.util.LinkedList;
 
 public class MergeTwoSortedList {
+    /* Node Class */
+    private static class ListNode {
+        int val;
+        ListNode next;
+
+        // Constructor to create a new node
+        ListNode() {}
+        ListNode(int d) {
+            val = d;
+            next = null;
+        }
+    }
+
     public static void main(String[] args){
+        /** build-in LinkedList **/
         LinkedList<Integer> list1 = new LinkedList<Integer>();
         list1.add(1);
         list1.add(2);
@@ -14,14 +28,63 @@ public class MergeTwoSortedList {
         list2.add(5);
 
         printList(mergeTwoSortedList(list1, list2));
-    }
 
-    /*
+        System.out.println("\n=== End Build-in Linkedlist ==\n");
+
+        /** Raw LinkedList **/
+        ListNode list3 = new ListNode();
+        ListNode dummy = list3;
+
+        // add new nodes to the linked list
+        ListNode num1 = new ListNode(1);
+        /*list3.next = num1;*/
+        dummy.next = num1;
+        dummy = dummy.next;
+
+        ListNode num2 = new ListNode(2);
+        /*num1.next = num2;*/
+        dummy.next = num2;
+        dummy = dummy.next;
+
+        ListNode num3 = new ListNode(3);
+        /*num2.next = num3;*/
+        dummy.next = num3;
+        dummy = dummy.next;
+
+        ListNode num4 = new ListNode(4);
+        /*num3.next = num4;*/
+        dummy.next = num4;
+
+        ListNode list4 = new ListNode();
+        dummy = list4;
+
+        // add new nodes to the linked list
+        ListNode num5 = new ListNode(1);
+        /*list4.next = num5;*/
+        dummy.next = num5;
+        dummy = dummy.next;
+
+        ListNode num6 = new ListNode(2);
+        /*num5.next = num6;*/
+        dummy.next = num6;
+        dummy = dummy.next;
+
+        ListNode num7 = new ListNode(5);
+        /*num6.next = num7;*/
+        dummy.next = num7;
+        dummy = dummy.next;
+
+        printRawList(mergeTwoLists(list3.next, list4.next));
+        System.out.println("\n=== End Raw Linkedlist ==\n");
+    } // main
+
+    /** Build-in Linkedlist implimentation **/
+     /*
      * Link: https://leetcode.com/problems/merge-two-sorted-lists/submissions/
      * Purpose: Merge two sorted linked lists and return it as a sorted list.
      * Parameters: LinkedList<Integer> - the first linkedlist contains integer object
      *           : LinkedList<Integer> - a second linkedlist contains integer object
-     * Returns: a merge linkedlist
+     * Returns: LinkedList<Integer> - a merge linkedlist
      * Post-Condition: none
      */
     public static LinkedList<Integer> mergeTwoSortedList(LinkedList<Integer> list1, LinkedList<Integer> list2){
@@ -48,21 +111,28 @@ public class MergeTwoSortedList {
         }
 
         return printList;
-    }
+    } // mergeTwoSortedList
 
     private static void printList(LinkedList<Integer> printList){
         while(!printList.isEmpty()){
             System.out.print(printList.remove());
         }
-    }
+    }// printList
 
-    /** impliment without helper functions **/
+    /** Raw Linkedlist implimentation **/
     /*
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+     * Link: https://leetcode.com/problems/merge-two-sorted-lists/submissions/
+     * Purpose: Merge two sorted linked lists and return it as a sorted list.
+     * Parameters: ListNode - the first linkedlist contains integer object
+     *           : ListNode - a second linkedlist contains integer object
+     * Returns: ListNode - a merge linkedlist
+     * Post-Condition: none
+     */
+    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode printList = new ListNode();
 
-        // need dummy node becase if we simply use printList, printList head
-           will point to end of the list after the merging process.
+        // need dummy node becase if we simply use printList, printList hea
+        // will point to end of the list after the merging process.
         // So we use dummy to not move printlist head and keep it at the beginning of the list
         ListNode dummy = printList;
 
@@ -93,6 +163,12 @@ public class MergeTwoSortedList {
 
         // the very first print is 0 so we skip it
         return printList.next;
-    }
-    */
+    } // mergeTwoLists
+
+    private static void printRawList(ListNode printList){
+        while(printList!=null){
+            System.out.print(printList.val);
+            printList = printList.next;
+        }
+    } // printRawList
 }
