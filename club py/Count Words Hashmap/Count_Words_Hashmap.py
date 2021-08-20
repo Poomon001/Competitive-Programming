@@ -69,7 +69,7 @@ def solution_one():
             # split by special char
             line = re.split(r'[^\w]', line)
 
-            # add wordcount to hashmap
+            # add wordcount to hashmap + inclement counter by 1
             for word in line:
                 if(word == ''):
                     continue
@@ -87,6 +87,7 @@ def solution_two():
             # split by special char
             line = re.split(r'[^\w]', line)
 
+            # add wordcount to dictionary + inclement counter by 1
             for word in line:
                 if (word == ''):
                     continue
