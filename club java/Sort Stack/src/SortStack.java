@@ -1,6 +1,4 @@
-import java.util.LinkedList;
 import java.util.Stack;
-import java.util.Queue;
 
 public class SortStack {
     public static void main(String[] args){
