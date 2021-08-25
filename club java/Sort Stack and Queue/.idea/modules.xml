@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Sort Stack.iml" filepath="$PROJECT_DIR$/Sort Stack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SortStackAndQueue.iml" filepath="$PROJECT_DIR$/SortStackAndQueue.iml" />
     </modules>
   </component>
 </project>
