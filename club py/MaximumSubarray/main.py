@@ -55,4 +55,4 @@ def maxSubArrayKadaneAlgo(nums: List[int]) -> int:
     return maxSum
 
 print(maxSubArrayBruteForce(li4))
-print(maxSubArrayKadaneAlgo(li4))
+print(maxSubArrayKadaneAlgo(li1))

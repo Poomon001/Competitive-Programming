@@ -50,8 +50,15 @@ public class IsSubArray {
         System.out.println(isSubArray_S3(a5 ,a6)); // False
     }
 
-    // assume a1 and a2 are not empty
-    // assume a1.length >= a2.length
+    /*
+     * Purpose: Determine if a2 a subset of a1
+     * Parameters: int[] a1 - the first array of integers
+     *           : int[] a2 - the second array of integers
+     * Returns: boolean - true if a2 is a subset of a1 otherwise, false otherwise.
+     * Pre-conditions: a1 and a2 are not empty
+     *                 a1.length >= a2.length
+     * Post-condition: None
+     */
     /** solution 1: brute force runtime: O(n^2) + memory: O(1) **/
     public static boolean isSubArray_S1(int[] a1, int[] a2){
         boolean found = false;
@@ -75,6 +82,15 @@ public class IsSubArray {
         return true;
     }
 
+    /*
+     * Purpose: Determine if a2 a subset of a1
+     * Parameters: int[] a1 - the first array of integers
+     *           : int[] a2 - the second array of integers
+     * Returns: boolean - true if a2 is a subset of a1 otherwise, false otherwise.
+     * Pre-conditions: a1 and a2 are not empty
+     *                 a1.length >= a2.length
+     * Post-condition: None
+     */
     /** solution 2: sort and count: runtime: O(n*lon(n)) + memory: O(1) **/
     public static boolean isSubArray_S2(int[] a1, int[] a2){
         Arrays.sort(a1);
@@ -85,6 +101,7 @@ public class IsSubArray {
 
         // count 1 when a1 elem matches a2 elem
         for(int i = 0; i < a1.length;i++){
+            // a2 reaches the end in the previous iteration
             if(j == a2.length){
                 break;
             }
@@ -94,7 +111,7 @@ public class IsSubArray {
             }
         }
 
-        // if a2 is a subset of a1, a2 elem will match a1 elem "a2.length" times
+        // if a2 is a subset of a1, a2 elem will match a1 elem "a2.length" times (all elem in a2)
         if(counter == a2.length){
             return true;
         }else{
@@ -102,6 +119,15 @@ public class IsSubArray {
         }
     }
 
+    /*
+     * Purpose: Determine if a2 a subset of a1
+     * Parameters: int[] a1 - the first array of integers
+     *           : int[] a2 - the second array of integers
+     * Returns: boolean - true if a2 is a subset of a1 otherwise, false otherwise.
+     * Pre-conditions: a1 and a2 are not empty
+     *                 a1.length >= a2.length
+     * Post-condition: None
+     */
     /** solution 3: set: runtime: O(n), memory: O(n+m) **/
     public static boolean isSubArray_S3(int[] a1, int[] a2){
         Set<Integer> set = new HashSet<>();
