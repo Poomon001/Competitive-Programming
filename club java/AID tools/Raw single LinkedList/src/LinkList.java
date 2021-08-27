@@ -51,7 +51,7 @@ public class LinkList {
         list2.add(6);
         list2.add(7);
         list2.add(8);
-        list2.add(9);
+        list2.add(9);a
 
         myFuncBuildInLinkedList(list2);
 
