@@ -33,3 +33,4 @@ if __name__ == '__main__':
     print(pascalTriangle(5))
     print(pascalTriangle(6))
     print(pascalTriangle(20))
+    print(pascalTriangle(21))
