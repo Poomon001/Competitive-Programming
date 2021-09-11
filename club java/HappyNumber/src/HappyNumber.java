@@ -7,11 +7,11 @@ public class HappyNumber {
          * Test case 1:
          * Purpose: help to determine one digit number that converge to true
          * Use the result to define based case
-         * Result: 1 and 7 will converge to true, and the others will converge to false.
+         * Result: 1 and 7 will converge to 1, and the others will converge to non-1 .
          * **/
         for(int i = 0; i < 10; i++){
             System.out.println(i);
-            System.out.println(isHappy2(i));
+            System.out.println(isHappy1(i));
         }
 
         System.out.println("\n==== = end testcase1 =====\n");
@@ -55,7 +55,7 @@ public class HappyNumber {
        Post-Condition : None
      */
 
-    // Dont use hash map
+    // Dont use hash map: know that only 1 and 7 will convert to 1 from test case#1
     public static boolean isHappy1(int n){
         char[] digits;
         do{
@@ -71,7 +71,7 @@ public class HappyNumber {
             }
 
             // virtual aid
-            // System.out.println(sum);
+            // System.out.println(sum+);
 
             // the only single digit that converge to true are 1 and 7
             if(sum == 1 || sum == 7){
@@ -85,7 +85,7 @@ public class HappyNumber {
         return false;
     }
 
-    // use Hash map b/c just can (same logic no different): to check if the number is already found
+    // use Hash map (Dynamic programming): if the duplicate is found then there is a loop and no way to convert to 1
     public static boolean isHappy2(int n){
         char[] digits;
         HashSet<Integer> seen = new HashSet<>();
@@ -103,7 +103,7 @@ public class HappyNumber {
             }
 
             // the only single digit that converge to true are 1 and 7
-            if(sum == 1 || sum == 7){
+            if(sum == 1){
                 return true;
             }
 
@@ -117,7 +117,8 @@ public class HappyNumber {
 
             // set n to sum to prepare for the next iteration
             n = sum;
-        }while(Integer.toString(n).toCharArray().length != 1);
-        return false;
+        }while(n != 1);
+
+        return true;
     }
 }
