@@ -57,10 +57,11 @@ def lengthOfLongestSubstring_M2(s:str) -> int:
     # hashmap keep track of char
     mapChar = []
 
+    # 1. if dup char found -> keep moving front pointer up and removing front char from hashmap,
+    # remain curr pointer at the dupli char
+    # 2. then repeat the loop to check if hashmap still contains dupli char: yes, repeat step #1, No, go to step #3
+    # eg: s = "poomon001$" -> "po", (remove p,o) "om", (remove o) "mon0", (remove m, o, n, 0) "01$"
     while(curr < len(s)):
-        # keep moving front pointer up and removing front char from hashmap
-        # then repeat the loop to check if hashmap still contain duplicate char
-        # eg: s = "poomon001$" -> "po", (remove p,o) "om", (remove o) "mon0", (remove m, o, n, 0) "01$"
         if s[curr] in mapChar:
             # remove first char in hashmap
             mapChar.remove(s[front])
@@ -68,7 +69,7 @@ def lengthOfLongestSubstring_M2(s:str) -> int:
             # move the front pointer to the next char
             front += 1
 
-        # add new char to the hashmap, set current pointer to the nexr char, and update the max length
+        # 3. add new char to the hashmap, set current pointer to the next char, and update the max length
         else:
             # add a new char to hashmap
             mapChar.append(s[curr])
