@@ -47,11 +47,11 @@ public class LinkList {
 
         /** build-in LinkedList **/
         // add new nodes to the linked list
-        java.util.LinkedList<Integer> list2 = new java.util.LinkedList<Integer>();
+        LinkedList<Integer> list2 = new LinkedList<Integer>();
         list2.add(6);
         list2.add(7);
         list2.add(8);
-        list2.add(9);a
+        list2.add(9);
 
         myFuncBuildInLinkedList(list2);
 
