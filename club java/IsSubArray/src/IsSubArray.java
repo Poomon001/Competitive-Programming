@@ -111,7 +111,7 @@ public class IsSubArray {
             }
         }
 
-        // if a2 is a subset of a1, a2 elem will match a1 elem "a2.length" times (all elem in a2)
+        // all elements in a2 match elementa in a1 then a2 is a subset of a1
         if(counter == a2.length){
             return true;
         }else{
