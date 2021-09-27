@@ -37,7 +37,7 @@ def moveZeroes_M1(nums: List[int]) -> List:
     Post-Condition: none
 '''
 # memory: O(1) and runtime: O(n)
-def moveZeroes(nums: List[int]) -> List:
+def moveZeroes_M2(nums: List[int]) -> List:
     # keep track of non-zero int
     j = 0
     length = len(nums)
@@ -56,6 +56,8 @@ def moveZeroes(nums: List[int]) -> List:
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print(moveZeroes([0,1,0,3,12])) # [1, 3, 12, 0, 0]
-
+    print(moveZeroes_M1([0, 1, 0, 3, 12]))  # [1, 3, 12, 0, 0]
+    print(moveZeroes_M2([0,1,0,3,12])) # [1, 3, 12, 0, 0]
+    print(moveZeroes_M1([0]))  # [0]
+    print(moveZeroes_M2([0])) # [0]
 
