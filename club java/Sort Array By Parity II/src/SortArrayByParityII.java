@@ -75,8 +75,8 @@ public class SortArrayByParityII {
     */
 
     // in place sort: memory: O(1), runtime: O(n)
-    // 1. find an even index that contain odd number
-    // 2. find the front-most odd index that contain even number
+    // 1. find an even index that contains odd number
+    // 2. find the front-most odd index that contain even number from nums
     // 3. use these 2 indices to swap 2 numbers
     public static int[] sortArrayByParityII_M2(int[] nums) {
         int length = nums.length;
@@ -89,7 +89,6 @@ public class SortArrayByParityII {
                 // not our target b/c it is already correct (even num in even index)
                 i += 2;
 
-            // this is our target
             }else{
                  // 2. find the front-most odd index that contains even number
                  while(nums[j]%2 == 1){
