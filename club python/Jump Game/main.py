@@ -26,7 +26,7 @@ def jumpGame(nums: List[int]) -> bool:
         if highestCanMoveValue == 0 and i != len(nums) - 1:
             return False
 
-        # highestCanMoveValue loses 1 in each move
+        # highestCanMoveValue loses 1 for each move
         highestCanMoveValue -= 1
 
     return True

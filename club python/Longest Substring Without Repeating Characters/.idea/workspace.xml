@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d517e5e1-3083-4a0e-853a-e1ee1fdd7ccc" name="Default Changelist" comment="" />
+    <list default="true" id="d517e5e1-3083-4a0e-853a-e1ee1fdd7ccc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Jump Game/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Jump Game/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,6 +88,9 @@
       <workItem from="1632306875932" duration="31000" />
       <workItem from="1632307075408" duration="258000" />
       <workItem from="1632387658011" duration="1225000" />
+      <workItem from="1633263850967" duration="529000" />
+      <workItem from="1633314822788" duration="10000" />
+      <workItem from="1633322081656" duration="149000" />
     </task>
     <servers />
   </component>
