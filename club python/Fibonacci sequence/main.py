@@ -1,3 +1,4 @@
+# run-time O(2^n)
 def fibonacci_M1(sequence):
     if(sequence == 0):
         return 0
@@ -6,7 +7,7 @@ def fibonacci_M1(sequence):
         return 1
     return fibonacci_M1(sequence - 1) + fibonacci_M1(sequence - 2)
 
-
+# runtime O(n)
 def fibonacci_M2(sequence):
     sum = [0, 1]
     for i in range(sequence):
