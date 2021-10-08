@@ -1,18 +1,18 @@
-import time
-start_time = time.time()
-
-def factorial(num):
+# Recursive
+def factorial_M1(num):
     if num <= 1:
         return 1
-    return num * factorial(num-1)
+    return num * factorial_M1(num-1)
 
-# def factorial(num):
-#     result = num
-#     for x in range(num):
-#         if x != 0:
-#             result *= x
-#     return result
+# loop
+def factorial_M2(num):
+    result = num
+    for x in range(num):
+        if x != 0:
+            result *= x
+    return result
 
-print(factorial(10))
+print(factorial_M1(10))
 
-print("--- %s seconds ---" % (time.time() - start_time))
+print(factorial_M2(10))
+
