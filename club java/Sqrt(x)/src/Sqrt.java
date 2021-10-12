@@ -1,10 +1,6 @@
 public class Sqrt {
     public static void main(String[] args) {
-        System.out.println(sqrt(10)); // 3
-        System.out.println(sqrt(8)); // 2
-        System.out.println(sqrt(4)); // 2
-        System.out.println(sqrt(1)); // 1
-        System.out.println(sqrt(0)); // 0
+//
         System.out.println(sqrt(2147395600)); // 46340
         System.out.println(sqrt(2147483647)); // 46340
     }
