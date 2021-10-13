@@ -8,6 +8,8 @@ from typing import List
     Pre-Condition: 1 <= numRows <= 30
     Post-Condition: none
 '''
+
+# run-time: O(n^2), memory: O(1)
 def pascalTriangle(numRows:int) -> List:
     # allocate outer array space where size = numRows: [[], [], [], ...]
     outer = [[]]*numRows
