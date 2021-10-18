@@ -18,7 +18,7 @@ class LinkedList:
         self.head = None
 
     def insert_at_beginning(self, data):
-        # create a new node object from data + point the node to the existing node that has head pointer
+        # create a new node object from data + point the next the head node
         node = Node(data, self.head)
 
         # make this node as a head
@@ -187,6 +187,23 @@ class LinkedList:
             index += 1
         print("data not found")
 
+    def removeAllElements(self, val: int) -> None:
+        dummy = Node(-1)
+        dummy.next = self.head
+        self.head = dummy
+
+        while dummy.next:
+            # remove all matching numbers on the middle
+            if dummy.next.data == val:
+                dummy.next = dummy.next.next;
+            # remove the matching number at the end of the linklist
+            elif dummy.next.data == val and not dummy.next.next:
+                dummy.next = None
+            else:
+                dummy = dummy.next
+
+        self.head = self.head.next
+
     def remove_by_value(self, data_to_remove):
         if (self.get_length() == 0):
             print("list is empty")
@@ -228,6 +245,10 @@ if __name__ == '__main__':
     ll2.create_new_linkedlist([9,8,7,6])
     print("remove:", ll2.remove_at(1))
     ll2.insert_at_beginning(2)
+    ll2.insert_at_end(12)
+    ll2.insert_at_end(12)
+    ll2.insert_at_end(12)
+    ll2.insert_at_end(12)
     ll2.insert_at_end(12)
     ll2.insert_at(5,3)
     ll2.printLinkedList()
