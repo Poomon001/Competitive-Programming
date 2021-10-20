@@ -89,7 +89,7 @@ public class GuessNumberHigherorLower {
 
             // if the pick is more than expect
             if(guessAPI(random, middle) == 1){
-                // keep the min intact, change the max to be middle+1 (+1 b/c pick (middle) is also not a possible answer)
+                // keep the min intact, change the max to be middle-1 (-1 b/c pick (middle) is also not a possible answer)
                 max = middle-1;
                 continue;
             }

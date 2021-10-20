@@ -13,11 +13,10 @@ def findGCD(nums: List[int]) -> int:
     nums.sort()
     max = nums[len(nums) - 1]
     min = nums[0]
-    sum = max + min
 
     # try all possible number range from max to min
-    for i in range(sum, 0, -1):
-        # retrun the highest number tha can divide both max and min
+    for i in range(max, 0, -1):
+        # retrun the highest number that can divide both max and min
         if max % i == min % i == 0:
             return i
 
