@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fccbcce6-c3be-483a-b0d7-41cfc1ad9caa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Binary Search/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Binary Search/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guess Number Higher or Lower/src/GuessNumberHigherorLower.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Guess Number Higher or Lower/src/GuessNumberHigherorLower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../club python/Binay search/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../club python/Binay search/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../club python/Find Greatest Common Divisor of Array/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../club python/Find Greatest Common Divisor of Array/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../club python/pythonProject3/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../club python/pythonProject3/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../club python/pythonProject3/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../club python/pythonProject3/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../club python/pythonProject3/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../club python/pythonProject3/.idea/pythonProject3.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../club python/pythonProject3/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../club python/pythonProject3/main.py" beforeDir="false" />
-    </list>
+    <list default="true" id="fccbcce6-c3be-483a-b0d7-41cfc1ad9caa" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,19 +37,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.NextGreaterElement1" />
@@ -79,6 +53,7 @@
       <updated>1634638497447</updated>
       <workItem from="1634638498957" duration="2880000" />
       <workItem from="1634711936286" duration="4570000" />
+      <workItem from="1634719068666" duration="2000" />
     </task>
     <servers />
   </component>
