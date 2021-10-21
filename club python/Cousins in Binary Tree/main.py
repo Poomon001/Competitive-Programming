@@ -29,6 +29,7 @@ def isCousins(root: Optional[TreeNode], x: int, y: int) -> bool:
     infoX = []
     infoY = []
     def dfs(root: Optional[TreeNode], x: int, y:int, parent: int, depth: int) -> List:
+        global seeDepth
         if root is None:
             return
 
@@ -49,7 +50,7 @@ def isCousins(root: Optional[TreeNode], x: int, y: int) -> bool:
         dfs(root.right, x, y, root.key, depth + 1)
 
     dfs(root, x, y, None, 0)
-
+    print(seeDepth)
     return infoX[1] != infoY[1] and infoX[0] == infoY[0]
 
 # Credit: https://www.geeksforgeeks.org/insertion-in-a-binary-tree-in-level-order/
