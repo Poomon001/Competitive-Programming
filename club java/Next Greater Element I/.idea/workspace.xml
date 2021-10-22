@@ -2,132 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fccbcce6-c3be-483a-b0d7-41cfc1ad9caa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Missing Number/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Number/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Number/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Number/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Number/Missing Number.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Number/out/production/Missing Number/MissingNumber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Number/src/MissingNumber.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers I/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers II/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers II/Missing Numbers/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.mylyn/.taskListIndex/segments_1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.mylyn/.taskListIndex/write.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.mylyn/.tasks.xml.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.mylyn/repositories.xml.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.mylyn/tasks.xml.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/0/d004d9f44800001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/24/b0be99e30bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/3a/304696ff09fe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/3a/d0d154014900001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/3d/a004556b0bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/4c/005a3d844800001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/4c/70c7e01b4900001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/5/40d0067e08fe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/57/b07e50ea0bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/5c/701ebed60bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/62/105c712d0bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/66/b0ed7c284900001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/6a/001441f309fe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/6b/50e3fd8608fe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/70/702d92c64a00001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/71/90d493fd0bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/76/a0c46c084900001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/79/50d7ca680bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/7b/4065cda64a00001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/7d/50382f994a00001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/7d/900e77544a00001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/81/a036e4744800001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/88/70967cb40bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/90/f0ab00730bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/96/b0900ba44b00001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/9c/6060ae780bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/a/70af5ba04800001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/b1/404392ec09fe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/b1/f0706a210bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/c4/102f67640bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/c5/706b97c90bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/c7/e0498b8c4a00001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/d7/605583f90bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/db/50ccc7cd4800001a1e70f44bc5f9019e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/de/102103050afe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/e5/c06192560bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/f5/500b22600bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.history/fe/d0f6dabd0bfe0019173ba90d68d382dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.projects/Research Productivity/.location" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.projects/Research Productivity/org.eclipse.jdt.core/state.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.projects/test/.indexes/af/history.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.projects/test/.indexes/e4/92/history.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.projects/test/.markers" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.projects/test/org.eclipse.jdt.core/state.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.root/2.tree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.junit.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jsch.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.m2e.discovery.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.context.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.java.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.monitor.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.tasks.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.debug.core/.launches/test.launch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.debug.ui/dialog_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.core/113558702.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.core/3271193799.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.core/3495540194.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.core/assumedExternalFilesCache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.core/javaLikeNames.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.launching/.install.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.launching/libraryInfos.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.ui/OpenTypeHistory.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.m2e.logback.configuration/logback.1.13.0.20190716-1624.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.oomph.setup/workspace.setup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.tips.ide/dialog_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.ui.intro/introstate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/.metadata/version.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/Missing Numbers.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/Missing Numbers/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/Missing Numbers/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/Missing Numbers/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/Missing Numbers/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/Missing Numbers/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/Missing Numbers/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/Missing Numbers/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/Missing Numbers/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/Missing Numbers/src/MissingNumber.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/Missing Numbers/test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/out/production/Missing Numbers/MissingNumbers.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missing Numbers/src/MissingNumbers.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Contains Duplicate/Contains Duplicate.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Sort Characters By Frequency/Sort Characters By Frequency.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +30,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
@@ -181,6 +59,7 @@
       <workItem from="1634638498957" duration="2880000" />
       <workItem from="1634711936286" duration="4570000" />
       <workItem from="1634720222015" duration="20000" />
+      <workItem from="1634893402812" duration="1142000" />
     </task>
     <servers />
   </component>
