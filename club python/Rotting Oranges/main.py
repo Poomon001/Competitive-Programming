@@ -1,0 +1,96 @@
+from typing import List
+
+'''
+    Link: https://leetcode.com/problems/rotting-oranges/
+    Purpose: Every minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten. 
+           : Find the min minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.
+           : 0 representing an empty cell
+           : 1 representing a fresh orange
+           : 2 representing a rotten orange
+    parameter: List[List[int]] grid - a grid where each cell has one of 0, 1, or 2
+    return: int min - the min minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.
+    Pre-Condition: m == grid.length
+                 : n == grid[i].length
+                 : 1 <= m, n <= 10
+                 : grid[i][j] is 0, 1, or 2.
+    Post-Condition: none
+'''
+# runtime: O(n^3), memory: O(n)
+def orangesrotten(grid: List[List[int]]) -> int:
+    # map: [x-axis, y-axis]
+    rotten = [] # outer-most visited node
+    good = [] # not visited node
+
+    # store the answer
+    min = 0
+
+    for y in range(len(grid)):
+        for x in range(len(grid[y])):
+            # locate good orange location
+            if grid[y][x] == 1:
+                good.append([x,y])
+
+            # locate rotten orange
+            if grid[y][x] == 2:
+                rotten.append([x,y])
+
+    # Do BFS on 4 directions until: 1. no good orange left, or 2. no path to visit good oranges
+    # one BFS hop
+    while good:
+        # Was good and become bad
+        infected = []  # helper to update outer-most visited nodes
+
+        # visit all neighbours of each outer-most visited nodes
+        for r in rotten:
+            x = r[0]
+            y = r[1]
+
+            # visit left neighbour
+            if x+1 < len(grid[y]) and [x+1, y] in good:
+                grid[y][x+1] = 2
+                # remove node from unvisited list and put it to outer-most visited list
+                good.remove([x+1, y])
+                infected.append([x+1, y])
+
+            # visit right neighbour
+            if x - 1 > -1 and [x - 1, y] in good:
+                grid[y][x - 1] = 2
+                # remove node from unvisited list and put it to outer-most visited list
+                good.remove([x - 1, y])
+                infected.append([x - 1, y])
+
+            # visit up neighbour
+            if y + 1 < len(grid) and [x, y + 1] in good:
+                grid[y+1][x] = 2
+                # remove node from unvisited list and put it to outer-most visited list
+                good.remove([x, y + 1])
+                infected.append([x, y + 1])
+
+            # visit down neighbour
+            if y - 1 > -1 and [x, y - 1] in good:
+                grid[y - 1][x] = 2
+                # remove node from unvisited list and put it to outer-most visited list
+                good.remove([x, y - 1])
+                infected.append([x, y - 1])
+
+        # There is still a good orange but there is no path for BFS (infection) to visit. Thus, impossible.
+        if len(infected) == 0:
+            return -1
+
+        min += 1
+
+        # clear rotten list b/c now the elements are visited nodes (not outer-most visited)
+        rotten.clear()
+
+        # update outer-most visited node to the outer-most visited list
+        rotten.extend(infected)
+
+    return min
+
+
+if __name__ == '__main__':
+    print(orangesrotten([[2,1,1],[1,1,0],[0,1,1]])) # 4
+    print(orangesrotten([[2,1,1],[0,1,1],[1,0,1]])) # -1
+    print(orangesrotten([[2, 1, 0, 1]])) # -1
+    print(orangesrotten([[0,2]])) # 0
+    print(orangesrotten([[2,1,0,2]])) # 1
