@@ -21,7 +21,7 @@ def customersWhoNeverOrder():
     print("\n+===== Answer =====+")
     mycursor.execute("SELECT name AS Customers FROM Customers WHERE id NOT IN (SELECT customerId FROM Orders)")
     for data in mycursor:
-        print(data)
+        print(data) # Henry, Max
 
 if __name__ == '__main__':
     # setup a question
