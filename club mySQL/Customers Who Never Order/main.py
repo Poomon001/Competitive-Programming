@@ -25,7 +25,7 @@ def customersWhoNeverOrder():
 
 if __name__ == '__main__':
     # setup a question
-    ''' create database *(execute once) '''
+    ''' create database '''
     # mycursor.execute("CREATE DATABASE customers_who_never_order")
 
     ''' create tables *(execute once)'''
