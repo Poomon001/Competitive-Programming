@@ -70,6 +70,7 @@ public class TwoNums {
     }
 
     /*
+     * Link: https://leetcode.com/problems/two-sum/
      * Purpose: Indices of the two numbers such that they add up to target
      * Parameter: array - a list of integer
      *          : int - the target number
@@ -94,6 +95,7 @@ public class TwoNums {
     }
 
     /*
+     * Link: https://leetcode.com/problems/two-sum/
      * Purpose: Indices of the two numbers such that they add up to target
      * Parameter: array - a list of integer
      *          : int - the target number

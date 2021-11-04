@@ -82,7 +82,7 @@ public class NextGreaterElement1 {
      *              : All the integers of nums1 also appear in nums2.
      * Post-Condition : None
      **/
-    // A next greater element stack algo question: runtime: O(n), memory: O(n)
+    // next greater stack algo - runtime: O(n), memory: O(n)
     // 1. find all next greater elements in a larger array using the algo
     // 2. then return only the asking next greater elements (the asking elements are all element in nums1)
     public static int[] nextGreaterElement1_M2(int[] nums1, int[] nums2) {
