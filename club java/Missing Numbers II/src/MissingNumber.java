@@ -25,7 +25,7 @@ public class MissingNumber {
       Post-Condition : None
     */
 
-    // sort: runtime: O(n), memory: O(1)
+    // sort: runtime: O(nlog(n)), memory: O(1)
     public static int missingNumber_M1(int[] nums) {
         Arrays.sort(nums);
         // Chack if there is any missing element

@@ -16,8 +16,9 @@ public class singleNumber {
 	 * Parameter: an array - all integer elements have a duplicate but only 1 integer does not
 	 * Returns: int - the only single integer in the array without duplicate
 	 * Pre-Condition: there is always a single integer element in the array
-	 * Post-Condition: a solution must be O(n)
+	 * Post-Condition: none
 	 */
+    // runtime: O(n(log(n))), memory: O(1)
     public static int singleNumber(int[] nums) {
         // if there is only one number then return
         if(nums.length == 1){

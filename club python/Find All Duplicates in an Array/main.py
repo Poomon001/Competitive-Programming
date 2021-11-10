@@ -11,7 +11,7 @@ from typing import List
                  : Each element in nums appears once or twice.
     Post-Condition: none
 '''
-# run time: O(n*log(n)), memory: O(1)
+# run time: O(n^2), memory: O(1)
 def findAllDuplicates_M1(nums: List[int]) -> List[int]:
     # sort
     nums.sort()
@@ -43,9 +43,9 @@ def findAllDuplicates_M1(nums: List[int]) -> List[int]:
                  : 1 <= n <= 105        
                  : 1 <= nums[i] <= n
                  : Each element in nums appears once or twice.
-    Post-Condition: run time: O(n), memory: O(1)
+    Post-Condition: none
 '''
-# run time: O(n), memory: O(1)
+# run time: O(nlog(n)), memory: O(1)
 def findAllDuplicates_M2(nums: List[int]) -> List[int]:
     # sort
     nums.sort()

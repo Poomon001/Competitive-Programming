@@ -15,7 +15,7 @@ from typing import List
                  : -109 <= nums1[i], nums2[j] <= 109
     Post-Condition: none
 '''
-# HACK Sort Solution: runtime: O(n), memory: O(1)
+# HACK Sort Solution: runtime: O(nlog(n)), memory: O(1)
 def merge_M1(nums1: List[int], m: int, nums2: List[int], n: int) -> List[int]:
     while n != 0:
         nums1.pop()
@@ -40,7 +40,7 @@ def merge_M1(nums1: List[int], m: int, nums2: List[int], n: int) -> List[int]:
                  : -109 <= nums1[i], nums2[j] <= 109
     Post-Condition: none
 '''
-# merge then sort: runtime: O(n), memory: O(1)
+# merge then sort: runtime: O(nlog(n)), memory: O(1)
 def merge_M2(nums1: List[int], m: int, nums2: List[int], n: int) -> List[int]:
     i = n + m -1
     j = n -1

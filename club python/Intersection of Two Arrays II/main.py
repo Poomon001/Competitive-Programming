@@ -12,7 +12,7 @@ from typing import List
 '''
 
 # brute force
-# runtime O(nlon(m)), memory: O(n); where n is min(len(num1), len(num2)) and m is max(len(num1), len(num2))
+# runtime O(n*m)), memory: O(n); where n is min(len(num1), len(num2)) and m is max(len(num1), len(num2))
 def intersectionofTwoArrays2_M1(nums1: List, nums2: List) -> List:
     result = []
 
@@ -48,7 +48,7 @@ def intersectionofTwoArrays2_M1(nums1: List, nums2: List) -> List:
 '''
 
 # sort
-# runtime O(n), memory: O(n); where n is min(len(num1), len(num2))
+# runtime O(nlog(n)), memory: O(n); where n is min(len(num1), len(num2))
 def intersectionofTwoArrays2_M2(nums1: List, nums2: List) -> List:
     result = []
     nums1.sort()

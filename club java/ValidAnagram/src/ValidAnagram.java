@@ -45,7 +45,7 @@ public class ValidAnagram {
        Post-Condition : None
      */
 
-    // use array sort: runtime: O(n), memory: O(n)
+    // use array sort: runtime: O(nlog(n)), memory: O(n)
     public static boolean validAnagram_M1(String s, String t){
         char[] sArray = s.toCharArray();
         char[] tArray = t.toCharArray();

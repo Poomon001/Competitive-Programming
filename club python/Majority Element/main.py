@@ -41,7 +41,7 @@ def majorityElement_M1(nums: List[int]) -> int:
                  : -231 <= nums[i] <= 231 - 1
     Post-Condition: none
 '''
-# sort: runtime O(n) and mem O(1)
+# sort: runtime O(nlog(n)) and mem O(1)
 def majorityElement_M2(nums: List[int]) -> int:
     nums.sort()
     globalMax = 0
