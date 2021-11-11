@@ -65,6 +65,7 @@ public class ContainsDuplicateII {
      * Post-Condition : None
      **/
     // Optimized runtime solution - runtime: O(n), memory: O(n)
+    // if duplicate is found, check the index of the the duplicates if they are in k range
     public static boolean containsNearbyDuplicate_M2(int[] nums, int k) {
         // {num, index that is found}
         HashMap<Integer, Integer> map = new HashMap<>();
