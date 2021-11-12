@@ -36,6 +36,16 @@ class LinkedList:
             print(list.data, end="-->")
             list = list.next
 
+'''
+    Link: https://leetcode.com/problems/linked-list-cycle/
+    Purpose: Determine if a linked list contains a cycle.
+    parameter: Optional[Node] - a linked list node containing integer node(s)
+    return: boolean - True if there is a loop. Otherwise false
+    Pre-Condition: The number of the nodes in the list is in the range [0, 104].
+                 : -105 <= Node.val <= 105
+                 : pos is -1 or a valid index in the linked-list.
+    Post-Condition: none
+'''
 # runtime: O(n), memory: O(1)
 def hasCycle(head: Optional[Node]) -> bool:
     fast = head
@@ -43,6 +53,7 @@ def hasCycle(head: Optional[Node]) -> bool:
     while (fast is not None and fast.next is not None):
         fast = fast.next.next
         slow = slow.next
+        # if the fast pointer meets the slow pointer at the same node, there is a cycle
         if fast is not None and slow is not None:
             if fast is slow:
                 return True
