@@ -19,7 +19,7 @@ class Stack:
         return self.stack[-1]
 
     def is_empty(self):
-        return self.stack.count() == 0
+        return len(self.stack) == 0
 
     def size(self):
         return len(self.stack)
@@ -34,4 +34,5 @@ if __name__ == "__main__":
     print("peek:", s1.peek())
     print("peek:", s1.peek())
     print(s1.size())
+    print(s1.is_empty())
 
