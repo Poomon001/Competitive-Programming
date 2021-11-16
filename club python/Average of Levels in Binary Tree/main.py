@@ -1,6 +1,7 @@
 # Python program to insert element in binary tree
 from idlelib.tree import TreeNode
 from typing import Optional, List
+from collections import deque
 
 class newNode:
     def __init__(self, val):
@@ -18,7 +19,7 @@ class newNode:
     Post-Condition: none
 '''
 # dfs solution: runtime: O(n) where n is a number of nodes, memory: O(m) where m is the height of the tree
-def averageOfLevels(root: Optional[TreeNode]) -> List[float]:
+def averageOfLevels_M1(root: Optional[TreeNode]) -> List[float]:
     # {level, [sum, total numbers]}
     data = {} # memory: O(m)
     level = 0
@@ -55,6 +56,49 @@ def averageOfLevels(root: Optional[TreeNode]) -> List[float]:
 
     return answer
 
+'''
+    Link: https://leetcode.com/problems/average-of-levels-in-binary-tree/
+    Purpose: Find the average value of the nodes on each level in the form of an array
+    parameter: Optional[TreeNode] root - a root of a binary tree
+    return: int[float] answer - the average value of the nodes on each level
+    Pre-Condition: The number of nodes in the tree is in the range [1, 10^4].
+                 : -2^31 <= Node.val <= 2^31 - 1
+    Post-Condition: none
+'''
+# bfs solution: runtime: O(n), memory: O(m) where n is the number of nodes, m is the number of max children nodes
+def averageOfLevels(root: Optional[TreeNode]) -> List[float]:
+    # store all the current-level parents
+    queue = deque()
+    answer = []
+    queue.appendleft(root)
+
+    # bfs until no parent left
+    while len(queue) != 0:
+        # store all children of the current-level parents
+        temp = deque()
+        totalSum = 0
+        totalNum = len(queue)
+
+        # find sum of all current-level parents in the queue
+        while len(queue) != 0:
+            currNode = queue.pop()
+            totalSum += currNode.val
+
+            # add a left child of a current parent
+            if currNode.left:
+                temp.appendleft(currNode.left)
+
+            # add a right child of a current parent
+            if currNode.right:
+                temp.appendleft(currNode.right)
+
+        # make children to parents
+        queue = temp
+        answer.append(totalSum/totalNum)
+
+    return answer
+
+
 if __name__ == "__main__":
     root1 = newNode(3)
     root1.left = newNode(9)
@@ -88,7 +132,15 @@ if __name__ == "__main__":
     root5.right.right.right = newNode(10)
     root5.left.left.right = newNode(15)
 
+    print("\n+==== dfs solution ====+\n")
     print(averageOfLevels(root1)) # [3.00000,14.50000,11.00000]
+    print(averageOfLevels(root2))  # [3.00000,14.50000,11.00000]
+    print(averageOfLevels(root3))  # [3.00000]
+    print(averageOfLevels(root4))  # [3.00000,14.50000,8.00000]
+    print(averageOfLevels(root5))  # [3.00000,14.50000,8.00000,12.50000]
+
+    print("\n+==== bfs solution ====+\n")
+    print(averageOfLevels(root1))  # [3.00000,14.50000,11.00000]
     print(averageOfLevels(root2))  # [3.00000,14.50000,11.00000]
     print(averageOfLevels(root3))  # [3.00000]
     print(averageOfLevels(root4))  # [3.00000,14.50000,8.00000]
