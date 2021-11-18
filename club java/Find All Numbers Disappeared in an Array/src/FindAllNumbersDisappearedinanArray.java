@@ -20,6 +20,16 @@ public class FindAllNumbersDisappearedinanArray {
 
     }
 
+    /**
+     * Link: https://leetcode.com/problems/arranging-coins/
+     * Purpose: Find all missing number from [1 to n] where n is a length of given nums array
+     * Parameters: int[] nums - an integer array
+     * Returns: int[] answer - an integer array contains all missing number from [1 to n]
+     * Pre-Condition : n == nums.length
+     *               : 1 <= n <= 105
+     *               : 1 <= nums[i] <= n
+     * Post-Condition  : none
+     **/
     // runtime: O(n), memory:O(n) -> answer doesnt count toward memory
     public static List<Integer> findDisappearedNumbers_M1(int[] nums) {
         List<Integer> answer = new ArrayList();
@@ -45,6 +55,16 @@ public class FindAllNumbersDisappearedinanArray {
         return answer;
     }
 
+    /**
+     * Link: https://leetcode.com/problems/arranging-coins/
+     * Purpose: Find all missing number from [1 to n] where n is a length of given nums array
+     * Parameters: int[] nums - an integer array
+     * Returns: int[] answer - an integer array contains all missing number from [1 to n]
+     * Pre-Condition : n == nums.length
+     *               : 1 <= n <= 105
+     *               : 1 <= nums[i] <= n
+     * Post-Condition  : none
+     **/
     // runtime: O(n), memory:O(1) -> answer doesnt count toward memory
     public static List<Integer> findDisappearedNumbers_M2(int[] nums) {
         Integer[] answer = new Integer[nums.length*2];
