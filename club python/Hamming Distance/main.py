@@ -1,3 +1,13 @@
+'''
+    Link: https://leetcode.com/problems/hamming-distance/
+    Purpose: Find the Hamming distance between 2 integers
+           : Hamming distance is the number of position at which the corresponding bits are different
+    parameter: int x: integer 1
+             : int y: integer 2
+    return: int count - the hamming distance.
+    Pre-Condition: 0 <= x, y <= 23^1 - 1
+    Post-Condition: none
+'''
 # runtime: O(n), memory: O(1) where n is max(len(bin(x), len(bin(y)))
 def hammingDistance(x: int, y: int) -> int:
     # perform exclusive OR: 0 XOR 1 => 1, 1 XOR 1 => 1, otherwise => 0
