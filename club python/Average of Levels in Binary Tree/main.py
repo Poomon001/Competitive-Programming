@@ -22,9 +22,8 @@ class newNode:
 def averageOfLevels_M1(root: Optional[TreeNode]) -> List[float]:
     # {level, [sum, total numbers]}
     data = {} # memory: O(m)
-    level = 0
     answer = [] # memory: O(m)
-
+    level = 0
     # find sum of each level
     def dfs(root):
         nonlocal level
@@ -66,7 +65,7 @@ def averageOfLevels_M1(root: Optional[TreeNode]) -> List[float]:
     Post-Condition: none
 '''
 # bfs solution: runtime: O(n), memory: O(m) where n is the number of nodes, m is the number of max children nodes
-def averageOfLevels(root: Optional[TreeNode]) -> List[float]:
+def averageOfLevels_M2(root: Optional[TreeNode]) -> List[float]:
     # store all the current-level parents
     queue = deque()
     answer = []
@@ -133,17 +132,17 @@ if __name__ == "__main__":
     root5.left.left.right = newNode(15)
 
     print("\n+==== dfs solution ====+\n")
-    print(averageOfLevels(root1)) # [3.00000,14.50000,11.00000]
-    print(averageOfLevels(root2))  # [3.00000,14.50000,11.00000]
-    print(averageOfLevels(root3))  # [3.00000]
-    print(averageOfLevels(root4))  # [3.00000,14.50000,8.00000]
-    print(averageOfLevels(root5))  # [3.00000,14.50000,8.00000,12.50000]
+    print(averageOfLevels_M1(root1)) # [3.00000,14.50000,11.00000]
+    print(averageOfLevels_M1(root2))  # [3.00000,14.50000,11.00000]
+    print(averageOfLevels_M1(root3))  # [3.00000]
+    print(averageOfLevels_M1(root4))  # [3.00000,14.50000,8.00000]
+    print(averageOfLevels_M1(root5))  # [3.00000,14.50000,8.00000,12.50000]
 
     print("\n+==== bfs solution ====+\n")
-    print(averageOfLevels(root1))  # [3.00000,14.50000,11.00000]
-    print(averageOfLevels(root2))  # [3.00000,14.50000,11.00000]
-    print(averageOfLevels(root3))  # [3.00000]
-    print(averageOfLevels(root4))  # [3.00000,14.50000,8.00000]
-    print(averageOfLevels(root5))  # [3.00000,14.50000,8.00000,12.50000]
+    print(averageOfLevels_M2(root1))  # [3.00000,14.50000,11.00000]
+    print(averageOfLevels_M2(root2))  # [3.00000,14.50000,11.00000]
+    print(averageOfLevels_M2(root3))  # [3.00000]
+    print(averageOfLevels_M2(root4))  # [3.00000,14.50000,8.00000]
+    print(averageOfLevels_M2(root5))  # [3.00000,14.50000,8.00000,12.50000]
 
 
