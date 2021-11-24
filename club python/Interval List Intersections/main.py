@@ -14,7 +14,7 @@ from typing import List
                  : endj < startj+1
     Post-Condition: none
 '''
-# runtime: O(1), memory: O(1)
+# runtime: O(n), memory: O(1)
 def intervalIntersection(firstList: List[List[int]], secondList: List[List[int]]) -> List[List[int]]:
     a = 0
     b = 0
