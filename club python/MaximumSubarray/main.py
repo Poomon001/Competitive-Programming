@@ -15,6 +15,7 @@ li4 = [5,4,-1,7,8] #23
     Pre-Condition : array is not empty
     Post-Condition: O(n^2)
 '''
+# runtime: O(n^2), memory: O(1)
 def maxSubArrayBruteForce(nums: List[int]) -> int:
     # assume array is not empty
     maxSum = nums[0]
@@ -37,22 +38,33 @@ def maxSubArrayBruteForce(nums: List[int]) -> int:
     Pre-Condition : array is not empty
     Post-Condition: O(n)
 '''
+# KadaneAlgo (take the current highest value: max(currNum, prevSum + currNum))
+# runtime: O(n), memory: O(1)
 def maxSubArrayKadaneAlgo(nums: List[int]) -> int:
     maxSum = nums[0]
     maxCurr = nums[0]
 
-    ''' From KadaneAlgo the max sum in contiguous subarray is either 
+    ''' 
+        From KadaneAlgo the max sum in contiguous subarray is either 
         "nums[i]" or "nums[i] + previous max sum of all prior elements to nums[i]" 
-        eg. i = 1 then previos max sum = nums[0]'''
-    # therefore we need to start at index of 1 since the maxCurrentSum = nums[0]
+    '''
     for i in range(1, len(nums)):
-        # fin max and assign it to maxCurrentSum
+        # find curr max sum
         maxCurr = max(nums[i], maxCurr+nums[i])
 
-        # set global max sum if globalMaxSum <  maxCurrentSum
-        if(maxCurr > maxSum):
-            maxSum = maxCurr
+        # find global max sum
+        maxSum = max(maxCurr, maxSum)
     return maxSum
 
-print(maxSubArrayBruteForce(li4))
-print(maxSubArrayKadaneAlgo(li1))
+
+print("\n+==== Bruteforce ====+\n")
+print(maxSubArrayBruteForce(li1)) # 13
+print(maxSubArrayBruteForce(li2)) # 0
+print(maxSubArrayBruteForce(li3)) # 6
+print(maxSubArrayBruteForce(li4)) # 23
+
+print("\n+==== KadanAlgo ====+\n")
+print(maxSubArrayKadaneAlgo(li1)) # 13
+print(maxSubArrayKadaneAlgo(li2)) # 0
+print(maxSubArrayKadaneAlgo(li3)) # 6
+print(maxSubArrayKadaneAlgo(li4)) # 23
