@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="af70f5f8-8820-418a-bba6-b5331808fb98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../club java/Find Minimum in Rotated Sorted Array II/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../club java/Find Minimum in Rotated Sorted Array II/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../club java/Find Minimum in Rotated Sorted Array II/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../club java/Find Minimum in Rotated Sorted Array II/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../club java/Find Minimum in Rotated Sorted Array II/Find Minimum in Rotated Sorted Array II.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../club java/ind Minimum in Rotated Sorted Array II/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../club java/ind Minimum in Rotated Sorted Array II/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../club java/ind Minimum in Rotated Sorted Array II/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../club java/ind Minimum in Rotated Sorted Array II/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../club java/ind Minimum in Rotated Sorted Array II/ind Minimum in Rotated Sorted Array II.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../club java/ind Minimum in Rotated Sorted Array II/out/production/ind Minimum in Rotated Sorted Array II/FindMinimuminRotatedSortedArrayII.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../club java/ind Minimum in Rotated Sorted Array II/src/FindMinimuminRotatedSortedArrayII.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="21gP6e1FczisJMJnK53PCiO1r5l" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="af70f5f8-8820-418a-bba6-b5331808fb98" name="Default Changelist" comment="" />
+      <created>1638359583596</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1638359583596</updated>
+      <workItem from="1638359585149" duration="1356000" />
+      <workItem from="1638360981272" duration="31000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pythonProject$main.coverage" NAME="main Coverage Results" MODIFIED="1638360945761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
