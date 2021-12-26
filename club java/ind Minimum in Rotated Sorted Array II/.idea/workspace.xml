@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5af21d83-4047-4c5a-840d-f4e76039f799" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Power of Two/src/PowerofTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Power of Two/src/PowerofTwo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +62,8 @@
       <workItem from="1640070600942" duration="1247000" />
       <workItem from="1640072591138" duration="1189000" />
       <workItem from="1640086888344" duration="610000" />
+      <workItem from="1640235665162" duration="54000" />
+      <workItem from="1640466357344" duration="2000" />
     </task>
     <servers />
   </component>
