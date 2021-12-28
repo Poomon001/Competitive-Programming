@@ -2,7 +2,7 @@ from typing import List
 import heapq
 
 '''
-    Link: https://leetcode.com/problems/sum-of-left-leaves/
+    Link: https://leetcode.com/problems/k-closest-points-to-origin/
     Purpose: Find the k closest points to the origin (0, 0). Answer can be in any order.
     parameter: List[List[int]] points - a list of x- and y-coordinate integer
              : int k - a number of the closet points ti the integer to find
@@ -28,7 +28,7 @@ def kClosest_M1(points: List[List[int]], k: int) -> List[List[int]]:
     return answer
 
 '''
-    Link: https://leetcode.com/problems/sum-of-left-leaves/
+    Link: https://leetcode.com/problems/k-closest-points-to-origin/
     Purpose: Find the k closest points to the origin (0, 0). Answer can be in any order.
     parameter: List[List[int]] points - a list of x- and y-coordinate integer
              : int k - a number of the closet points ti the integer to find
@@ -44,9 +44,9 @@ def kClosest_M2(points: List[List[int]], k: int) -> List[List[int]]:
     heapq.heapify(minHeap)
 
     # return the first k element in the heap from the root
-    ans = [heapq.heappop(minHeap)[1] for _ in range(k)]
+    answer = [heapq.heappop(minHeap)[1] for _ in range(k)]
 
-    return ans
+    return answer
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
