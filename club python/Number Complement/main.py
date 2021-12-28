@@ -20,7 +20,6 @@ def findComplement(num: int) -> int:
 
     return int(complement, 2)
 
-
 if __name__ == '__main__':
     print(findComplement(5)) # 2 (5 => Ob 101, 2 => Ob 010)
     print(findComplement(2)) # 1 (2 => Ob 10, 1 => Ob 01)
