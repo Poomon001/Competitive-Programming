@@ -48,8 +48,34 @@ class LinkedList:
                  : 1 <= Node.val <= 10^5
     Post-Condition: none
 '''
+# run-time: O(n), memory: O(n)
+def getIntersectionNode_M1(headA: Node, headB: Node) -> Optional[Node]:
+    seen = set()
+    while headA is not None:
+        seen.add(headA)
+        headA = headA.next
+
+    while headB is not None:
+        if headB in seen:
+            return headB
+        headB = headB.next
+
+    return None
+
+'''
+    Link: https://leetcode.com/problems/intersection-of-two-linked-lists/
+    Purpose: Find the intersection of two linked list heads that may or may not share the same linked list. 
+    parameter: Node headA - a linked list head
+             : Node headB - a linked list head
+    return: Optional[ListNode] - a head of the intersection if it is existing. Otherwise return none.
+    Pre-Condition: The number of nodes of listA is in the m.
+                 : The number of nodes of listB is in the n.
+                 : 1 <= m, n <= 3 * 10^4
+                 : 1 <= Node.val <= 10^5
+    Post-Condition: none
+'''
 # runtime: O(n), memory: O(1)
-def getIntersectionNode(headA: Node, headB: Node) -> Optional[Node]:
+def getIntersectionNode_M2(headA: Node, headB: Node) -> Optional[Node]:
     lengthA = 0
     lengthB = 0
 
@@ -114,8 +140,6 @@ if __name__ == '__main__':
     dummy2 = dummy2.next.next
     dummy2.next = dummy1
 
-    printLinkedList(getIntersectionNode(ll1.head, ll2.head)) # 8 -> 4 -> 5
-
     ll3 = LinkedList()
     ll3.insert_at_end(1)
     ll3.insert_at_end(9)
@@ -132,8 +156,6 @@ if __name__ == '__main__':
     dummy1 = dummy1.next.next.next
     dummy2.next = dummy1
 
-    printLinkedList(getIntersectionNode(ll3.head, ll4.head)) # 2 -> 4
-
     ll5 = LinkedList()
     ll5.insert_at_end(1)
     ll5.insert_at_end(2)
@@ -143,4 +165,12 @@ if __name__ == '__main__':
     ll6.insert_at_end(1)
     ll6.insert_at_end(2)
 
-    printLinkedList(getIntersectionNode(ll5.head, ll6.head))  # no value because there is no intersection
+    print("\n+=== solution M1 ===+\n")
+    printLinkedList(getIntersectionNode_M1(ll1.head, ll2.head)) # 8 -> 4 -> 5
+    printLinkedList(getIntersectionNode_M1(ll3.head, ll4.head)) # 2 -> 4
+    printLinkedList(getIntersectionNode_M1(ll5.head, ll6.head))  # no value because there is no intersection
+
+    print("\n+=== solution M2 ===+\n")
+    printLinkedList(getIntersectionNode_M2(ll1.head, ll2.head))  # 8 -> 4 -> 5
+    printLinkedList(getIntersectionNode_M2(ll3.head, ll4.head))  # 2 -> 4
+    printLinkedList(getIntersectionNode_M2(ll5.head, ll6.head))  # no value because there is no intersection
