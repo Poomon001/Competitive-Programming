@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57f4656f-8a73-448c-8b0d-f59af02c74f4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../club java/Next Greater Element I/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../club java/Next Greater Element I/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../club java/Next Greater Element I/src/NextGreaterElement1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../club java/Next Greater Element I/src/NextGreaterElement1.java" afterDir="false" />
-    </list>
+    <list default="true" id="57f4656f-8a73-448c-8b0d-f59af02c74f4" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +55,7 @@
       <updated>1635257023064</updated>
       <workItem from="1635257024349" duration="15000" />
       <workItem from="1636029732252" duration="23000" />
+      <workItem from="1641930197149" duration="35000" />
     </task>
     <servers />
   </component>
