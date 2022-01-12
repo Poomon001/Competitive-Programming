@@ -8,7 +8,7 @@ class newNode:
         self.left = None
         self.right = None
 
-# runtime: O(nlog(n)), memory: O(1)
+# runtime: O(h) where h is height of the tree, memory: O(1)
 def insertIntoBST(root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
     # tree is empty
     if root is None:
