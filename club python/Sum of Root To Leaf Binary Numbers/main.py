@@ -18,7 +18,7 @@ class newNode:
                  : Node.val is 0 or 1.
     Post-Condition: none
 '''
-# runtime: O(nlog(n)), memory: O(1)
+# runtime: O(n), memory: O(1)
 def sumRootToLeaf(root: Optional[TreeNode]) -> int:
     sumRoot = 0
 
@@ -26,14 +26,10 @@ def sumRootToLeaf(root: Optional[TreeNode]) -> int:
         nonlocal sumRoot
 
         if root.left:
-            num = num + str(root.left.val)
-            dfs(root.left, num)
-            num = num[:-1]  # log(n)
+            dfs(root.left, num + str(root.left.val))
 
         if root.right:
-            num = num + str(root.right.val)
-            dfs(root.right, num)
-            num = num[:-1]  # log(n)
+            dfs(root.right, num + str(root.right.val))
 
         if root and not root.left and not root.right:
             sumRoot += int(num, 2)
