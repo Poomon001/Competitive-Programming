@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c22c9be6-64f4-441f-8941-ecbdbafcf583" name="Default Changelist" comment="">
+    <list default="true" id="8b78eb26-173a-4745-941b-42be0388bac7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../BFS_DFS_RecursionWithParameter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BFS_DFS_RecursionWithParameter/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Sum of Root To Leaf Binary Numbers/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Sum of Root To Leaf Binary Numbers/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -12,7 +13,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectId" id="23bDxWGQ178OMHSsjP5w93TS6gy" />
+  <component name="ProjectId" id="23c3Bxn2RGwT8HFVfJt7FGSICbZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,7 +26,7 @@
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="BFS_DFS_RecursionWithParameter" />
+      <module name="RecursionWithParameter" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -50,15 +51,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c22c9be6-64f4-441f-8941-ecbdbafcf583" name="Default Changelist" comment="" />
-      <created>1641994139661</created>
+      <changelist id="8b78eb26-173a-4745-941b-42be0388bac7" name="Default Changelist" comment="" />
+      <created>1642019415531</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1641994139661</updated>
-      <workItem from="1641994141292" duration="63000" />
-      <workItem from="1642015945399" duration="89000" />
-      <workItem from="1642016450154" duration="29000" />
-      <workItem from="1642019465366" duration="201000" />
+      <updated>1642019415531</updated>
+      <workItem from="1642019416926" duration="28000" />
+      <workItem from="1642019697633" duration="293000" />
     </task>
     <servers />
   </component>
@@ -66,7 +65,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/main_py$main.coverage" NAME="main Coverage Results" MODIFIED="1642019665403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/BFS_DFS_RecursionWithParameter$main.coverage" NAME="main Coverage Results" MODIFIED="1641994202892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RecursionWithParameter$main.coverage" NAME="main Coverage Results" MODIFIED="1642019440030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

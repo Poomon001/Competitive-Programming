@@ -9,15 +9,6 @@ class newNode:
         self.left = None
         self.right = None
 
-'''
-    Link: https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/
-    Purpose: Find a sum of all binary left leaves
-    parameter: Optional[TreeNode] root - a root of a binary tree
-    return: int sum - a sum of all binary left leaves
-    Pre-Condition: The number of nodes in the tree is in the range [1, 1000].
-                 : Node.val is 0 or 1.
-    Post-Condition: none
-'''
 # example of misuse left and right val that is solved by passing a parameter
 # value passing in a parameter will not calculate in this recursion but wait until next recursion
 # runtime: O(n), memory: O(1)
@@ -42,16 +33,6 @@ def sumRootToLeaf_M1(root: Optional[TreeNode]) -> int:
     dfs(root, str(root.val))
     return sumRoot
 
-
-'''
-    Link: https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/
-    Purpose: Find a sum of all binary left leaves
-    parameter: Optional[TreeNode] root - a root of a binary tree
-    return: int sum - a sum of all binary left leaves
-    Pre-Condition: The number of nodes in the tree is in the range [1, 1000].
-                 : Node.val is 0 or 1.
-    Post-Condition: none
-'''
 # example of misuse left and right val that is solved by using root.val
 # runtime: O(n), memory: O(1)
 def sumRootToLeaf_M2(root: Optional[TreeNode]) -> int:
