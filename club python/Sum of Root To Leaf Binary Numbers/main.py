@@ -1,6 +1,7 @@
 # Python program to insert element in binary tree
 from idlelib.tree import TreeNode
-from typing import Optional, List
+from typing import Optional
+from collections import deque
 
 class newNode:
     def __init__(self, val):
@@ -39,7 +40,6 @@ def sumRootToLeaf(root: Optional[TreeNode]) -> int:
 
     dfs(root, str(root.val))
     return sumRoot
-
 
 if __name__ == '__main__':
     root1 = newNode(1)

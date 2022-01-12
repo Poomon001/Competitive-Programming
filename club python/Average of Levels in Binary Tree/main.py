@@ -23,11 +23,9 @@ def averageOfLevels_M1(root: Optional[TreeNode]) -> List[float]:
     # {level, [sum, total numbers]}
     data = {} # memory: O(m)
     answer = [] # memory: O(m)
-    level = 0
-    # find sum of each level
-    def dfs(root):
-        nonlocal level
 
+    # find sum of each level
+    def dfs(root, level):
         if level not in data.keys():
             # init first sum in the level (0 + curr.val)
             data[level] = [root.val, 1]
@@ -36,16 +34,12 @@ def averageOfLevels_M1(root: Optional[TreeNode]) -> List[float]:
             data[level] = [data.get(level)[0] + root.val, data.get(level)[1] + 1]
 
         if root.left is not None:
-            level += 1
-            dfs(root.left)
-            level -= 1
+            dfs(root.left, level+1)
 
         if root.right is not None:
-            level += 1
-            dfs(root.right)
-            level -= 1
+            dfs(root.right, level+1)
 
-    dfs(root)
+    dfs(root, 0)
 
     # find an average from sum in each level
     for d in data.values():
