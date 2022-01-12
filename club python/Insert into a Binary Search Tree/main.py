@@ -10,15 +10,19 @@ class newNode:
         self.right = None
 
 '''
-    Link: https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/
-    Purpose: Find a sum of all binary left leaves
-    parameter: Optional[TreeNode] root - a root of a binary tree
-    return: int sum - a sum of all binary left leaves
-    Pre-Condition: The number of nodes in the tree is in the range [1, 1000].
-                 : Node.val is 0 or 1.
+    Link: https://leetcode.com/problems/insert-into-a-binary-search-tree/
+    Purpose: Insert an integer into a BST
+    parameter: Optional[TreeNode] root - a root of a BST
+             : int val - an integer
+    return: Optional[TreeNode] root - a root of an updated BST
+    Pre-Condition: The number of nodes in the tree will be in the range [0, 104].
+                 : -10^8 <= Node.val <= 10^8
+                 : All the values Node.val are unique.
+                 : -10^8 <= val <= 10^8
+                 : It's guaranteed that val does not exist in the original BST.
     Post-Condition: none
 '''
-# runtime: O(nlog(n)), memory: O(1)
+# runtime: O(h) where h is the height of the tree, memory: O(1)
 def insertIntoBST(root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
     # tree is empty
     if root is None:
