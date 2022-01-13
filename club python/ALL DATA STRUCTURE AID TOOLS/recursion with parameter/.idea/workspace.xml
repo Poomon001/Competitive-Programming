@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b78eb26-173a-4745-941b-42be0388bac7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../BFS_DFS_RecursionWithParameter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BFS_DFS_RecursionWithParameter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Sum of Root To Leaf Binary Numbers/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Sum of Root To Leaf Binary Numbers/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Symmetric Tree/.idea/Symmetric Tree.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +23,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager">
@@ -58,6 +60,9 @@
       <updated>1642019415531</updated>
       <workItem from="1642019416926" duration="28000" />
       <workItem from="1642019697633" duration="293000" />
+      <workItem from="1642020270410" duration="96000" />
+      <workItem from="1642061319879" duration="127000" />
+      <workItem from="1642061527615" duration="534000" />
     </task>
     <servers />
   </component>
@@ -65,6 +70,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/main_py$main.coverage" NAME="main Coverage Results" MODIFIED="1642020363102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RecursionWithParameter$main.coverage" NAME="main Coverage Results" MODIFIED="1642019440030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
