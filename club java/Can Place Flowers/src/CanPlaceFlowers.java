@@ -24,6 +24,20 @@ public class CanPlaceFlowers {
         System.out.println(canPlaceFlowers(flowerbed10, 1)); // false
     }
 
+    /**
+     * Link: https://leetcode.com/problems/can-place-flowers/
+     * Purpose: Determine if n new flowers can be planted in the flowerbed without violating the no-adjacent-flowers rule.
+     *        : no-adjacent-flowers rule is that flowers cannot be planted in adjacent plots.
+     * Parameters: int[] flowerbed - an integer array flowerbed containing 0's and 1's.
+     *           : int n - a number of new flowers.
+     * Returns: boolean: true if if n new flowers can be planted in the flowerbed without violating
+     *                 : the no-adjacent-flowers rule. Otherwise false.
+     * Pre-Condition: 1 <= flowerbed.length <= 2 * 10^4
+     *              : flowerbed[i] is 0 or 1.
+     *              : There are no two adjacent flowers in flowerbed.
+     *              : 0 <= n <= flowerbed.length
+     * Post-Condition : None
+     **/
     // runtime: O(n), memory: O(1)
     public static boolean canPlaceFlowers(int[] flowerbed, int n) {
         int i = 0;
