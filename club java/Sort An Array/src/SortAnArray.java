@@ -12,6 +12,7 @@ public class SortAnArray {
         System.out.println("\n+=== quick sort ===+\n");
         int[] nums1 = {5,1,1,2,0,8,9,0};
         int[] nums2 = {64,25,12,22,11,-10};
+        int[] nums3 = {0};
 
         for(int i:selectionSort(nums1)){
             System.out.print(i + " ");
@@ -23,30 +24,48 @@ public class SortAnArray {
         }
         System.out.println("");
 
-        System.out.println("\n+=== bubble sort ===+\n");
-        int[] nums3 = {5,1,1,2,0,8,9,0};
-        int[] nums4 = {64,25,12,22,11,-10};
-
-        for(int i:bubbleSort(nums3)){
+        for(int i:selectionSort(nums3)){
             System.out.print(i + " ");
         }
         System.out.println("");
+
+        System.out.println("\n+=== bubble sort ===+\n");
+        int[] nums4 = {5,1,1,2,0,8,9,0};
+        int[] nums5 = {64,25,12,22,11,-10};
+        int[] nums6 = {0};
 
         for(int i:bubbleSort(nums4)){
             System.out.print(i + " ");
         }
         System.out.println("");
 
-
-        System.out.println("\n+=== insertion sort ===+\n");
-        int[] nums5 = {5,1,1,2,0,8,9,0};
-        int[] nums6 = {64,25,12,22,11,-10};
-        for(int i:insertionSort(nums5)){
+        for(int i:bubbleSort(nums5)){
             System.out.print(i + " ");
         }
         System.out.println("");
 
-        for(int i:insertionSort(nums6)){
+        for(int i:bubbleSort(nums6)){
+            System.out.print(i + " ");
+        }
+        System.out.println("");
+
+
+        System.out.println("\n+=== insertion sort ===+\n");
+        int[] nums7 = {5,1,1,2,0,8,9,0};
+        int[] nums8 = {64,25,12,22,11,-10};
+        int[] nums9 = {0};
+
+        for(int i:insertionSort(nums7)){
+            System.out.print(i + " ");
+        }
+        System.out.println("");
+
+        for(int i:insertionSort(nums8)){
+            System.out.print(i + " ");
+        }
+        System.out.println("");
+
+        for(int i:insertionSort(nums9)){
             System.out.print(i + " ");
         }
         System.out.println("");
