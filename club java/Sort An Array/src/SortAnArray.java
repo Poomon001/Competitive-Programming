@@ -69,6 +69,39 @@ public class SortAnArray {
             System.out.print(i + " ");
         }
         System.out.println("");
+
+        System.out.println("\n+=== quick sort ===+\n");
+        int[] nums10 = {5,1,1,2,0,8,9,0};
+        int[] nums11 = {5,1,1,2,0,8,9,0,1};
+        int[] nums12 = {64,25,12,22,11,-10};
+        int[] nums13 = {64,25,12,22,11,-10, 78};
+        int[] nums14 = {0};
+
+        for(int i:quickSort(nums10, 0, nums10.length-1)){
+            System.out.print(i + " ");
+        }
+        System.out.println("");
+
+        for(int i:quickSort(nums11, 0, nums11.length-1)){
+            System.out.print(i + " ");
+        }
+        System.out.println("");
+
+        for(int i:quickSort(nums12, 0, nums12.length-1)){
+            System.out.print(i + " ");
+        }
+        System.out.println("");
+
+        for(int i:quickSort(nums13, 0, nums13.length-1)){
+            System.out.print(i + " ");
+        }
+        System.out.println("");
+
+        for(int i:quickSort(nums14, 0, nums14.length-1)){
+            System.out.print(i + " ");
+        }
+        System.out.println("");
+
     }
 
     private static void swap(int i, int j, int[] nums){
@@ -166,5 +199,68 @@ public class SortAnArray {
         }
 
         return nums;
+    }
+
+    /***
+     * 1. divide array into left and right partitions
+     * 2. recursively call on left and right until entire array is sorted
+     * ***/
+    // runtime av: O(nlog(n)), memory: O(1)
+    public static int[] quickSort(int[] nums, int start, int end){
+        if (start <= end) {
+            // divide
+            int patitionIndex = partition(nums, start, end);
+
+            // call quick sort on the left
+            quickSort(nums, start, patitionIndex - 1);
+
+            // call quick sort on the right
+            quickSort(nums, patitionIndex + 1, end);
+        }
+        return nums;
+    }
+
+    /***
+     * 1. select a pivot (front-most), declare start pointer, and end pointer
+     * 2. move start pointer forward and compare the element with pivot
+     * 3. if start pointer element is greater than pivot, stop start pointer:
+     * 3.1 move end pointer until it find an element that is less than pivot.
+     * 3.2 swap start pointer element with end pointer element
+     * 4. Keep doing step 3 until start pointer passes end pointer
+     * 4. if start pointer passes end pointer, swap end pointer element with pivot element
+     * ***/
+    // put elements into left and right: runtime: O(n), memory: O(1)
+    private static int partition(int[] nums, int start, int end){
+        int pivotIndex = start;
+        int pivot = nums[pivotIndex];
+
+        // start pointer
+        int i = pivotIndex + 1;
+
+        // end pointer
+        int j = end;
+
+        // loop until start pointer passes end pointer
+        while (i <= j){
+            // stop when nums[i] is greater than pivot
+            while(i < nums.length && nums[i] <= pivot){
+                i++;
+            }
+
+            // stop when nums[j] is less than pivot
+            while (j > 0 && nums[j] > pivot){
+                j--;
+            }
+
+            // swap end pointer and start pointer element
+            if(i <= j) {
+                swap(i, j, nums);
+            }
+        }
+
+        // swap pivot and end pointer element
+        swap(pivotIndex, j, nums);
+
+        return j;
     }
 }
