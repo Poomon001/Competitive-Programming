@@ -72,7 +72,7 @@ public class SortAnArray {
 
         System.out.println("\n+=== quick sort ===+\n");
         int[] nums10 = {5,1,1,2,0,8,9,0};
-        int[] nums11 = {5,1,1,2,0,8,9,0,1};
+        int[] nums11 = {3,9,8,4};
         int[] nums12 = {64,25,12,22,11,-10};
         int[] nums13 = {64,25,12,22,11,-10, 78};
         int[] nums14 = {0};
