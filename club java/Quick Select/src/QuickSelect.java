@@ -11,7 +11,6 @@ public class QuickSelect {
      **/
 
     // best: O(n), average: O(nlog(n)), worst: O(n^2)
-    //Function to invoke quickSelect
     public static int QS(int[] S, int k){
         // catch an array with one element
         if (S.length==1)
@@ -24,24 +23,31 @@ public class QuickSelect {
     private static int quickSelect(int left,int right, int[] array, int k){
         int kIndex = k -1;
 
-        // divide into left and right partitions
+        // divide into left and right partitions. And return Kth position of a random middle pivot (pIndex)
+        // note: all left element are less, and all right element are more than array[pIndex].
         int pIndex = partition(left, right, array);
 
-
-        // recursive call
         if(kIndex < pIndex) {
-            // Kth index is less than partition middle point, call on left
+            // call on left
             return quickSelect(left, pIndex - 1, array, k);
         }else if(kIndex > pIndex) {
-            // Kth index is more than partition middle point, call on right
+            // call on right
             return quickSelect(pIndex + 1, right, array, k);
         }else{
-            // partition middle point is at Kth index, return answer
+            // partition middle point is at Kth index, return final answer
             return array[kIndex];
         }
     }
 
-    //pick a pivot
+    /***
+     * Purpose: divide array into left and right side, seperated by a pivot element. And find the Kth position of the pivot.
+     * Parameters: int left - left-most index bound
+     *           : int right - right-most index bound
+     *           : int[] array - an array of integer
+     * return: int - a Kth position of the povit element
+     *
+     * ***/
+
     private static int partition(int left, int right, int[] array){
         int pivotIndex = left;
         int pivot = array[pivotIndex];
@@ -64,20 +70,15 @@ public class QuickSelect {
         }
         swap(array, right, pivotIndex);
 
-        return right;
+        return right; // Kth index pf pivot
     }
 
-    //swap two elements in the array
     private static void swap(int[]array, int a, int b){
         int tmp = array[a];
         array[a] = array[b];
         array[b] = tmp;
     }
 
-    /***
-     * Find an Kth smallest element in an array
-     * ***/
-    //Our main function to test the algorithm
     public static void main (String[] args){
         int[] nums1 = {5,1,1,2,0,8,9,0};
         int[] nums2 = {3,9,8,4};

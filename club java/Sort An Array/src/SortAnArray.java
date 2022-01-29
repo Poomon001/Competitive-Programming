@@ -231,6 +231,9 @@ public class SortAnArray {
      * ***/
     // put elements into left and right: runtime: O(n), memory: O(1)
     private static int partition(int[] nums, int start, int end){
+        // Note: if want to random index, we just pick a random middle element. Then swap it with the left-most element.
+        // swap(nums, randomElementIndex, start);
+
         int pivotIndex = start;
         int pivot = nums[pivotIndex];
 
