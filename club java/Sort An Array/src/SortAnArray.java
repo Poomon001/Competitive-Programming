@@ -75,27 +75,27 @@ public class SortAnArray {
         int[] nums11 = {3,9,8,4};
         int[] nums12 = {64,25,12,22,11,-10};
         int[] nums13 = {64,25,12,22,11,-10, 78};
-        int[] nums14 = {0};
+        int[] nums14 = {0,1,2,3,4,5,6,7};
 
-        for(int i:quickSort(nums10, 0, nums10.length-1)){
-            System.out.print(i + " ");
-        }
-        System.out.println("");
-
-        for(int i:quickSort(nums11, 0, nums11.length-1)){
-            System.out.print(i + " ");
-        }
-        System.out.println("");
-
-        for(int i:quickSort(nums12, 0, nums12.length-1)){
-            System.out.print(i + " ");
-        }
-        System.out.println("");
-
-        for(int i:quickSort(nums13, 0, nums13.length-1)){
-            System.out.print(i + " ");
-        }
-        System.out.println("");
+//        for(int i:quickSort(nums10, 0, nums10.length-1)){
+//            System.out.print(i + " ");
+//        }
+//        System.out.println("");
+//
+//        for(int i:quickSort(nums11, 0, nums11.length-1)){
+//            System.out.print(i + " ");
+//        }
+//        System.out.println("");
+//
+//        for(int i:quickSort(nums12, 0, nums12.length-1)){
+//            System.out.print(i + " ");
+//        }
+//        System.out.println("");
+//
+//        for(int i:quickSort(nums13, 0, nums13.length-1)){
+//            System.out.print(i + " ");
+//        }
+//        System.out.println("");
 
         for(int i:quickSort(nums14, 0, nums14.length-1)){
             System.out.print(i + " ");
