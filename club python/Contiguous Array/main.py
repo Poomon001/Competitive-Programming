@@ -19,8 +19,16 @@ Keep track of the local max length by:
 '''
 
 def findMaxLength(nums: List[int]) -> int:
-    # {count, index}
-    ans = {}
+    '''
+        Keep track of the local max length by:
+           :+1 when meeting 1
+           :-1 when meeting 0
+           :when count == ans.keys, we get new length by subtract(curr index, previous matching index)
+        '''
+
+def findMaxLength(nums: List[int]) -> int:
+    # sum is 0 at at index of -1 {count, index}
+    ans = {0: -1}
     maxLength = 0
     count = 0
 
@@ -30,13 +38,10 @@ def findMaxLength(nums: List[int]) -> int:
         else:
             count += 1
 
-        # Check the first contiguous subarray
-        if count == 0:
-            maxLength = index + 1
-
         # check the rest contiguous subarray
         if count in ans:
-            length = index - ans[count]  # curr index - starting index
+            length = index - ans[count]  # curr index - matching index
+            # print(length, index, ans[count])
             maxLength = max(maxLength, length)
         else:
             ans[count] = index

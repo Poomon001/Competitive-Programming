@@ -48,10 +48,7 @@ def removeDuplicates(nums: List[int]) -> int:
     # for i in range(len(nums)):
     #     if nums[i] is not None:
     #         nums[i], nums[j] = nums[j], nums[i]
-    #         i += 1
     #         j += 1
-    #     else:
-    #         i += 1
     #
     # nums[:] = nums[:j]
 
