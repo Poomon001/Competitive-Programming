@@ -6,26 +6,59 @@
     Pre-Condition: 0 <= num <= 2^31 - 1
     Post-Condition: none
 '''
-# runtime: O(n) where n is the number of digit, memory: O(1)
-def addDigits(num: int) -> int:
-    # loop until one digit left: O(1)
-    while (True):
-        sum = 0
-        # find sum of all digits: O(n)
-        for digit in str(num):
-            sum += int(digit)
-
-        # if the sum of digits results in a single digit number, we are done
-        if (len(str(sum)) == 1):
-            return sum
+# while...loop - runtime: O(n) where n is the number of digit, memory: O(1)
+def addDigits_M1(num: int) -> int:
+    # loop until num is a single digit
+    while num > 9:
+        sumDigit = 0
+        for i in str(num):
+            sumDigit += int(i)
 
         # update num
-        num = sum
+        num = sumDigit
+
+    return num
+
+
+'''
+    Link: https://leetcode.com/problems/add-digits/
+    Purpose:  find the sum of all its digits until the result has only one digit
+    parameter: int n - a number
+    return: int sum - sum of all its digits until the result has only one digit
+    Pre-Condition: 0 <= num <= 2^31 - 1
+    Post-Condition: none
+'''
+# while...loop - runtime: O(n) where n is the number of digit, memory: O(1)
+def addDigits_M2(num: int) -> int:
+    return __sumDigits(num)
+
+
+def __sumDigits(num):
+    if num < 10:
+        return num
+
+    # get the last digit and recursive call on the other digits
+    return __sumDigits(num % 10 + __sumDigits(num // 10))
+
+
+
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print(addDigits(38)) # 11 -> 2
-    print(addDigits(0))  # 0
-    print(addDigits(123456789)) # 45 -> 9
-    print(addDigits(9))  # 9
+    print("\n+=== solution M1 ===+\n")
+    print(addDigits_M1(38)) # 11 -> 2
+    print(addDigits_M1(0))  # 0
+    print(addDigits_M1(123456789)) # 45 -> 9
+    print(addDigits_M1(9))  # 9
+    print(addDigits_M1(394))  # 7
+    print(addDigits_M1(39485))  # 2
+
+    print("\n+=== solution M2 ===+\n")
+    print(addDigits_M2(38))  # 11 -> 2
+    print(addDigits_M2(0))  # 0
+    print(addDigits_M2(123456789))  # 45 -> 9
+    print(addDigits_M2(9))  # 9
+    print(addDigits_M2(394))  # 7
+    print(addDigits_M2(39485))  # 2
+
