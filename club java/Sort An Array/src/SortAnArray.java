@@ -11,7 +11,7 @@ public class SortAnArray {
      * Post-Condition : none
      **/
     public static void main(String[] args) {
-        System.out.println("\n+=== quick sort ===+\n");
+        System.out.println("\n+=== selection sort ===+\n");
         int[] nums1 = {5,1,1,2,0,8,9,0};
         int[] nums2 = {64,25,12,22,11,-10};
         int[] nums3 = {0};
@@ -172,7 +172,6 @@ public class SortAnArray {
             System.out.print(i + " ");
         }
         System.out.println("");
-
     }
 
     private static void swap(int i, int j, int[] nums){
