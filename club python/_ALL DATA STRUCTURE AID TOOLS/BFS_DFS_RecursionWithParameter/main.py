@@ -30,6 +30,13 @@ def insertIntoBST(root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
 
     return root
 
+'''
+    1. have a queue1 store a parent
+    2. create queue2 to store all the parent child
+    3. pop parent from queue1. use the popped parent to get its left and right child and store them in queue2
+    4. loop until all parents in queue1 is empty
+    5. assign children tp parents (queue1 = queue2[:])
+'''
 # basic bfs level-order transversal
 # runtime: O(n), memory: O(n)
 def printBFSLevelOrder(root):
@@ -51,6 +58,10 @@ def printBFSLevelOrder(root):
 
         queue = temp
 
+'''
+    1. have a recursive call  to imitate stac: memory - O(log(n)) = O(tree's depth)
+    2. recursive call on left and right to transverse the whole tree
+'''
 # basic dfs level-order transversal
 # recursion with parameter
 # runtime: O(n), memory: O(n)
