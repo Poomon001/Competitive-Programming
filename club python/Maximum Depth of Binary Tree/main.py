@@ -100,6 +100,7 @@ def maxDepth_M3(root: Optional[Node]) -> int:
 '''
 # stack iteration solution: runtime: O(n), memory: O(log(n))
 def maxDepth_M4(root: Optional[Node]) -> int:
+    # {parent node, level}
     stack = deque()
     stack.append([root, 1])
     visited = set()
@@ -110,13 +111,14 @@ def maxDepth_M4(root: Optional[Node]) -> int:
 
     while stack:
         currNode,depth = stack.pop()
+
         if currNode not in visited:
             visited.add(currNode)
 
             if not currNode.left and not currNode.right:
                 maxDepth = max(depth, maxDepth)
             else:
-                # add all children
+                # add {children, their level (currLevel + 1)}
                 if currNode.right:
                     stack.append([currNode.right, depth+1])
 
