@@ -18,6 +18,14 @@ public class singleNumber {
         System.out.println(singleNumber_M2(nums4)); // 1
         System.out.println(singleNumber_M2(nums5)); // 4
         System.out.println(singleNumber_M2(nums6)); // 1
+
+        System.out.println("\n+=== solution M3 ===+\n");
+        int[] nums7 = {2,2,1};
+        int[] nums8 = {4,1,2,1,2};
+        int[] nums9 = {1};
+        System.out.println(singleNumber_M3(nums7)); // 1
+        System.out.println(singleNumber_M3(nums8)); // 4
+        System.out.println(singleNumber_M3(nums9)); // 1
     }
 
     /*
@@ -73,5 +81,23 @@ public class singleNumber {
             }
         }
         return -1;
+    }
+
+    /*
+     * Purpose: Find a single number (without other duplicate) in an array
+     * Parameter: an array - all integer elements have a duplicate but only 1 integer does not
+     * Returns: int - the only single integer in the array without duplicate
+     * Pre-Condition: there is always a single integer element in the array
+     * Post-Condition: none
+     */
+    // runtime: O(n), memory: O(1)
+    public static int singleNumber_M3(int[] nums) {
+        int ans = nums[0];
+
+        // xor N and N is 0, and xor 0 and N is N
+        for(int i = 1; i < nums.length; i++) {
+            ans = ans^nums[i];
+        }
+        return ans;
     }
 }
