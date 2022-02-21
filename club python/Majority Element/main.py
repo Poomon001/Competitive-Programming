@@ -1,5 +1,6 @@
+import math
 from typing import List
-
+from collections import Counter
 '''
     Link: https://leetcode.com/problems/majority-element/
     Purpose: Find the majority element
@@ -13,23 +14,15 @@ from typing import List
 
 # hash map: runtime O(n) and mem O(n)
 def majorityElement_M1(nums: List[int]) -> int:
-    dic = {}
-    ans = 0
-    key = 0
-    # count each num
-    for num in nums:
-        if num in dic.keys():
-            dic[num] += 1
-        else:
-            dic[num] = 1
+    # {number, counter}
+    dic = Counter(nums)
+    halfSize = math.ceil(len(nums) / 2)
 
-    # find the key with the highest counter
-    for k in dic.keys():
-        if dic.get(k) > ans:
-            key = k
-            ans = dic.get(k)
+    for key, value in dic.items():
+        if value >= halfSize:
+            return key
 
-    return key
+    return nums[0]
 
 '''
     Link: https://leetcode.com/problems/majority-element/
