@@ -18,7 +18,7 @@ class newNode:
                  : -2^31 <= Node.val <= 2^31 - 1
     Post-Condition: none
 '''
-# dfs solution: runtime: O(n) where n is a number of nodes, memory: O(m) where m is the height of the tree
+# dfs solution: runtime: O(n), memory: O(depth of tree)
 def averageOfLevels_M1(root: Optional[TreeNode]) -> List[float]:
     # {level, [sum, total numbers]}
     data = {} # memory: O(m)
@@ -58,7 +58,7 @@ def averageOfLevels_M1(root: Optional[TreeNode]) -> List[float]:
                  : -2^31 <= Node.val <= 2^31 - 1
     Post-Condition: none
 '''
-# bfs solution: runtime: O(n), memory: O(m) where n is the number of nodes, m is the number of max children nodes
+# bfs solution: runtime: O(n), memory: O(m) where m is the max children nodes in a level
 def averageOfLevels_M2(root: Optional[TreeNode]) -> List[float]:
     # store all the current-level parents
     queue = deque()

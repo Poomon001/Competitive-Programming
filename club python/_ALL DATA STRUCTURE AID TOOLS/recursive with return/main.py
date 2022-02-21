@@ -17,7 +17,7 @@ class newNode:
                  : -1000 <= Node.val <= 1000
     Post-Condition: none
 '''
-# use nonlocal: runtime: O(n), memory: O(1)
+# use nonlocal: runtime: O(n), memory: O(depth of tree)
 def sumOfLeftLeaves_M1(root: Optional[TreeNode]) -> int:
     sum = 0
 
@@ -46,7 +46,7 @@ def sumOfLeftLeaves_M1(root: Optional[TreeNode]) -> int:
                  : -1000 <= Node.val <= 1000
     Post-Condition: none
 '''
-# increment sum: runtime: O(n), memory: O(1)
+# increment sum: runtime: O(n), memory: O(depth of tree)
 def sumOfLeftLeaves_M2(root: Optional[TreeNode]) -> int:
     def dfs(root: Optional[TreeNode]) -> int:
         sum = 0

@@ -104,9 +104,11 @@ if __name__ == '__main__':
     insertIntoBST(root, 3)
     insertIntoBST(root, 5)
 
-    printBFSLevelOrder(root)
-    print("")
-    printDFSLevelOrder(root)
+    print("\n+=== BFS solution ===+\n")
+    printBFSLevelOrder(root) # 4 2 7 1 3 5
+
+    print("\n+=== DFS solution ===+\n")
+    printDFSLevelOrder(root) # 4 2 7 1 3 5
 
 
 

@@ -15,7 +15,7 @@ class Node:
                  : -100 <= Node.val <= 100
     Post-Condition: none
 '''
-# recursive non-local solution: runtime: O(n), memory: O(log(n))
+# recursive non-local solution: runtime: O(n), memory: O(depth of tree))
 def maxDepth_M1(root: Optional[Node]) -> int:
     depth = 0
     maxDepth = 0
@@ -48,7 +48,7 @@ def maxDepth_M1(root: Optional[Node]) -> int:
                  : -100 <= Node.val <= 100
     Post-Condition: none
 '''
-# recursive passing parameter solution: runtime: O(n), memory: O(log(n))
+# recursive passing parameter solution: runtime: O(n), memory: O(depth of tree))
 def maxDepth_M2(root: Optional[Node]) -> int:
     maxDepth = 0
 
@@ -76,7 +76,7 @@ def maxDepth_M2(root: Optional[Node]) -> int:
                  : -100 <= Node.val <= 100
     Post-Condition: none
 '''
-# recursive return solution: runtime: O(n), memory: O(log(n))
+# recursive return solution: runtime: O(n), memory: O(depth of tree))
 def maxDepth_M3(root: Optional[Node]) -> int:
     def dfs(root, depth):
 
@@ -98,7 +98,7 @@ def maxDepth_M3(root: Optional[Node]) -> int:
                  : -100 <= Node.val <= 100
     Post-Condition: none
 '''
-# stack iteration solution: runtime: O(n), memory: O(log(n))
+# stack iteration solution: runtime: O(n), memory: O(depth of tree))
 def maxDepth_M4(root: Optional[Node]) -> int:
     stack = deque()
     stack.append([root, 1])

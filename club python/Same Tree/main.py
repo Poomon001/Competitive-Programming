@@ -16,7 +16,7 @@ class Node:
                  : -10^4 <= Node.val <= 10^4
     Post-Condition: none
 '''
-# DFS solution: runtime: O(n), memory: O(1)
+# DFS solution: runtime: O(n), memory: O(depth of tree)
 def isSameTree_M1(p: Optional[Node], q: Optional[Node]) -> bool:
     ans = True
     def dfs(p: Optional[Node], q: Optional[Node]) -> bool:

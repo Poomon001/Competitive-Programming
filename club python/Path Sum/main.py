@@ -20,7 +20,7 @@ class newNode:
                  : -1000 <= targetSum <= 1000
     Post-Condition: none
 '''
-# runtime: O(n), memory: O(1)
+# runtime: O(n), memory: O(depth of tree)
 def hasPathSum(root: Optional[TreeNode], targetSum: int) -> bool:
     sum = 0
     answer = False

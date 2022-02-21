@@ -11,7 +11,7 @@ class newNode:
 
 ''' example of misuse left and right val that is solved by passing a parameter
     value passing in a parameter will not calculate in this recursion but wait until next recursion '''
-# runtime: O(n), memory: O(1)
+# runtime: O(n), memory: O(depth of tree)
 def sumRootToLeaf_M1(root: Optional[TreeNode]) -> int:
     sumRoot = 0
 
@@ -34,7 +34,7 @@ def sumRootToLeaf_M1(root: Optional[TreeNode]) -> int:
     return sumRoot
 
 ''' example of misuse left and right val that is solved by using root.val '''
-# runtime: O(n), memory: O(1)
+# runtime: O(n), memory: O(depth of tree)
 def sumRootToLeaf_M2(root: Optional[TreeNode]) -> int:
     sumRoot = 0
 

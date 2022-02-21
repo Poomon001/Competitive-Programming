@@ -30,7 +30,7 @@ def sumChildren(root):
                  : -1000 <= Node.val <= 1000
     Post-Condition: none
 '''
-# runtime: O(n^2), memory: O(1)
+# runtime: O(n^2), memory: O(depth of tree)
 def findTilt_M1(root: Optional[TreeNode]) -> int:
     diffVal = 0
 
@@ -66,7 +66,7 @@ def findTilt_M1(root: Optional[TreeNode]) -> int:
                  : -1000 <= Node.val <= 1000
     Post-Condition: none
 '''
-# runtime: O(n), memory: O(1)
+# runtime: O(n), memory: O(depth of tree)
 def findTilt_M2(root: Optional[TreeNode]) -> int:
     diffVal = 0
     sumChildren = 0

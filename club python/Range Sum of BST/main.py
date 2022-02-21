@@ -21,7 +21,7 @@ class newNode:
                  : All Node.val are unique.
     Post-Condition: none
 '''
-# runtime: O(n), memory: O(1)
+# runtime: O(n), memory: O(depth of tree)
 def rangeSumBST(root: Optional[TreeNode], low: int, high: int) -> int:
     sumNum = 0
 

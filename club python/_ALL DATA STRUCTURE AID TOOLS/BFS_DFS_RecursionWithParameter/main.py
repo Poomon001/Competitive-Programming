@@ -102,9 +102,11 @@ if __name__ == '__main__':
     insertIntoBST(root, 3)
     insertIntoBST(root, 5)
 
-    printBFSLevelOrder(root)
+    print("\n+=== BFS  ===\n")
+    printBFSLevelOrder(root) # 4 2 7 1 3 5
     print("")
-    printDFSLevelOrder(root)
+    print("\n+=== DFS  ===\n")
+    printDFSLevelOrder(root) # 4 2 7 1 3 5
 
 
 

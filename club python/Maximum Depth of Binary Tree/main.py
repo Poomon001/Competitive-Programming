@@ -15,7 +15,7 @@ class Node:
                  : -100 <= Node.val <= 100
     Post-Condition: none
 '''
-# recursive non-local solution: runtime: O(n), memory: O(log(n))
+# recursive non-local solution: runtime: O(n), memory: O(depth of tree)
 def maxDepth_M1(root: Optional[Node]) -> int:
     depth = 0
     maxDepth = 0

@@ -17,7 +17,7 @@ class newNode:
                  : -1000 <= Node.val <= 1000
     Post-Condition: none
 '''
-# use nonlocal: runtime: O(n), memory: O(1)
+# use nonlocal: runtime: O(n), memory: O(depth of tree)
 def sumOfLeftLeaves_M1(root: Optional[TreeNode]) -> int:
     sum = 0
 
@@ -46,7 +46,7 @@ def sumOfLeftLeaves_M1(root: Optional[TreeNode]) -> int:
                  : -1000 <= Node.val <= 1000
     Post-Condition: none
 '''
-# increment sum: runtime: O(n), memory: O(1)
+# increment sum: runtime: O(n), memory: O(depth of tree)
 def sumOfLeftLeaves_M2(root: Optional[TreeNode]) -> int:
     def dfs(root: Optional[TreeNode]) -> int:
         sum = 0
@@ -62,48 +62,6 @@ def sumOfLeftLeaves_M2(root: Optional[TreeNode]) -> int:
         return sum
 
     return dfs(root)
-
-# Credit: https://www.geeksforgeeks.org/level-order-tree-traversal/
-def height(node):
-    if node is None:
-        return 0
-    else:
-        # Compute the height of each subtree
-        lheight = height(node.left)
-        rheight = height(node.right)
-
-        # Use the larger one
-        if lheight > rheight:
-            return lheight + 1
-        else:
-            return rheight + 1
-
-# Credit: https://www.geeksforgeeks.org/insertion-in-a-binary-tree-in-level-order/
-"""function to insert element in binary tree """
-def insert(temp, key):
-    if not temp:
-        root = newNode(key)
-        return
-    q = []
-    q.append(temp)
-
-    # Do level order traversal until we find
-    # an empty place.
-    while (len(q)):
-        temp = q[0]
-        q.pop(0)
-
-        if (not temp.left):
-            temp.left = newNode(key)
-            break
-        else:
-            q.append(temp.left)
-
-        if (not temp.right):
-            temp.right = newNode(key)
-            break
-        else:
-            q.append(temp.right)
 
 
 if __name__ == "__main__":
