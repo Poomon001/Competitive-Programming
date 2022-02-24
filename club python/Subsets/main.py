@@ -31,9 +31,9 @@ def subsets(nums: List[int]) -> List[List[int]]:
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print(subsets([])) # [[]]
-    print(subsets([1])) # [[1], []]
-    print(subsets([1, 2])) # [[1, 2], [1], [2], []]
+    # print(subsets([])) # [[]]
+    # print(subsets([1])) # [[1], []]
+    # print(subsets([1, 2])) # [[1, 2], [1], [2], []]
     print(subsets([1, 2, 3])) # [[1, 2, 3], [1, 2], [1, 3], [1], [2, 3], [2], [3], []]
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
