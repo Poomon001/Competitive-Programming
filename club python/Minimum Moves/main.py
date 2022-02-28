@@ -18,10 +18,10 @@ def minimumMoves(A):
     ans = 0
 
     for num, count in dic.items():
-        # get a number of adds that needs
+        # get a number of adds/removes that needs
         add = abs(num - count)
 
-        # compare the number of adds with number of removes (current counter = a number of needed removes)
+        # compare the number of adds/removes with number of remove all (counter = a number of remove all)
         ans += min(add, count)
 
     return ans
@@ -30,7 +30,8 @@ def minimumMoves(A):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print(minimumMoves([1,1,3,4,4,4])) # 3
-    print(minimumMoves([1, 2, 2, 2, 5, 5, 5, 8])) # 4
+    print(minimumMoves([1, 2, 2, 2, 5, 5, 5, 8]))  # 4
+    print(minimumMoves([1, 2, 2, 2, 2, 2, 2, 5, 5, 5, 8])) # 7
     print(minimumMoves([1,1,1,1,3,3,4,4,4,4,4])) # 5
     print(minimumMoves([10,10,10])) # 3
     print(minimumMoves([2])) # 1
