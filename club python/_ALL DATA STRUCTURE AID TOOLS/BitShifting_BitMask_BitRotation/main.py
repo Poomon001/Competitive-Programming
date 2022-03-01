@@ -1,5 +1,7 @@
-''' Bit mask use & '''
-''' Bit union use | '''
+'''
+ * Bit mask use & eg: 1100 1101 & 0000 0001 == 0000 0001
+ * Bit union use | eg: 0011 0001 | 1000 0000 === 1011 0001
+'''
 
 # Delete the most significant bit (left-most), and add 0 at the least significant bit (right-most)
 # move all bits to left
@@ -16,7 +18,7 @@ def bitShiftingRight(num, amount):
 # eg 1 : 0000 000X = num & 0000 0001 = num & 2^0 = 0000 000X
 # eg 2 : 0000 00X0 = num & 0000 0010 = num & 2^1 = 0000 00X0
 # eg 3 : 0000 0X00 = num & 0000 0100 = num & 2^2 = 0000 0X00
-# eg 3 : 0000 0XXX = num & 0000 0111 = 0000 0XXX
+# eg 4 : 0000 0XXX = num & 0000 0111 = num & 7 = 0000 0XXX
 def bitMask(num, positionFromRight):
     return num & 2**positionFromRight
 
@@ -63,7 +65,7 @@ if __name__ == '__main__':
     print(bitMask(55, 6))  # 0011 0111 & 2^6 -> 0X00 0000 -> 0000 0000 = 0
     print(bitMask(55, 7))  # 0011 0111 & 2^7 -> X000 000X -> 0000 0000 = 0
 
-    print("\n+=== Bit Mask Mulnipulation ===+\n")
+    print("\n+=== Bit Mask Manipulation ===+\n")
     print(bitMaskManipulation(55, 1))  # (0011 0111 & 1) << 0 = 0000 0001 << 0 = 0000 0001 = 1
     print(bitMaskManipulation(55, 2))  # (0011 0111 & 1) << 1 = 0000 0001 << 1 = 0000 0010 = 2
     print(bitMaskManipulation(55, 3))  # (0011 0111 & 1) << 2 = 0000 0001 << 2 = 0000 0100 = 4
@@ -78,4 +80,5 @@ if __name__ == '__main__':
 
     print("\n+=== Find the max from all possible right rotation ===+\n")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    print("\n+=== Note bit manipulation: bit mask, bit union, bit shifting, and bit rotation on the book ===+\n")
+
