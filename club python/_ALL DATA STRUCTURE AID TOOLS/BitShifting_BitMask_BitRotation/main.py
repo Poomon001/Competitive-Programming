@@ -99,7 +99,5 @@ if __name__ == '__main__':
     print(bitRotationLeft_32bit(183, 2)) # 0000 0000 0000 0000 0000 0000 1011 0111 -> 0000 0000 0000 0000 0000 0010 1101 1100
     print(bitRotationLeft_32bit(183, 3)) # 0000 0000 0000 0000 0000 0000 1011 0111 -> 0000 0000 0000 0000 0000 0101 1011 1000
 
-    print("\n+=== Find the max from all possible right rotation ===+\n")
-
     print("\n+=== Note bit manipulation: bit mask, bit union, bit shifting, and bit rotation on the book ===+\n")
 
