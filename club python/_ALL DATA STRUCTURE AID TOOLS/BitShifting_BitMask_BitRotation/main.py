@@ -25,7 +25,8 @@ def bitMask(num, positionFromRight):
 # move the last bit mask to any offset position
 # eg 1   : 0000 000X = (num & 0000 0001) << 0 = 0000 000X
 # eg 2   : 0000 00X0 = (num & 0000 0001) << 1 = 0000 000X << 1 = 0000 00X0
-# **eg 3 : X000 0000 = (num & 0000 0001) << len(bit_num) - 1 = (num & 0000 0001) << 8 - 1 = X000 0000
+# eg 3   : 0000 0X00 = (num & 0000 0001) << 2 = 0000 000X << 2 = 0000 0X00
+# **eg 4 : X000 0000 = (num & 0000 0001) << len(bit_num) - 1 = (num & 0000 0001) << 8 - 1 = X000 0000
 def bitMaskManipulation(num, offset):
     return (num & 1) << offset - 1
 
@@ -36,14 +37,31 @@ def bitMaskManipulation(num, offset):
 #      - 2. move the "one last right-most bit" bit to the left-most by left bit shifting
 #           0000 0001 => 1000 0000
 #      - 3. move bit in temp by 1 to the right to make a space at the left-most for the "one last right-most bit"
-#           0011 0111 => 0001 1011
+#           0011 0111 => X001 1011
 #      - 4. insert the "one last right-most bit" by bit union (|)
-#           0001 1011 | 1000 0000 => Ob(1001 1011)
+#           X001 1011 | 1000 0000 => Ob(1001 1011)
 def bitRotationRight_32bit(num, position):
     temp = num
     for _ in range(0, position):
-        index = (temp & 1)
-        temp = (temp >> 1) | (index << 31)
+        mask = (temp & 1)
+        temp = (temp >> 1) | (mask << 31)
+    return temp
+
+# bit left rotation is to remove left-most bit and put them on right-most
+#        Given: 1011 0111, Expect: Ob(0110 1111)
+# step - 1. bit mask to save the "one first left-most bit" (we will put it to the last right-most later)
+#           1011 0111 => 1000 0000
+#      - 2. move the "one first left-most bit" bit to the the right-most by right bit shifting
+#           1000 0000 => 0100 0000 => 0010 0000 => ... => 0000 0001
+#      - 3. move bit in temp by 1 to the left to make a space at the right-most for the "one first left-most bit"
+#           1011 0111 => 0110 111X
+#      - 4. insert the "one last right-most bit" by bit union (|)
+#           0110 111X | 0000 0001 => Ob(0110 1111)
+def bitRotationLeft_32bit(num, position):
+    temp = num
+    for _ in range(0, position):
+        mask = (temp & 2**31)
+        temp = (temp << 1 | mask >> 31)
     return temp
 
 # Press the green button in the gutter to run the script.
@@ -77,6 +95,9 @@ if __name__ == '__main__':
     print(bitRotationRight_32bit(55, 3))  # 0000 0000 0000 0000 0000 0000 0011 0111 -> 1110 0000 0000 0000 0000 0000 0000 0110 = 3758096390
 
     print("\n+=== Bit Left Rotation ===+\n")
+    print(bitRotationLeft_32bit(183, 1)) # 0000 0000 0000 0000 0000 0000 1011 0111 -> 0000 0000 0000 0000 0000 0001 0110 1110
+    print(bitRotationLeft_32bit(183, 2)) # 0000 0000 0000 0000 0000 0000 1011 0111 -> 0000 0000 0000 0000 0000 0010 1101 1100
+    print(bitRotationLeft_32bit(183, 3)) # 0000 0000 0000 0000 0000 0000 1011 0111 -> 0000 0000 0000 0000 0000 0101 1011 1000
 
     print("\n+=== Find the max from all possible right rotation ===+\n")
 
