@@ -45,6 +45,24 @@ class BSTNode:
 
         return elem
 
+    def inOrder_traversal_M2(self):
+        elem = []
+        root = self
+        # visit left -> node -> right
+        def inOrder(root):
+            if root:
+                if root.left:
+                    inOrder(root.left)
+
+                elem.append(root.data)
+
+                if root.right:
+                    inOrder(root.right)
+
+        inOrder(root)
+
+        return elem
+
     def post_order_traversal(self):
         elem = []
 
@@ -60,6 +78,24 @@ class BSTNode:
         # base case
         # bebugView = self.data
         elem.append(self.data)
+
+        return elem
+
+    def postOrder_traversal_M2(self):
+        elem = []
+        root = self
+        # visit left -> node -> right
+        def postOrder(root):
+            if root:
+                if root.left:
+                    postOrder(root.left)
+
+                if root.right:
+                    postOrder(root.right)
+
+                elem.append(root.data)
+
+        postOrder(root)
 
         return elem
 
@@ -80,6 +116,22 @@ class BSTNode:
             elem += self.right.post_order_traversal()
 
         return elem
+
+    def preOrder_traversal_M2(self):
+        elem = []
+        root = self
+        # visit left -> node -> right
+        def preOrder(root):
+            if root:
+                if root.left:
+                    preOrder(root.left)
+
+                if root.right:
+                    preOrder(root.right)
+
+                elem.append(root.data)
+
+        preOrder(root)
 
 
     def search(self, target):
@@ -193,6 +245,7 @@ if __name__ == "__main__":
     root.add_child(10)
     root.add_child(14)
     root.add_child(20)
+    print("After deleting 20 ", root.inOrder_traversal_M2())  # this should print [1, 4, 9, 17, 18, 23, 34]
     print("After deleting 20 ", root.in_order_traversal())  # this should print [1, 4, 9, 17, 18, 23, 34]
     print(root.search(34))
     print(root.find_min())
