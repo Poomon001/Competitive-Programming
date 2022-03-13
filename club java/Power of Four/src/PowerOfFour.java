@@ -53,13 +53,12 @@ public class PowerOfFour {
      * Pre-Condition: -2^31 <= n <= 2^31 - 1
      * Post-Condition : none
      **/
-    // runtime: O(1), memory: O(1)
+    // runtime: O(log(n)), memory: O(1)
     public static boolean isPowerOfFour_M2(int n) {
         if(n==1){
             return true;
         }
 
-        // O(31) = O(1)
         for(int i = 0;i < 31; i++){
             // since 2^1 = 2, 2^2 = 4, 2^3 = 8, 2^4 = 32, 2^5 = 64, ...
             // then 4^1 = 4, 4^2 = 16, 4^3 = 64, ...
