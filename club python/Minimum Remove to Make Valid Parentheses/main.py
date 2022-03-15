@@ -12,6 +12,7 @@ from collections import deque
                  : s[i] is either'(' , ')', or lowercase English letter.
     Post-Condition: none
 '''
+# runtime: O(n), memory: O(n)
 def minRemoveToMakeValid(s: str) -> str:
     stack = deque()
 
