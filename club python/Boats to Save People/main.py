@@ -8,7 +8,7 @@ from typing import List
              : int - limit - a limit of the boat
     return: int iteration - the minimum number of boats to carry every given person
     Pre-Condition: 1 <= people.length <= 5 * 104
-                 : 1 <= people[i] <= limit <= 3 * 104
+                   : 1 <= people[i] <= limit <= 3 * 104
     Post-Condition: none
 '''
 # runtime: O(nlog(n)), memory: O(1)
