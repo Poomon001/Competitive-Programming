@@ -240,7 +240,7 @@ public class SortAnArray {
 
     /**
      * 1. compare the back-most element in a sorted list with the front-most element (target) in an unsorted list and swap is necessary
-     * 2. keep comparing the target to the elements in sorted list (back to front-most) until find the right position to insert
+     * 2. keep comparing the target to the elements in sorted list (back to front-most) until find the right position to insert (by swapping)
      * 3. keep repeat step 1 and 2 until an sorted array covers the whole array (nums.length times)
      * **/
     // Insertion Sort - run-time: O(n^2), memory: O(1)

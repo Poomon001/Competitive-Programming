@@ -83,13 +83,14 @@ public class MergeSort {
             return;
         }
 
+        // split
         int mid = nums.length/2;
         int[] left = Arrays.copyOfRange(nums, 0, mid);
         int[] right = Arrays.copyOfRange(nums, mid, nums.length);
-
         mergeSort_inPlace(left);
         mergeSort_inPlace(right);
 
+        // merge
         mergeTwoSortedArray_inPlace(left, right, nums);
     }
 

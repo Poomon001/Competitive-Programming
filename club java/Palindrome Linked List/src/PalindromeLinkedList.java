@@ -1,20 +1,17 @@
 import java.util.LinkedList;
+class ListNode {
+    int val;
+    ListNode next;
 
+    // Constructor to create a new node
+    ListNode() {}
+    ListNode(int d) {
+        val = d;
+        next = null;
+    }
+}
 // Definition for singly-linked list class.
 class PalindromeLinkedList {
-    /* Node Class */
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        // Constructor to create a new node
-        ListNode() {}
-        ListNode(int d) {
-            val = d;
-            next = null;
-        }
-    }
-
     public static void main(String[] args){
         // test drivers //
         /** Raw LinkedList **/

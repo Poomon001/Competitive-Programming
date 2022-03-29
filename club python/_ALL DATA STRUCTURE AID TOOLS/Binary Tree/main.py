@@ -11,7 +11,3 @@ class newNode:
 
 if __name__ == "__main__":
     root1 = newNode(3)
-    root1.left = newNode(9)
-    root1.right = newNode(20)
-    root1.right.left = newNode(15)
-    root1.right.right = newNode(7)
