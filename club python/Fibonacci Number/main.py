@@ -1,4 +1,12 @@
-
+'''
+    Link: https://leetcode.com/problems/fibonacci-number/
+    Purpose: Determine fibonacci of n
+    parameter: int n - an integer
+             : int = a fibonacci of n
+    return: List[List[int]] - all subsets in nums
+    Pre-Condition: 0 <= n <= 30
+    Post-Condition: none
+'''
 
 # recursive - runtime: O(2^n), memory: O(log(n))
 def fib_M1(n: int) -> int:
