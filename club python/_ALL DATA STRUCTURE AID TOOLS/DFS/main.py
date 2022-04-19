@@ -98,7 +98,7 @@ def maxDepth_M3(root: Optional[Node]) -> int:
                  : -100 <= Node.val <= 100
     Post-Condition: none
 '''
-# stack iteration solution: runtime: O(n), memory: O(depth of tree))
+# dfs stack iteration solution: runtime: O(n), memory: O(depth of tree))
 def maxDepth_M4(root: Optional[Node]) -> int:
     stack = deque()
     stack.append([root, 1])

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c22c9be6-64f4-441f-8941-ecbdbafcf583" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Sum of Root To Leaf Binary Numbers/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Sum of Root To Leaf Binary Numbers/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="c22c9be6-64f4-441f-8941-ecbdbafcf583" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,6 +57,7 @@
       <workItem from="1642015945399" duration="89000" />
       <workItem from="1642016450154" duration="29000" />
       <workItem from="1642019465366" duration="201000" />
+      <workItem from="1650190913286" duration="87000" />
     </task>
     <servers />
   </component>
