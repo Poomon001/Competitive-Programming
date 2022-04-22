@@ -16,8 +16,9 @@ public class Hash{
         System.out.println(hash1.contains("india")); // false
         System.out.println(hash1.get(1)); // null
         System.out.println(hash1.get(116099)); // usa
-        System.out.println(hash1.get(116100)); // usa
-        System.out.println(hash1.get(116101)); // usa
+        System.out.println(hash1.get(116100)); // usa (116099 + 2^1)
+        System.out.println(hash1.get(116101)); // null
+        System.out.println(hash1.get(116103)); // usa (116099 + 2^2)
     }
 }
 
@@ -63,15 +64,19 @@ class MyHash {
         int i = hash(s);
         int m = this.TableSize;
 
-        /*** Linear probing ***/
-        // if there is no collision: the slot is not full
-        while (this.hashSet.get(i) != null && !this.hashSet.get(i).equals("-1")) {
-            i++;
+        /*** quadratic probing ***/
+        int loopCounter = 1;
+        int index = i ;
+        while(this.hashSet.get(index) != null && !this.hashSet.get(index).equals("-1")){
+            int pow = (int)Math.pow(loopCounter++, 2);
+            index = i + pow;
+
             // reach the end of the array. reset i
-            if (i >= m) {
-                i = i % m;
+            if(index >= m){
+                index = index%m;
             }
         }
+        i = index;
         this.hashSet.set(i, s);
         return i;
     }
@@ -85,16 +90,19 @@ class MyHash {
         int i = hash(s);
         int m = this.TableSize;
 
-        /*** Linear probing ***/
-        // loop until find the target or otherwise null
-        while(this.hashSet.get(i) != null && !(this.hashSet.get(i)).equals(s)){
-            i++;
+        /*** quadratic probing ***/
+        int loopCounter = 1;
+        int index = i;
+        while(this.hashSet.get(index) != null && !this.hashSet.get(index).equals(s)){
+            int pow = (int)Math.pow(loopCounter++, 2);
+            index = i + pow;
 
             // reach the end of the array. reset i
-            if(i >= m){
-                i = i%m;
+            if(index >= m){
+                index = index%m;
             }
         }
+        i = index;
         // if get into null, then target doesn't exist
         if(this.hashSet.get(i) == null){
             return -1;
