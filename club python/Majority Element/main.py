@@ -77,13 +77,13 @@ def majorityElement_M3(nums:List[int]):
     Post-Condition: none
 '''
 # divide and conquer: runtime O(nlog(n)) and mememory O(1)
-def majorityElement(self, nums: List[int]) -> int:
-    def divide_and_conquer(left=0, right=len(nums) - 1):
+def majorityElement_M4(nums: List[int]) -> int:
+    def divide_and_conquer(left=0, right=len(nums) - 1) -> int:
         # base case: if only an element left
         if left == right:
             return nums[left]
 
-            # divide
+        # divide
         mid = left + (right - left) // 2
         left_partition = divide_and_conquer(left, mid)
         right_partition = divide_and_conquer(mid + 1, right)
@@ -123,12 +123,12 @@ if __name__ == '__main__':
     print(majorityElement_M2([1]))  # 3
     print(majorityElement_M2([6,6,6,7,7]))  # 6
     print("\n === M3 ===\n")
-    print(majorityElement_M2([2, 2, 1, 1, 1, 2, 2]))  # 2
-    print(majorityElement_M2([3, 2, 3]))  # 3
-    print(majorityElement_M2([1]))  # 3
-    print(majorityElement_M2([6, 6, 6, 7, 7]))  # 6
+    print(majorityElement_M3([2, 2, 1, 1, 1, 2, 2]))  # 2
+    print(majorityElement_M3([3, 2, 3]))  # 3
+    print(majorityElement_M3([1]))  # 3
+    print(majorityElement_M3([6, 6, 6, 7, 7]))  # 6
     print("\n === M4 ===\n")
-    print(majorityElement_M2([2, 2, 1, 1, 1, 2, 2]))  # 2
-    print(majorityElement_M2([3, 2, 3]))  # 3
-    print(majorityElement_M2([1]))  # 3
-    print(majorityElement_M2([6, 6, 6, 7, 7]))  # 6
+    print(majorityElement_M4([2, 2, 1, 1, 1, 2, 2]))  # 2
+    print(majorityElement_M4([3, 2, 3]))  # 3
+    print(majorityElement_M4([1]))  # 3
+    print(majorityElement_M4([6, 6, 6, 7, 7]))  # 6
