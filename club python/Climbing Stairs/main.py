@@ -6,7 +6,7 @@
     Pre-Condition: 1 <= n <= 45
     Post-Condition: none
 '''
-# brute force: run-time O(2^n)
+# brute force: run-time O(2^n), memory: O(n)
 def climbStairs_M1(n: int) -> int:
     # count all possible cases
     if n <= 1:
@@ -21,7 +21,7 @@ def climbStairs_M1(n: int) -> int:
     Pre-Condition: 1 <= n <= 45
     Post-Condition: none
 '''
-# Dynamic programming: O(n)
+# Dynamic programming: O(n), memory: O(1)
 def climbStairs_M2(n: int) -> int:
     # if you draw enough patterns on paper, you will find that n step = (n - 1) + (n - 2) steps
     stepOne = 1
@@ -31,21 +31,62 @@ def climbStairs_M2(n: int) -> int:
             stepOne =  stepOne + stepTwo
         else:
             stepTwo =  stepOne + stepTwo
-    return  stepOne if  stepOne > stepTwo else stepTwo
+    return stepOne if stepOne > stepTwo else stepTwo
 
 
+'''
+    Link: https://leetcode.com/problems/climbing-stairs/
+    Purpose:  find how many distinct ways can you climb to the top? A staircase has n steps. Each time you can either climb 1 or 2 steps.
+    parameter: int n - a number of steps a staircase has.
+    return: int - a number of distinct ways can you climb to the top
+    Pre-Condition: 1 <= n <= 45
+    Post-Condition: none
+'''
+# dynamic programming: programming: O(n), memory: O(n)
+def climbStairs_M3(n: int) -> int:
+    # if we are at 3th level, down by 1 step will take to 2nd level or down by 2 steps will take to 1st level.
+    # from given at 1st level has 1 and 2nd level has 2 unique steps. total unique step from 3th level = 3
+    memory = {1: 1, 2: 2}
+
+    def recursive(n: int) -> int:
+        if n == 1:
+            return 1
+
+        if n == 2:
+            return 2
+
+        # memorize
+        if n - 1 in memory and n - 2 in memory:
+            memory[n] = memory[n - 1] + memory[n - 2]
+
+        # recursive call
+        if n not in memory:
+            return recursive(n - 1) + recursive(n - 2)
+        else:
+            return memory[n - 1] + memory[n - 2]
+
+    return recursive(n)
 
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("\n === Solution 1 ===\n")
     print(climbStairs_M1(2)) # 2
     print(climbStairs_M1(3)) # 3
     print(climbStairs_M1(4)) # 5
+    print(climbStairs_M1(5))  # 8
     print(climbStairs_M1(38)) # 63245986 - this will take a while to complete
 
     print("\n === Solution 2 ===\n")
     print(climbStairs_M2(2)) # 2
     print(climbStairs_M2(3)) # 3
     print(climbStairs_M2(4)) # 5
+    print(climbStairs_M2(5))  # 8
     print(climbStairs_M2(38)) # 63245986
+
+    print("\n === Solution 3 ===\n")
+    print(climbStairs_M3(2))  # 2
+    print(climbStairs_M3(3))  # 3
+    print(climbStairs_M3(4))  # 5
+    print(climbStairs_M3(5))  # 8
+    print(climbStairs_M3(38))  # 63245986
