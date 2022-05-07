@@ -1,5 +1,14 @@
 from collections import deque
 
+'''
+    Link: https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
+    Purpose: Find an answer string after removing all 2 adjacent duplicates
+    parameter: str s - a string of lower case alphabets
+    return: str - the final string after all such duplicate removals
+    Pre-Condition: 1 <= s.length <= 10^5
+                 : s only contains lower case English letters.
+    Post-Condition: none
+'''
 # brute force: runtime - O(n^3), memory - O(1)
 def removeDuplicates_M1(s: str) -> str:
     # loop n times, each time remove one pair of adjacent duplicate
@@ -21,6 +30,15 @@ def removeDuplicates_M1(s: str) -> str:
 
     return s
 
+'''
+    Link: https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
+    Purpose: Find an answer string after removing all 2 adjacent duplicates
+    parameter: str s - a string of lower case alphabets
+    return: str - the final string after all such duplicate removals
+    Pre-Condition: 1 <= s.length <= 10^5
+                 : s only contains lower case English letters.
+    Post-Condition: none
+'''
 # stack: runtime - O(n), memory - O(n)
 def removeDuplicates_M2(s: str) -> str:
     stack = deque()
