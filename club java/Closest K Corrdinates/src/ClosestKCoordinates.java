@@ -41,8 +41,8 @@ public class ClosestKCoordinates {
      * Post-Condition : none
      **/
     // runtime: O(nlog(n)), memory: O(4n) = O(n)
-    public static List<ArrayList<Object>> closestKCoordinates(int[] coordinate, int[][] targetList, int k){
-        List<ArrayList<Object>> array = new ArrayList();
+    public static ArrayList<ArrayList<Object>> closestKCoordinates(int[] coordinate, int[][] targetList, int k){
+        ArrayList<ArrayList<Object>> array = new ArrayList();
 
         for(int[] target:  targetList){
             // {Double distance, {int, int} targetList}
@@ -64,7 +64,7 @@ public class ClosestKCoordinates {
         // sort by zero index
         Collections.sort(array, (a,b) -> Double.compare((double)a.get(0), (double)b.get(0)));
 
-        return array.subList(0, k);
+        return new ArrayList(array.subList(0, k));
     }
 
     public static double distance(int[] coordinate, int[] other){
