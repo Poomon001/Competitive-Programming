@@ -1,0 +1,101 @@
+CREATE TABLE `censusyear` (
+  `year` int NOT NULL,
+  PRIMARY KEY (`year`)
+)
+
+CREATE TABLE `county` (
+  `fips` int NOT NULL,
+  `name` varchar(64) DEFAULT NULL,
+  `state` int DEFAULT NULL,
+  `sq_km` float DEFAULT NULL,
+  `precip` float DEFAULT NULL,
+  `snow` float DEFAULT NULL,
+  `temp` float DEFAULT NULL,
+  `life_expectancy` float DEFAULT NULL,
+  `avg_income` int DEFAULT NULL,
+  PRIMARY KEY (`fips`),
+  KEY `state` (`state`),
+  CONSTRAINT `County_ibfk_1` FOREIGN KEY (`state`) REFERENCES `state` (`id`)
+)
+
+CREATE TABLE `countyindustries` (
+  `county` int NOT NULL,
+  `industry` int NOT NULL,
+  `payroll` mediumtext,
+  `employees` int DEFAULT NULL,
+  PRIMARY KEY (`county`,`industry`),
+  KEY `industry` (`industry`),
+  CONSTRAINT `CountyIndustries_ibfk_1` FOREIGN KEY (`industry`) REFERENCES `industry` (`id`),
+  CONSTRAINT `CountyIndustries_ibfk_2` FOREIGN KEY (`county`) REFERENCES `county` (`fips`)
+)
+
+CREATE TABLE `countylabourstats` (
+  `county` int NOT NULL,
+  `year` int NOT NULL,
+  `labour_force` int DEFAULT NULL,
+  `employed` int DEFAULT NULL,
+  `unemployed` int DEFAULT NULL,
+  PRIMARY KEY (`county`,`year`),
+  KEY `year` (`year`),
+  CONSTRAINT `CountyLabourStats_ibfk_1` FOREIGN KEY (`year`) REFERENCES `laboursurvey` (`year`),
+  CONSTRAINT `CountyLabourStats_ibfk_2` FOREIGN KEY (`county`) REFERENCES `county` (`fips`)
+)
+
+CREATE TABLE `countypopulation` (
+  `county` int NOT NULL,
+  `year` int NOT NULL,
+  `population` int DEFAULT NULL,
+  PRIMARY KEY (`county`,`year`),
+  KEY `year` (`year`),
+  CONSTRAINT `CountyPopulation_ibfk_1` FOREIGN KEY (`county`) REFERENCES `county` (`fips`),
+  CONSTRAINT `CountyPopulation_ibfk_2` FOREIGN KEY (`year`) REFERENCES `censusyear` (`year`)
+)
+
+CREATE TABLE `election` (
+  `year` int NOT NULL,
+  PRIMARY KEY (`year`)
+)
+
+CREATE TABLE `electionresult` (
+  `county` int NOT NULL,
+  `year` int NOT NULL,
+  `total_votes` int DEFAULT NULL,
+  `dem` int DEFAULT NULL,
+  `gop` int DEFAULT NULL,
+  PRIMARY KEY (`county`,`year`),
+  KEY `year` (`year`),
+  CONSTRAINT `ElectionResult_ibfk_1` FOREIGN KEY (`year`) REFERENCES `election` (`year`),
+  CONSTRAINT `ElectionResult_ibfk_2` FOREIGN KEY (`county`) REFERENCES `county` (`fips`)
+)
+
+CREATE TABLE `gender` (
+  `name` varchar(6) NOT NULL,
+  PRIMARY KEY (`name`)
+)
+
+CREATE TABLE `genderbreakdown` (
+  `county` int NOT NULL,
+  `gender` varchar(6) NOT NULL,
+  `population` int DEFAULT NULL,
+  PRIMARY KEY (`county`,`gender`),
+  KEY `gender` (`gender`),
+  CONSTRAINT `GenderBreakdown_ibfk_1` FOREIGN KEY (`county`) REFERENCES `county` (`fips`),
+  CONSTRAINT `GenderBreakdown_ibfk_2` FOREIGN KEY (`gender`) REFERENCES `gender` (`name`)
+)
+
+CREATE TABLE `industry` (
+  `id` int NOT NULL,
+  `name` varchar(76) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)
+
+CREATE TABLE `laboursurvey` (
+  `year` int NOT NULL,
+  PRIMARY KEY (`year`)
+)
+
+CREATE TABLE `state` (
+  `id` int NOT NULL,
+  `abbr` char(2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)
