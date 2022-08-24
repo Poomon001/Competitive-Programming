@@ -80,11 +80,13 @@ public class QuickSelect {
     }
 
     public static void main (String[] args){
+        int[] nums0 = {5,3,2,1,6,4};
         int[] nums1 = {5,1,1,2,0,8,9,0};
         int[] nums2 = {3,9,8,4};
         int[] nums3 = {64,25,12,22,11,-10};
         int[] nums4 = {0};
 
+        System.out.println(QS(nums0,3)); // 3
         System.out.println(QS(nums1,3)); // 1
         System.out.println(QS(nums1, 5)); // 2
 
