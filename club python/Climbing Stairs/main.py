@@ -6,7 +6,7 @@
     Pre-Condition: 1 <= n <= 45
     Post-Condition: none
 '''
-# brute force: run-time O(2^n), memory: O(n)
+# brute force (recursive): run-time O(2^n), memory: O(n)
 def climbStairs_M1(n: int) -> int:
     # count all possible cases
     if n <= 1:
@@ -42,7 +42,7 @@ def climbStairs_M2(n: int) -> int:
     Pre-Condition: 1 <= n <= 45
     Post-Condition: none
 '''
-# dynamic programming: programming: O(n), memory: O(n)
+# dynamic programming (recursive): programming: O(n), memory: O(n)
 def climbStairs_M3(n: int) -> int:
     # if we are at 3th level, down by 1 step will take to 2nd level or down by 2 steps will take to 1st level.
     # from given at 1st level has 1 and 2nd level has 2 unique steps. total unique step from 3th level = 3
@@ -75,7 +75,7 @@ def climbStairs_M3(n: int) -> int:
     Pre-Condition: 1 <= n <= 45
     Post-Condition: none
 '''
-# dynamic programming: programming: O(n), memory: O(n)
+# dynamic programming (non recursive): programming: O(n), memory: O(n)
 def climbStairs_M4(n: int) -> int:
     # {number of stairs, distinct ways}
     memory = {1: 1, 2: 2}
