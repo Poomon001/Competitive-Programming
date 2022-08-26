@@ -39,6 +39,7 @@ public class PowerOfFour {
      **/
     // runtime: O(log(n)), memory: O(1)
     public static boolean isPowerOfFour_M1(int n) {
+        // decrease by power of 4 until reach 4^0 = 1. Otherwise return false
         while(n%4 == 0 && n >= 1){
             n /= 4;
         }
@@ -60,7 +61,7 @@ public class PowerOfFour {
         }
 
         for(int i = 0;i < 31; i++){
-            // since 2^1 = 2, 2^2 = 4, 2^3 = 8, 2^4 = 32, 2^5 = 64, ...
+            // since 2^1 = 2, 2^2 = 4, 2^3 = 8, 2^4 = 16, 2^5 = 32, 2^6 = 64 ...
             // then 4^1 = 4, 4^2 = 16, 4^3 = 64, ...
             if(i%2==1){
                 if((2 << i) == n){
