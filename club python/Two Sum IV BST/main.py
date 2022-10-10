@@ -6,6 +6,18 @@ class TreeNode:
         self.right = right
         self.left = left
 
+'''
+    Link: https://leetcode.com/problems/two-sum-iv-input-is-a-bst/
+    Purpose: Determine if BST contain a pair of integer whose sum is a target
+    parameter: Optional[TreeNode] root - a binary search tree
+             : int k - a target integer
+    return: bool - true if the pair exist. Otherwise false
+    Pre-Condition: The number of nodes in the tree is in the range [1, 104].
+                 : -10^4 <= Node.val <= 10^4
+                 : root is guaranteed to be a valid binary search tree.
+                 : -10^5 <= k <= 10^5
+    Post-Condition: none
+'''
 # dfs - runtime: O(n), memory: O(n)
 def findTarget_m1(root: Optional[TreeNode], k: int) -> bool:
     # {k - number}
