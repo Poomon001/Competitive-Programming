@@ -32,6 +32,18 @@ def maxOperations_M1(nums: List[int], k: int) -> int:
 
     return counter
 
+'''
+    Link: https://leetcode.com/problems/max-number-of-k-sum-pairs/
+    Purpose: Find the maximum number of operations you can perform on the array.
+           : In one operation, you can pick two numbers from the array whose sum equals k and remove them from the array.
+    parameter: List[int] nums - an integer
+             : int k - an integer 
+    return: int counter: the maximum number of operations
+    Pre-Condition: 1 <= nums.length <= 10^5
+                 : 1 <= nums[i] <= 10^9
+                 : 1 <= k <= 109
+    Post-Condition: none
+'''
 # sort - runtime: O(nlog(n)), memory: O(1)
 def maxOperations_M2(nums: List[int], k: int) -> int:
     counter = 0
@@ -52,6 +64,18 @@ def maxOperations_M2(nums: List[int], k: int) -> int:
 
     return counter
 
+'''
+    Link: https://leetcode.com/problems/max-number-of-k-sum-pairs/
+    Purpose: Find the maximum number of operations you can perform on the array.
+           : In one operation, you can pick two numbers from the array whose sum equals k and remove them from the array.
+    parameter: List[int] nums - an integer
+             : int k - an integer 
+    return: int counter: the maximum number of operations
+    Pre-Condition: 1 <= nums.length <= 10^5
+                 : 1 <= nums[i] <= 10^9
+                 : 1 <= k <= 109
+    Post-Condition: none
+'''
 # hashmap - runtime: O(n), memory: O(n)
 def maxOperations_M3(nums: List[int], k: int) -> int:
     # if diff + num = k then
