@@ -16,7 +16,7 @@ public class LargestPerimeterTriangle {
     }
 
     /**
-     * Link: https://leetcode.com/problems/largest-perimeter-triangle/description/
+     * Link: https://leetcode.com/problems/largest-perimeter-triangle/description
      * Purpose: Find the largest perimeter of a triangle with a non-zero area. If cannot find the area, return 0.
      * Parameter: int[] nums - The array of integer
      * Returns: int - an area of the triangle
