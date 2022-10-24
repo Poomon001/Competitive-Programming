@@ -19,20 +19,17 @@ class newNode:
 '''
 # runtime: O(n), memory: O(1)
 def invertTree(root: Optional[TreeNode]) -> Optional[TreeNode]:
-    # swap left node to right node and right node to left node
-    def swap(root: Optional[TreeNode]):
+    def dfs(root):
         if root:
             dummy = root.left
-
             root.left = root.right
             root.right = dummy
-        else:
-            return
+        if root and root.left:
+            dfs(root.left)
+        if root and root.right:
+            dfs(root.right)
 
-        swap(root.left)
-        swap(root.right)
-
-    swap(root)
+    dfs(root)
     return root
 
 
