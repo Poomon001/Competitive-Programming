@@ -135,22 +135,40 @@ if __name__ == "__main__":
     root1.left.right = newNode(3)
     root1.right.left = newNode(6)
     root1.right.right = newNode(9)
-    print(printLevelOrder(root1)) # 4 2 7 1 3 6 9
-    print(printLevelOrder(invertTree_m1(root1))) # 4 7 2 9 6 3 1
-    print(printLevelOrder(invertTree_m2(root1))) # 4 7 2 9 6 3 1
 
     root2 = newNode(2)
     root2.left = newNode(1)
     root2.right = newNode(3)
 
-    print(printLevelOrder(root2)) # 2 1 3
-    print(printLevelOrder(invertTree_m1(root2))) # 2 3 1
-    print(printLevelOrder(invertTree_m2(root2))) # 2 3 1
-
     root3 = newNode(2)
+
+    print("\n+=== test cases ===+\n")
+    print(printLevelOrder(root1)) # 4 2 7 1 3 6 9
+    print(printLevelOrder(root2)) # 2 1 3
     print(printLevelOrder(root3))  # 2
+
+    print("\n+=== DFS solution ===+\n")
+    print(printLevelOrder(invertTree_m1(root1)))  # 4 7 2 9 6 3 1
+    print(printLevelOrder(invertTree_m1(root2)))  # 2 3 1
     print(printLevelOrder(invertTree_m1(root3)))  # 2
-    print(printLevelOrder(invertTree_m2(root3)))  # 2
+
+    print("\n+=== BFS solution ===+\n")
+    root4 = newNode(4)
+    root4.left = newNode(2)
+    root4.right = newNode(7)
+    root4.left.left = newNode(1)
+    root4.left.right = newNode(3)
+    root4.right.left = newNode(6)
+    root4.right.right = newNode(9)
+    print(printLevelOrder(invertTree_m2(root4)))  # 4 7 2 9 6 3 1
+
+    root5 = newNode(2)
+    root5.left = newNode(1)
+    root5.right = newNode(3)
+    print(printLevelOrder(invertTree_m2(root5)))  # 2 3 1
+
+    root6 = newNode(2)
+    print(printLevelOrder(invertTree_m2(root6)))  # 2
 
 
 
