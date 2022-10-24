@@ -1,6 +1,7 @@
 # Python program to insert element in binary tree
 from idlelib.tree import TreeNode
 from typing import Optional, List
+from collections import deque
 
 class newNode:
     def __init__(self, data):
@@ -17,8 +18,8 @@ class newNode:
                  : -100 <= Node.val <= 100
     Post-Condition: none
 '''
-# runtime: O(n), memory: O(1)
-def invertTree(root: Optional[TreeNode]) -> Optional[TreeNode]:
+# dfs - runtime: O(n), memory: O(log(n))
+def invertTree_m1(root: Optional[TreeNode]) -> Optional[TreeNode]:
     def dfs(root):
         if root:
             dummy = root.left
@@ -30,6 +31,38 @@ def invertTree(root: Optional[TreeNode]) -> Optional[TreeNode]:
             dfs(root.right)
 
     dfs(root)
+    return root
+
+'''
+    Link: https://leetcode.com/problems/invert-binary-tree/
+    Purpose: Invert Binary Tree
+    parameter: Optional[TreeNode] root - a root of a completed binary tree
+    return: Optional[TreeNode] root - an inverted of the binary tree
+    Pre-Condition: The number of nodes in the tree is in the range [0, 100].
+                 : -100 <= Node.val <= 100
+    Post-Condition: none
+'''
+# bfs - runtime: O(n), memory: O(log(n))
+def invertTree_m2(root: Optional[TreeNode]) -> Optional[TreeNode]:
+    if not root:
+        return root
+    queue = deque()
+    queue.append(root)
+
+    while queue:
+        temp = deque()
+        while queue:
+            child = queue.popleft()
+
+            dummy = child.left
+            child.left = child.right
+            child.right = dummy
+
+            if child.right:
+                temp.appendleft(child.right)
+            if child.left:
+                temp.appendleft(child.left)
+        queue = temp
     return root
 
 
@@ -102,18 +135,22 @@ if __name__ == "__main__":
     root1.left.right = newNode(3)
     root1.right.left = newNode(6)
     root1.right.right = newNode(9)
-
     print(printLevelOrder(root1)) # 4 2 7 1 3 6 9
-    print(printLevelOrder(invertTree(root1))) # 4 7 2 9 6 3 1
+    print(printLevelOrder(invertTree_m1(root1))) # 4 7 2 9 6 3 1
+    print(printLevelOrder(invertTree_m2(root1))) # 4 7 2 9 6 3 1
 
     root2 = newNode(2)
     root2.left = newNode(1)
     root2.right = newNode(3)
 
     print(printLevelOrder(root2)) # 2 1 3
-    print(printLevelOrder(invertTree(root2))) # 2 3 1
+    print(printLevelOrder(invertTree_m1(root2))) # 2 3 1
+    print(printLevelOrder(invertTree_m2(root2))) # 2 3 1
 
     root3 = newNode(2)
     print(printLevelOrder(root3))  # 2
-    print(printLevelOrder(invertTree(root3)))  # 2
+    print(printLevelOrder(invertTree_m1(root3)))  # 2
+    print(printLevelOrder(invertTree_m2(root3)))  # 2
+
+
 
