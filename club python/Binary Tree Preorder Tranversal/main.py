@@ -6,6 +6,16 @@ class TreeNode:
         self.left = left
         self.right = right
 
+'''
+    Link: https://leetcode.com/problems/binary-tree-preorder-traversal/
+    Purpose: Determine the preorder of binary tree
+    parameter: Optional[TreeNode] - root
+    return: List[int] - an array of preorder integer
+    Pre-Condition: The number of nodes in the tree is in the range [0, 100].
+                 : -100 <= Node.val <= 100
+    Post-Condition: none
+'''
+# runtime - O(n), memory - O(n)
 def preorderTraversal(root: Optional[TreeNode]) -> List[int]:
     ans = []
 
@@ -45,3 +55,8 @@ if __name__ == '__main__':
     root3.left.right = TreeNode(1)
     root3.left.left.left = TreeNode(3)
     root3.left.left.right = TreeNode(3)
+
+    print(preorderTraversal(root0)) # [1]
+    print(preorderTraversal(root1)) # [1, 2, 3]
+    print(preorderTraversal(root2)) # [4, 2, 3, 5, 9, 7]
+    print(preorderTraversal(root3)) # [21, 7, 1, 3, 3, 1, 14, 2, 2]
