@@ -15,7 +15,6 @@ public class OneVertexRemoval {
         graph.addEdge(B, D);
         graph.addEdge(F, D);
         graph.addEdge(E, D);
-
         graph.printAdjacencyList();
         System.out.println(graph.isConnected());
 
@@ -28,6 +27,19 @@ public class OneVertexRemoval {
         System.out.println(graph.isConnected());
     }
 
+    /*
+    Link: UVic CSC 226, 2023 - Assignment 2 Question 3
+    Purpose: Prove that any connected, undirected graph has a vertex whose removal, along with its
+    incident edges, will not disconnect the graph by designing a DFS based algorithm to find
+    such a vertex
+    parameter: Graph graph - a linked list represented graph
+             : Vertex root - any vertices in the graph
+    return: void
+    Pre-Condition: Graph graph is connected, undirected with n vertices
+    Post-Condition: Graph graph is connected, undirected with n - 1 vertices
+    */
+
+    // DFS solution - runtime: O(V + E), memory: O(V) where V, E is # of vertices and edges respectively
     public static void removeOneVertexWithDFS(Graph graph, Vertex root) {
         Set<Vertex> visited = new HashSet<>();
         Stack<Vertex> stack = new Stack<>();
@@ -36,12 +48,12 @@ public class OneVertexRemoval {
             Vertex top = stack.pop();
             if(!visited.contains(top)){
                 visited.add(top);
-                if(graph.getAdjVertices(top).stream().allMatch(visited::contains)) {
-                    graph.removeVertex(top);
-                    break;
-                }
                 for (Vertex v:graph.getAdjVertices(top)){
                     stack.push(v);
+                }
+                if(graph.getAdjVertices(top).stream().allMatch(visited::contains)) {
+                    graph.removeVertex(top); // execute once in V iterations
+                    break;
                 }
             }
         }
@@ -115,6 +127,7 @@ class Graph {
 
     boolean isConnected() {
         if (adjVertices.isEmpty()) {
+            // An empty graph is considered connected
             return true;
         }
 
