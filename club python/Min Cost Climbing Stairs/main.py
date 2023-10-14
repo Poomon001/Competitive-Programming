@@ -37,6 +37,24 @@ def minCostClimbingStairs_M2(cost: List[int]) -> int:
 
     return dp(len(cost))
 
+# dynamic programming: runtime - O(n), memory - O(n)
+def minCostClimbingStairs_M3(cost: List[int]) -> int:
+    last = len(cost) - 1
+
+    if last == 1:
+        return min(cost[0], cost[1])
+
+    if last == 0:
+        return cost[0]
+
+    # keep track of the minimum cost from the beginning to each currect step
+    stepToMinCost = {0: cost[0], 1: cost[1]}
+
+    for i in range(2, len(cost)):
+        stepToMinCost[i] = min(stepToMinCost[i - 1], stepToMinCost[i - 2]) + cost[i]
+
+    return min(stepToMinCost[last - 1], stepToMinCost[last])
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -56,3 +74,11 @@ if __name__ == '__main__':
     print(minCostClimbingStairs_M2([10])) # 0
     print(minCostClimbingStairs_M2([10, 15])) # 10
     print(minCostClimbingStairs_M2([841,462,566,398,243,248,238,650,989,576,361,126,334,729,446,897,953,38,195,679,65,707,196,705,569,275,259,872,630,965,978,109,56])) # 7072
+
+    print("\n+=== solution3 ===+\n")
+    print(minCostClimbingStairs_M3([10,15,20])) # 15
+    print(minCostClimbingStairs_M3([1,100,1,1,1,100,1,1,100,1])) # 6
+    print(minCostClimbingStairs_M3([1,100,1,1,2,1,1,1,100,1])) # 6
+    print(minCostClimbingStairs_M3([10])) # 0
+    print(minCostClimbingStairs_M3([10, 15])) # 10
+    print(minCostClimbingStairs_M3([841,462,566,398,243,248,238,650,989,576,361,126,334,729,446,897,953,38,195,679,65,707,196,705,569,275,259,872,630,965,978,109,56])) # 7072
