@@ -10,30 +10,26 @@ from typing import List
                  : words[i] consists of lowercase English letters.
     Post-Condition: none
 '''
-# runtime: O(n), memory: O(1)
+# hashtable: runtime: O(n), memory: O(1), n = total characters
 def makeEqual(words: List[str]) -> bool:
-    numWrods = len(words)
+    numWords = len(words)
     charCount = {}
 
     for word in words:
         for c in word:
-            if c in charCount:
-                charCount[c] += 1
-            else:
-                charCount[c] = 1
+            charCount[c] = charCount.get(c, 0) + 1
 
-    # note: we dont need to handle the order of the character, since
-    # we know that if each string has the same number of characters we can sort all of them
+    # note: we dont need to handle the order of the characters, since
+    # we know that if each string has the same number of characters we can sort to equal them
     for key, value in charCount.items():
-        if value % numWrods != 0:
+        if value % numWords != 0:
             return False
     return True
 
 if __name__ == '__main__':
     print(makeEqual(["abc", "aabc", "cb", "abc"])) # True
     print(makeEqual(["abc","aabc","bc"])) # True
+    print(makeEqual(["abc", "aabc", "abc"]))  # False
     print(makeEqual(["ab","a"])) # False
     print(makeEqual(["a", "ba"])) # False
     print(makeEqual(["abc"])) # True
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
