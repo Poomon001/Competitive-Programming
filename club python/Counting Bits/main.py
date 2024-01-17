@@ -11,12 +11,12 @@ from typing import List
     Pre-Condition: 0 <= n <= 10^5
     Post-Condition: none
 '''
-# runtime: O(nlog(n)), memory: O(n)
+# runtime: O(n), memory: O(n)
 def countBits(n: int) -> List[int]:
     ans = []
     for i in range(0, n + 1):
         i = bin(i)[2:]
-        ans.append(i.count("1")) # 32 bits -> log(n)
+        ans.append(i.count("1")) # 32 bits -> log(n) for bit iteration
 
     return ans
 
