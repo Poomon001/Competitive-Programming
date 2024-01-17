@@ -5,7 +5,7 @@
     Pre-Condition: 0 <= n <= 10^5
     Post-Condition: none
 '''
-
+# runtime: O(n), memory: O(1)
 def findTotaBits(n):
     if n == 0:
         return 1
