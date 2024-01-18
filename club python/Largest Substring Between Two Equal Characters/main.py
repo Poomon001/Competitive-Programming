@@ -21,6 +21,15 @@ def maxLengthBetweenEqualCharacters_M1(s: str) -> int:
 
     return maxCount
 
+def maxLengthBetweenEqualCharacters_M2(s: str) -> int:
+    charToLastIndex = {s[i]: i for i in range(len(s))}
+    maxCount = -1
+
+    for i in range(0, len(s)):
+        c = s[i]
+        maxCount = max(maxCount, charToLastIndex[c] - i - 1)
+
+    return maxCount
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -30,5 +39,12 @@ if __name__ == '__main__':
     print(maxLengthBetweenEqualCharacters_M1("cbzxy")) # -1
     print(maxLengthBetweenEqualCharacters_M1("abcaaa")) # 4
     print(maxLengthBetweenEqualCharacters_M1("abcaaabqwerc")) # 8
+
+    print("\n === solution 2 === \n")
+    print(maxLengthBetweenEqualCharacters_M2("aa"))  # 0
+    print(maxLengthBetweenEqualCharacters_M2("abca"))  # 2
+    print(maxLengthBetweenEqualCharacters_M2("cbzxy"))  # -1
+    print(maxLengthBetweenEqualCharacters_M2("abcaaa"))  # 4
+    print(maxLengthBetweenEqualCharacters_M2("abcaaabqwerc"))  # 8
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
