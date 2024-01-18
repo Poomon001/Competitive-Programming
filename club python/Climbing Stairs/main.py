@@ -85,6 +85,32 @@ def climbStairs_M4(n: int) -> int:
         memory[m] = memory[m - 1] + memory[m - 2]
     return memory[n]
 
+'''
+    Link: https://leetcode.com/problems/climbing-stairs/
+    Purpose:  find how many distinct ways can you climb to the top? A staircase has n steps. Each time you can either climb 1 or 2 steps.
+    parameter: int n - a number of steps a staircase has.
+    return: int - a number of distinct ways can you climb to the top
+    Pre-Condition: 1 <= n <= 45
+    Post-Condition: none
+'''
+# dynamic programming (non recursive): programming: O(n), memory: O(1)
+def climbStairs_M5(n: int) -> int:
+    currMaxDistinct = 2
+    prevMaxDistinct = 1
+
+    for step in range(n):
+        if n == 1:
+            return prevMaxDistinct
+
+        if n == 2:
+            return currMaxDistinct
+
+        if step > 1:
+            temp = currMaxDistinct
+            currMaxDistinct = prevMaxDistinct + currMaxDistinct
+            prevMaxDistinct = temp
+
+    return currMaxDistinct
 
 # Press the green button in the gutter to run the script.
 if __name__ == "__main__":
@@ -110,6 +136,13 @@ if __name__ == "__main__":
     print(climbStairs_M3(38))  # 63245986
 
     print("\n === Solution 4 ===\n")
+    print(climbStairs_M4(2))  # 2
+    print(climbStairs_M4(3))  # 3
+    print(climbStairs_M4(4))  # 5
+    print(climbStairs_M4(5))  # 8
+    print(climbStairs_M4(38))  # 63245986
+
+    print("\n === Solution 5 ===\n")
     print(climbStairs_M4(2))  # 2
     print(climbStairs_M4(3))  # 3
     print(climbStairs_M4(4))  # 5
