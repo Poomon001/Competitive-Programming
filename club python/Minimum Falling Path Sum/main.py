@@ -78,6 +78,4 @@ if __name__ == '__main__':
     print(minFallingPathSum_M2([[2, 1, 3], [6, 5, 4], [7, 8, 9]]))  # 13
     print(minFallingPathSum_M2([[2, 1], [6, 5]]))  # 6
     print(minFallingPathSum_M2([[-19, 57], [-40, -5]]))  # -59
-    print(minFallingPathSum_M2([[-5]]))  # -5\\
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    print(minFallingPathSum_M2([[-5]]))  # -5
