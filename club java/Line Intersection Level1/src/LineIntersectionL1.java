@@ -46,12 +46,8 @@ public class LineIntersectionL1 {
         double yIn1 = yIntercept(s1, slope1);
         double yIn2 = yIntercept(s2, slope2);
 
-        // check if they are the same line by check x-interception
-        double xIn1 = xIntercept(s1, slope1);
-        double xIn2 = xIntercept(s2, slope2);
-
         // parallel
-        if(slope1 == slope2 && yIn1 != yIn2 && xIn1 != xIn2) {
+        if(slope1 == slope2 && yIn1 != yIn2) {
             return false;
         }
 
@@ -64,15 +60,6 @@ public class LineIntersectionL1 {
         double y = s1.getA().getY();
         double b = y - (slope * x);
         return b;
-    }
-
-    private static double xIntercept(Segment s1, double slope) {
-        // y = mx + b
-        double x = s1.getA().getX();
-        double y = s1.getA().getY();
-        double b = y - (slope * x);
-
-        return -b / slope;
     }
 }
 
