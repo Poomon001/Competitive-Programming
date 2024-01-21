@@ -1,5 +1,15 @@
 from typing import List
 
+'''
+    Link: https://leetcode.com/problems/min-cost-climbing-stairs/
+    Purpose: Find the minimum cost to reach the top of the floor. 
+           : Each step on a staircase will cost money. You can either climb one or two steps once paying the cost.
+    parameter: int[] cost - an array of integers where cost[i] is the cost of i th step on a staircase.
+    return: int currMaxMoney - the minimum cost to reach the top of the floor.
+    Pre-Condition: 2 <= cost.length <= 1000
+                 : 0 <= cost[i] <= 999
+    Post-Condition: none
+'''
 # recursion: runtime - O(2^n), memory - O(height)
 def minCostClimbingStairs_M1(cost: List[int]) -> int:
     def recursive(n):
@@ -18,7 +28,16 @@ def minCostClimbingStairs_M1(cost: List[int]) -> int:
 
     return recursive(len(cost))
 
-
+'''
+    Link: https://leetcode.com/problems/min-cost-climbing-stairs/
+    Purpose: Find the minimum cost to reach the top of the floor. 
+           : Each step on a staircase will cost money. You can either climb one or two steps once paying the cost.
+    parameter: int[] cost - an array of integers where cost[i] is the cost of i th step on a staircase.
+    return: int currMaxMoney - the minimum cost to reach the top of the floor.
+    Pre-Condition: 2 <= cost.length <= 1000
+                 : 0 <= cost[i] <= 999
+    Post-Condition: none
+'''
 # dynamic programming: runtime - O(n), memory - O(n)
 def minCostClimbingStairs_M2(cost: List[int]) -> int:
     # base case: first 2 stairs are free
@@ -37,6 +56,16 @@ def minCostClimbingStairs_M2(cost: List[int]) -> int:
 
     return dp(len(cost))
 
+'''
+    Link: https://leetcode.com/problems/min-cost-climbing-stairs/
+    Purpose: Find the minimum cost to reach the top of the floor. 
+           : Each step on a staircase will cost money. You can either climb one or two steps once paying the cost.
+    parameter: int[] cost - an array of integers where cost[i] is the cost of i th step on a staircase.
+    return: int currMaxMoney - the minimum cost to reach the top of the floor.
+    Pre-Condition: 2 <= cost.length <= 1000
+                 : 0 <= cost[i] <= 999
+    Post-Condition: none
+'''
 # dynamic programming: runtime - O(n), memory - O(n)
 def minCostClimbingStairs_M3(cost: List[int]) -> int:
     last = len(cost) - 1
@@ -54,6 +83,29 @@ def minCostClimbingStairs_M3(cost: List[int]) -> int:
         stepToMinCost[i] = min(stepToMinCost[i - 1], stepToMinCost[i - 2]) + cost[i]
 
     return min(stepToMinCost[last - 1], stepToMinCost[last])
+
+'''
+    Link: https://leetcode.com/problems/min-cost-climbing-stairs/
+    Purpose: Find the minimum cost to reach the top of the floor. 
+           : Each step on a staircase will cost money. You can either climb one or two steps once paying the cost.
+    parameter: int[] cost - an array of integers where cost[i] is the cost of i th step on a staircase.
+    return: int currMaxMoney - the minimum cost to reach the top of the floor.
+    Pre-Condition: 2 <= cost.length <= 1000
+                 : 0 <= cost[i] <= 999
+    Post-Condition: none
+'''
+# dynamic programming: runtime - O(n), memory - O(1)
+def minCostClimbingStairs_M4(cost: List[int]) -> int:
+    cost.append(0)
+    prevMinCost = 0
+    currMinCost = 0
+
+    for c in cost:
+        temp = currMinCost
+        currMinCost = c + min(prevMinCost, currMinCost)
+        prevMinCost = temp
+
+    return currMinCost
 
 
 # Press the green button in the gutter to run the script.
@@ -82,3 +134,11 @@ if __name__ == '__main__':
     print(minCostClimbingStairs_M3([10])) # 0
     print(minCostClimbingStairs_M3([10, 15])) # 10
     print(minCostClimbingStairs_M3([841,462,566,398,243,248,238,650,989,576,361,126,334,729,446,897,953,38,195,679,65,707,196,705,569,275,259,872,630,965,978,109,56])) # 7072
+
+    print("\n+=== solution4 ===+\n")
+    print(minCostClimbingStairs_M4([10,15,20])) # 15
+    print(minCostClimbingStairs_M4([1,100,1,1,1,100,1,1,100,1])) # 6
+    print(minCostClimbingStairs_M4([1,100,1,1,2,1,1,1,100,1])) # 6
+    print(minCostClimbingStairs_M4([10])) # 0
+    print(minCostClimbingStairs_M4([10, 15])) # 10
+    print(minCostClimbingStairs_M4([841,462,566,398,243,248,238,650,989,576,361,126,334,729,446,897,953,38,195,679,65,707,196,705,569,275,259,872,630,965,978,109,56])) # 7072
