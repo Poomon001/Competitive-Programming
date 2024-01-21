@@ -16,6 +16,9 @@ if __name__ == '__main__':
         currMaxMoney = 0
         prevMaxMoney = 0
 
+        # pick either:
+        # 1. the curr highest, OR
+        # 2. the curr value(may or may not contain the prev adjacent value) + the prev highest(guarantee not contain the prev adjacent value)
         for num in nums:
             temp = currMaxMoney
             currMaxMoney = max(currMaxMoney, num + prevMaxMoney)
