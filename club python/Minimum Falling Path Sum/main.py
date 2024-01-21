@@ -50,7 +50,7 @@ def minFallingPathSum_M1(matrix: List[List[int]]) -> int:
 '''
 # in-place DP approach: runtime: O(n^2), memory: O(1)
 def minFallingPathSum_M2(matrix: List[List[int]]) -> int:
-    # build minimizationtable:
+    # build minimizationtable by keeping the current value + the optimal value
     # minimizationTable[n][m] = matrix[n][m] + min(minimizationTable[n-1][m-1], minimizationTable[n-1][m], minimizationTable[n-1][m+1])
     for i in range(1, len(matrix[0])):
         for j in range(0, len(matrix[i])):
