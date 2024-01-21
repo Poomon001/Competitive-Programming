@@ -80,6 +80,8 @@ def climbStairs_M4(n: int) -> int:
     # {number of stairs, distinct ways}
     memory = {1: 1, 2: 2}
     m = 2
+
+    # find the next max = 1 step from the current max, and 2 step from the prev max
     while m < n:
         m += 1
         memory[m] = memory[m - 1] + memory[m - 2]
@@ -105,6 +107,7 @@ def climbStairs_M5(n: int) -> int:
         if n == 2:
             return currMaxDistinct
 
+        # find the next max = 1 step from the current max, and 2 step from the prev max
         if step > 1:
             temp = currMaxDistinct
             currMaxDistinct = prevMaxDistinct + currMaxDistinct
