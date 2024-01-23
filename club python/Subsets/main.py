@@ -10,7 +10,7 @@ from typing import List
                  : All the numbers of nums are unique.
     Post-Condition: none
 '''
-# backtracking solution - runtime: O(n*2^n), memory: O(2^n) -> we have 2^n subsets each many contain n elements
+# backtracking solution - runtime: O(n*2^n), memory: O(n*2^n) -> we have 2^n subsets each many contain n elements
 # eg.      [1, 2]
 #       /          \
 #     [1]          []
