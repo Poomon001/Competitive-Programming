@@ -21,6 +21,7 @@ def subsets(nums: List[int]) -> List[List[int]]:
     subset = []
 
     def dfs(i):
+        # keep tract of leaf nodes
         if i >= len(nums):
             subsets.append(subset[:])
             return
