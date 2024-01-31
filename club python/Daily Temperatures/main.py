@@ -15,7 +15,7 @@ def dailyTemperatures_M1(temperatures: List[int]) -> List[int]:
     # answer[index] = temperature
     answer = [0] * len(temperatures)
 
-    # store a list of (index, temperature)
+    # store a list of (index, temperature) in a stack waiting for a higher temperature
     stack = deque()
 
     # current temperature's index
