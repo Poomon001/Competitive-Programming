@@ -1,7 +1,7 @@
 from typing import List
 
 '''
-    Link: as https://leetcode.com/problems/house-robber/
+    Link: as https://leetcode.com/problems/house-robber
     Purpose: Given an integer array nums representing the amount of money of each house, 
            : find the maximum amount of money you can rob without robbing adjacent houses
     parameter: int[] nums - an array of integers representing the amount of money of each house
