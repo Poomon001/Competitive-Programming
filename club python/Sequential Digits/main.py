@@ -35,7 +35,7 @@ def sequentialDigits_M2(low: int, high: int) -> List[int]:
     return ans
 
 '''
-    Link: https://leetcode.com/problems/sequential-digits
+    Link: https://leetcode.com/problems/sequential-digits/
     Purpose: Find all integers that have sequential digits
            : sequential digits means each digit in the number is one more than the previous digit by 1
     parameter: int low - lower bound
