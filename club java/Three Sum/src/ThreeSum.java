@@ -133,7 +133,7 @@ public class ThreeSum {
                     pNum2++;
                 }else{
                     Integer[] list = {num1, num2, num3};
-                    // Arrays.sort(list); // don't need this because all elements are already sorted
+                    // A ); // don't need this because all elements are already sorted
                     setAnswer.add(Arrays.asList(list));
                     pNum2++;
                     pNum3--;

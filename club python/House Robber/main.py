@@ -11,20 +11,19 @@ from typing import List
     Post-Condition: none
 '''
 # DP - runtime: O(n), memory: O(1)
-if __name__ == '__main__':
-    def rob(nums: List[int]) -> int:
-        currMaxMoney = 0
-        prevMaxMoney = 0
+def rob(nums: List[int]) -> int:
+    currMaxMoney = 0
+    prevMaxMoney = 0
 
-        # pick either:
-        # 1. the curr highest, OR
-        # 2. the curr value(may or may not contain the prev adjacent value) + the prev highest(guarantee not contain the prev adjacent value)
-        for num in nums:
-            temp = currMaxMoney
-            currMaxMoney = max(currMaxMoney, num + prevMaxMoney)
-            prevMaxMoney = temp
+    # pick either:
+    # 1. the curr highest, OR
+    # 2. the curr value(may or may not contain the prev adjacent value) + the prev highest(guarantee not contain the prev adjacent value)
+    for num in nums:
+        temp = currMaxMoney
+        currMaxMoney = max(currMaxMoney, num + prevMaxMoney)
+        prevMaxMoney = temp
 
-        return currMaxMoney
+    return currMaxMoney
 
 if __name__ == "__main__":
     print(rob([1,400,100,10,100])) # 500

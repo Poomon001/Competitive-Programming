@@ -11,7 +11,7 @@ from typing import List
                  : Each element in nums appears once or twice.
     Post-Condition: none
 '''
-# run time: O(n^2), memory: O(1)
+# brute force - run time: O(n^2), memory: O(1)
 def findAllDuplicates_M1(nums: List[int]) -> List[int]:
     # sort
     nums.sort()
@@ -45,7 +45,7 @@ def findAllDuplicates_M1(nums: List[int]) -> List[int]:
                  : Each element in nums appears once or twice.
     Post-Condition: none
 '''
-# run time: O(nlog(n)), memory: O(1)
+# sort - run time: O(nlog(n)), memory: O(1)
 def findAllDuplicates_M2(nums: List[int]) -> List[int]:
     # sort
     nums.sort()
@@ -58,6 +58,32 @@ def findAllDuplicates_M2(nums: List[int]) -> List[int]:
 
     # return only appendedd duplicate at the back of the list
     return nums[originalLength:]
+
+'''
+    Link: https://leetcode.com/problems/find-all-duplicates-in-an-array/
+    Purpose: Given list[int] which some integer appears once or twice. Find an array of all the integers that appears twice.
+    parameter: int nums - a list of integer
+    return: int - an array of all the integers that appears twice
+    Pre-Condition: n == nums.length
+                 : 1 <= n <= 105        
+                 : 1 <= nums[i] <= n
+                 : Each element in nums appears once or twice.
+    Post-Condition: none
+'''
+# in-place flag - run time: O(n), memory: O(1) -> answer doesnt count
+def findAllDuplicates_M3(nums: List[int]) -> List[int]:
+    ans = set()
+
+    for num in nums:
+        num = abs(num)
+        index = num - 1
+
+        if nums[index] > 0:
+            nums[index] *= -1
+        else:
+            ans.add(num)
+
+    return list(ans)
 
 if __name__ == '__main__':
     print("\n === Method 1 === \n")
@@ -73,5 +99,12 @@ if __name__ == '__main__':
     print(findAllDuplicates_M2([1, 1, 2]))  # [1]
     print(findAllDuplicates_M2([1, 1]))  # [1]
     print(findAllDuplicates_M2([1]))  # []
+
+    print("\n === Method 3 === \n")
+    print(findAllDuplicates_M3([10, 2, 5, 10, 9, 1, 1, 4, 3, 7]))  # [1, 10]
+    print(findAllDuplicates_M3([4, 3, 2, 7, 8, 2, 3, 1]))  # [2 3]
+    print(findAllDuplicates_M3([1, 1, 2]))  # [1]
+    print(findAllDuplicates_M3([1, 1]))  # [1]
+    print(findAllDuplicates_M3([1]))  # []
 
 
