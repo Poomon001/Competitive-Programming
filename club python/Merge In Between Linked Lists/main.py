@@ -109,4 +109,4 @@ if __name__ == "__main__":
     mergeInBetween(root4, 2, 2, root3).printList() # 100 101 10 1 13 6 9 5 103
     mergeInBetween(root5, 2, 5, root6).printList()  # 1 2 100 101 102 103 104\
     mergeInBetween(root8, 1, 3, root7).printList()  # 100 1 2 3 4 5 6 104
-    mergeInBetween(root9, 1, 2, root10).printList()  # 1 100 
+    mergeInBetween(root9, 1, 2, root10).printList()  # 1 100
