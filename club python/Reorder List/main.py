@@ -22,7 +22,7 @@ class ListNode:
                  : 1 <= Node.val <= 1000
     Post-Condition: The input linked list must be in the new order
 '''
-# brute force - run time: O(n^2), memory: O(1)
+# brute force - run time: O(n), memory: O(1)
 def reorderList(head: Optional[ListNode]) -> None:
     """
     Do not return anything, modify head in-place instead.
