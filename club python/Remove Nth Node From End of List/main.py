@@ -24,7 +24,7 @@ class ListNode:
                  : 1 <= n <= size
     Post-Condition: None
 '''
-# brute force - run time: O(n), memory: O(1)
+# two pointer - run time: O(n), memory: O(1)
 def removeNthFromEnd(head: Optional[ListNode], n: int) -> Optional[ListNode]:
     fast = head
     slow = head
