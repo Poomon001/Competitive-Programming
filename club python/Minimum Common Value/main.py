@@ -48,6 +48,16 @@ def getCommon_m2(nums1: List[int], nums2: List[int]) -> int:
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    print("\n === solution 1 ===\n")
+    print(getCommon_m1([1, 2, 3, 10], [2, 4, 10, 11]))  # 2
+    print(getCommon_m1([2, 4, 10, 11], [1, 3, 10]))  # 10
+    print(getCommon_m1([1, 2, 3, 6], [2, 3, 4, 5]))  # 2
+    print(getCommon_m1([1, 2, 3], [2, 4]))  # 2
+    print(getCommon_m1([5], [5]))  # 5
+    print(getCommon_m1([1], [7]))  # -1
+    print(getCommon_m1([1, 2, 3], [7, 8, 9]))  # -1
+
+    print("\n === solution 2 ===\n")
     print(getCommon_m2([1,2,3,10], [2,4,10,11])) # 2
     print(getCommon_m2([2, 4, 10, 11], [1, 3, 10])) # 10
     print(getCommon_m2([1,2,3,6], [2,3,4,5])) # 2
