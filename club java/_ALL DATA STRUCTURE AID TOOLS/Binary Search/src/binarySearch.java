@@ -24,6 +24,9 @@ public class binarySearch {
      * Returns: int - the index of the target element in the array
      * Post-Condition: the array is in the same order
      */
+
+    // since it is sorted from 1 to half, use binary search
+    // runtime: O(log(n)), memory: O(1)
     public static int searchInsert(int[] nums, int target) {
         int first = 0;
         int last = nums.length - 1;
