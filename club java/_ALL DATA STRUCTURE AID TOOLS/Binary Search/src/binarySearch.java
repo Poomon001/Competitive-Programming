@@ -26,7 +26,7 @@ public class binarySearch {
      */
 
     // since it is sorted from 1 to half, use binary search
-    // runtime: O(log(n)), memory: O(1)
+    // binary search - runtime: O(log(n)), memory: O(1)
     public static int searchInsert(int[] nums, int target) {
         int first = 0;
         int last = nums.length - 1;
