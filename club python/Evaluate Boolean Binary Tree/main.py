@@ -25,7 +25,7 @@ def evaluateTree_M1(root: Optional[TreeNode]) -> bool:
     dic = {0: False, 1: True}
     computationLine = []
 
-    # post order: left > right > root
+    # post-order: left > right > root
     def postOrder(root: Optional[TreeNode]):
         # visit left
         if root and root.left:
