@@ -80,8 +80,6 @@ def evaluateTree_M2(root: Optional[TreeNode]) -> bool:
 
     return recursive(root)
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     root0 = TreeNode(0)
 
