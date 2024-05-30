@@ -1,5 +1,6 @@
 from typing import List
 import random
+import heapq
 
 '''
     Link: https://leetcode.com/problems/kth-largest-element-in-an-array/submissions/
@@ -27,7 +28,7 @@ def findKthLargest_m1(nums: List[int], k:int) -> int:
                  : -10^4 <= nums[i] <= 10^4
     Post-Condition: must process in O(n) time complexity
 '''
-# reverse quick-select: runtime - O(n) -> master theorem, memory - O(log(n)) -> fire stack
+# reverse quick-select (Too hard for interview): runtime - O(n) -> master theorem, memory - O(log(n)) -> fire stack
 def findKthLargest_m2(nums: List[int], k: int) -> int:
     k -= 1
     left = 0
@@ -70,6 +71,34 @@ def findKthLargest_m2(nums: List[int], k: int) -> int:
 
     return quickSelect(nums, left, right, k)
 
+'''
+    Link: https://leetcode.com/problems/kth-largest-element-in-an-array/submissions/
+    Purpose: Find the kth largest element in the array
+    parameter: List[int] nums - a list of integers
+             : int k - an integer
+    return: bool - true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+    Pre-Condition: 1 <= k <= nums.length <= 10^5
+                 : -10^4 <= nums[i] <= 10^4
+    Post-Condition: must process in O(n) time complexity
+'''
+# min heap - runtime: O(nlog(k)), memory: O(n)
+def findKthLargest_m3(nums: List[int], k: int) -> int:
+    # heap will be small at k size
+    # once heap hit the limit of k, we keep replace the smallest element in the heap
+    # with the new large element in nums
+    heap = []
+
+    # O(nlog(k)): iterate n elelment and log(k)-level heap rearrangement
+    for num in nums:
+        if len(heap) < k:
+            heapq.heappush(heap, num)
+        else:
+            if num > heap[0]:
+                heapq.heappop(heap)
+                heapq.heappush(heap, num)
+
+    return heap[0]
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -94,3 +123,14 @@ if __name__ == '__main__':
     print(findKthLargest_m2([2, 3, 5, 6, 4, 7, 8, 9, 1, 0, 1, 2, 2], 2))  # 8
     print(findKthLargest_m2([2, 3, 5, 6, 4, 7, 8, 9, 1, 0, 1, 2, 2], 9))  # 2
     print(findKthLargest_m2([2, 3, 5, 6, 4, 7, 8, 9, 1, 0, 1, 2, 2], 10))  # 2
+
+    print("\n+=== solution 3 ===+\n")
+    print(findKthLargest_m3([3, 2, 1, 5, 6, 4], 3))  # 4
+    print(findKthLargest_m3([3, 2, 1, 5, 6, 4], 1))  # 6
+    print(findKthLargest_m3([3, 2, 1, 5, 6, 4], 5))  # 2
+    print(findKthLargest_m3([3, 4], 2))  # 3
+    print(findKthLargest_m3([2, 3, 5, 6, 4, 7, 8, 9, 1, 0, 1, 2, 2], 5))  # 5
+    print(findKthLargest_m3([2, 3, 5, 6, 4, 7, 8, 9, 1, 0, 1, 2, 2], 1))  # 9
+    print(findKthLargest_m3([2, 3, 5, 6, 4, 7, 8, 9, 1, 0, 1, 2, 2], 2))  # 8
+    print(findKthLargest_m3([2, 3, 5, 6, 4, 7, 8, 9, 1, 0, 1, 2, 2], 9))  # 2
+    print(findKthLargest_m3([2, 3, 5, 6, 4, 7, 8, 9, 1, 0, 1, 2, 2], 10))  # 2
