@@ -36,7 +36,6 @@ def isIsomorphic(s: str, t: str) -> bool:
     return True
 
 if __name__ == '__main__':
-    print(" \n === method 1 === \n")
     print(isIsomorphic(s = "egg", t = "add")) # True
     print(isIsomorphic(s = "foo", t = "bar")) # False
     print(isIsomorphic(s = "paper", t = "title")) # True
