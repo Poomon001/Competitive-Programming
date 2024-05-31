@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 // https://leetcode.com/problems/single-number/
 public class singleNumber {
@@ -26,6 +27,14 @@ public class singleNumber {
         System.out.println(singleNumber_M3(nums7)); // 1
         System.out.println(singleNumber_M3(nums8)); // 4
         System.out.println(singleNumber_M3(nums9)); // 1
+
+        System.out.println("\n+=== solution M4 ===+\n");
+        int[] nums10 = {2,2,1};
+        int[] nums11 = {4,1,2,1,2};
+        int[] nums12 = {1};
+        System.out.println(singleNumber_M4(nums10)); // 1
+        System.out.println(singleNumber_M4(nums11)); // 4
+        System.out.println(singleNumber_M4(nums12)); // 1
     }
 
     /*
@@ -98,6 +107,22 @@ public class singleNumber {
         for(int i = 1; i < nums.length; i++) {
             ans = ans^nums[i];
         }
+        return ans;
+    }
+
+    /*
+     * Purpose: Find a single number (without other duplicate) in an array
+     * Parameter: an array - all integer elements have a duplicate but only 1 integer does not
+     * Returns: int - the only single integer in the array without duplicate
+     * Pre-Condition: there is always a single integer element in the array
+     * Post-Condition: none
+     */
+    // set: O(n), memory: O(n)
+    public static int singleNumber_M4(int[] nums) {
+        int originalSum = Arrays.stream(nums).sum();
+        Set<Integer> numSet = Arrays.stream(nums).boxed().collect(Collectors.toSet());
+        int setSum = numSet.stream().mapToInt(Integer::intValue).sum();
+        int ans = 2 * setSum - originalSum;
         return ans;
     }
 }
