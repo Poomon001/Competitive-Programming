@@ -27,55 +27,30 @@ public class MergeTwoSortedList {
         list2.add(2);
         list2.add(5);
 
+        System.out.println("\n=== solution1: Build-in Linkedlist ==\n");
         printList(mergeTwoSortedList(list1, list2));
+        System.out.println("\n=====\n");
 
-        System.out.println("\n=== End Build-in Linkedlist ==\n");
+        ListNode list3 = listNodeFromArray(new int[]{1,2,3,4});
+        ListNode list4 = listNodeFromArray(new int[]{1,2,5});
+        ListNode list7 = listNodeFromArray(new int[]{0,9});
+        ListNode list8 = listNodeFromArray(new int[]{1,2,5});
 
-        /** Raw LinkedList **/
-        ListNode list3 = new ListNode();
-        ListNode dummy = list3;
+        System.out.println("\n=== Solution2: new merge Linkedlist ==\n");
+        printRawList(mergeTwoLists_m1(list3, list4));
+        printRawList(mergeTwoLists_m1(list8, list7));
+        System.out.println("\n=====\n");
 
-        // add new nodes to the linked list
-        ListNode num1 = new ListNode(1);
-        /*list3.next = num1;*/
-        dummy.next = num1;
-        dummy = dummy.next;
 
-        ListNode num2 = new ListNode(2);
-        /*num1.next = num2;*/
-        dummy.next = num2;
-        dummy = dummy.next;
+        ListNode list5 = listNodeFromArray(new int[]{1,2,3,4});
+        ListNode list6 = listNodeFromArray(new int[]{1,2,5});
+        ListNode list9 = listNodeFromArray(new int[]{0,9});
+        ListNode list10 = listNodeFromArray(new int[]{1,2,5});
 
-        ListNode num3 = new ListNode(3);
-        /*num2.next = num3;*/
-        dummy.next = num3;
-        dummy = dummy.next;
-
-        ListNode num4 = new ListNode(4);
-        /*num3.next = num4;*/
-        dummy.next = num4;
-
-        ListNode list4 = new ListNode();
-        dummy = list4;
-
-        // add new nodes to the linked list
-        ListNode num5 = new ListNode(1);
-        /*list4.next = num5;*/
-        dummy.next = num5;
-        dummy = dummy.next;
-
-        ListNode num6 = new ListNode(2);
-        /*num5.next = num6;*/
-        dummy.next = num6;
-        dummy = dummy.next;
-
-        ListNode num7 = new ListNode(5);
-        /*num6.next = num7;*/
-        dummy.next = num7;
-        dummy = dummy.next;
-
-        printRawList(mergeTwoLists(list3.next, list4.next));
-        System.out.println("\n=== End Raw Linkedlist ==\n");
+        System.out.println("\n=== Solution3 inplace-merge Linkedlist ==\n");
+        printRawList(mergeTwoLists_m2(list5, list6));
+        printRawList(mergeTwoLists_m2(list9, list10));
+        System.out.println("\n=====\n");
     } // main
 
     /** Build-in Linkedlist implimentation **/
@@ -128,7 +103,7 @@ public class MergeTwoSortedList {
      * Returns: ListNode - a merge linkedlist
      * Post-Condition: none
      */
-    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+    public static ListNode mergeTwoLists_m1(ListNode list1, ListNode list2) {
         ListNode printList = new ListNode();
 
         // need dummy node becase if we simply use printList, printList hea
@@ -165,10 +140,47 @@ public class MergeTwoSortedList {
         return printList.next;
     } // mergeTwoLists
 
+    public static ListNode mergeTwoLists_m2(ListNode list1, ListNode list2) {
+        // if not last, then compare link1.node with link2.node
+        ListNode prev = new ListNode(-1);
+        prev.next = list1;
+        ListNode head = prev;
+
+        while(list1 != null && list2 != null){
+            if(list2.val < list1.val) {
+                ListNode temp = list2;
+                prev.next = list2;
+                list2 = list2.next;
+                temp.next = list1;
+                prev = temp;
+            }else{
+                prev = list1;
+                list1 = list1.next;
+            }
+        }
+
+        if(list1 == null) {
+            prev.next = list2;
+        }
+        return head.next;
+    }
+
     private static void printRawList(ListNode printList){
         while(printList!=null){
             System.out.print(printList.val);
             printList = printList.next;
         }
+        System.out.println("");
     } // printRawList
+
+    public static ListNode listNodeFromArray(int[] nums) {
+        ListNode list = new ListNode();
+        ListNode head = list;
+        for(int i:nums){
+            ListNode li = new ListNode(i);
+            list.next = li;
+            list = list.next;
+        }
+        return head.next;
+    }
 }
