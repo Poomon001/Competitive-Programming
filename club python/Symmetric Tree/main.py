@@ -159,4 +159,3 @@ if __name__ == '__main__':
     print(isSymmetric_m3(root3))  # true
     print(isSymmetric_m3(root4))  # false
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
