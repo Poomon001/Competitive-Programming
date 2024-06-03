@@ -42,7 +42,7 @@ def invertTree_m1(root: Optional[TreeNode]) -> Optional[TreeNode]:
                  : -100 <= Node.val <= 100
     Post-Condition: none
 '''
-# bfs - runtime: O(n), memory: O(log(n))
+# bfs maintain level order - runtime: O(n), memory: O(log(n))
 def invertTree_m2(root: Optional[TreeNode]) -> Optional[TreeNode]:
     if not root:
         return root
@@ -50,7 +50,7 @@ def invertTree_m2(root: Optional[TreeNode]) -> Optional[TreeNode]:
     queue.append(root)
 
     while queue:
-        temp = deque()
+        temp = deque() # help clearly maintain level order
         while queue:
             child = queue.popleft()
 
@@ -63,6 +63,38 @@ def invertTree_m2(root: Optional[TreeNode]) -> Optional[TreeNode]:
             if child.left:
                 temp.appendleft(child.left)
         queue = temp
+    return root
+
+'''
+    Link: https://leetcode.com/problems/invert-binary-tree/
+    Purpose: Invert Binary Tree
+    parameter: Optional[TreeNode] root - a root of a completed binary tree
+    return: Optional[TreeNode] root - an inverted of the binary tree
+    Pre-Condition: The number of nodes in the tree is in the range [0, 100].
+                 : -100 <= Node.val <= 100
+    Post-Condition: none
+'''
+# bfs easy but not maintain level order - runtime: O(n), memory: O(log(n))
+def invertTree_m3(root: Optional[TreeNode]) -> Optional[TreeNode]:
+    if not root:
+        return root
+
+    queue = deque()
+    queue.append(root)
+
+    while queue:
+        node = queue.popleft()
+        left = node.left
+        right = node.right
+        node.left = right
+        node.right = left
+
+        if left:
+            queue.append(left)
+
+        if right:
+            queue.append(right)
+
     return root
 
 
@@ -152,7 +184,7 @@ if __name__ == "__main__":
     print(printLevelOrder(invertTree_m1(root2)))  # 2 3 1
     print(printLevelOrder(invertTree_m1(root3)))  # 2
 
-    print("\n+=== BFS solution ===+\n")
+    print("\n+=== BFS solution 1 ===+\n")
     root4 = newNode(4)
     root4.left = newNode(2)
     root4.right = newNode(7)
@@ -169,6 +201,11 @@ if __name__ == "__main__":
 
     root6 = newNode(2)
     print(printLevelOrder(invertTree_m2(root6)))  # 2
+
+    print("\n+=== BFS solution 2 ===+\n")
+    print(printLevelOrder(invertTree_m3(root4)))  # 4 7 2 9 6 3 1
+    print(printLevelOrder(invertTree_m3(root5)))  # 2 3 1
+    print(printLevelOrder(invertTree_m3(root6)))  # 2
 
 
 
