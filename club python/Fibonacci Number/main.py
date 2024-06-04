@@ -42,10 +42,6 @@ def fib_M3(n: int) -> int:
     table = {0: 0, 1: 1}
 
     def fibSum(n: int) -> int:
-        # base case
-        if n == 0 or n == 1:
-            return table[n]
-
         # found data in a table, just use it
         if n in table:
             return table[n]
@@ -56,6 +52,23 @@ def fib_M3(n: int) -> int:
             return table[n]
 
         return fibSum(n - 1) + fibSum(n - 2)
+
+    return fibSum(n)
+
+# Dynamic programming with table - runtime: O(n), memory: O(n)
+def fib_M4(n: int) -> int:
+    dic = {0: 0, 1: 1}
+
+    def fibSum(n):
+        if n == 0 or n == 1:
+            return dic[n]
+
+        if n - 1 in dic and n - 2 in dic:
+            return dic[n - 1] + dic[n - 2]
+        else:
+            ans = fibSum(n - 1) + fibSum(n - 2)
+            dic[n] = ans
+            return ans
 
     return fibSum(n)
 
@@ -85,5 +98,13 @@ if __name__ == '__main__':
     print(fib_M3(4))
     print(fib_M3(5))
     print(fib_M3(6))
+
+    print("+=== Solution 4 ===+")
+    print(fib_M4(1))
+    print(fib_M4(2))
+    print(fib_M4(3))
+    print(fib_M4(4))
+    print(fib_M4(5))
+    print(fib_M4(6))
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
