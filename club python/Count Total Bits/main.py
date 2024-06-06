@@ -6,7 +6,7 @@
     Post-Condition: none
 '''
 # runtime: O(n), memory: O(1)
-def findTotaBits(n):
+def countTotaBits(n):
     if n == 0:
         return 1
 
@@ -18,12 +18,12 @@ def findTotaBits(n):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print(findTotaBits(0)) # 1
-    print(findTotaBits(1))  # 1
-    print(findTotaBits(2))  # 2
-    print(findTotaBits(4))  # 3
-    print(findTotaBits(9))  # 4
-    print(findTotaBits(32))  # 6
-    print(findTotaBits(12345)) # 14
+    print(countTotaBits(0)) # 1
+    print(countTotaBits(1))  # 1
+    print(countTotaBits(2))  # 2
+    print(countTotaBits(4))  # 3
+    print(countTotaBits(9))  # 4
+    print(countTotaBits(32))  # 6
+    print(countTotaBits(12345)) # 14
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
