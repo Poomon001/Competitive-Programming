@@ -43,15 +43,14 @@ def fib_M3(n: int) -> int:
 
     def fibSum(n: int) -> int:
         # found data in a table, just use it
-        if n in table:
+        if n < 2:
             return table[n]
 
         # new data can be find by the table using previous data
-        if n - 1 == len(table) - 1 and n not in table:
-            table[n] = table[n - 1] + table[n - 2]
-            return table[n]
+        if n not in table:
+            table[n] = fibSum(n - 2) + fibSum(n - 1)
 
-        return fibSum(n - 1) + fibSum(n - 2)
+        return table[n]
 
     return fibSum(n)
 
