@@ -103,6 +103,7 @@ public class MergeTwoSortedList {
      * Returns: ListNode - a merge linkedlist
      * Post-Condition: none
      */
+    // new node - runtime: O(n), memory: O(1)
     public static ListNode mergeTwoLists_m1(ListNode list1, ListNode list2) {
         ListNode printList = new ListNode();
 
@@ -148,6 +149,7 @@ public class MergeTwoSortedList {
      * Returns: ListNode - a merge linkedlist
      * Post-Condition: none
      */
+    // in-place - runtime: O(n), memory: O(1)
     public static ListNode mergeTwoLists_m2(ListNode list1, ListNode list2) {
         // if not last, then compare link1.node with link2.node
         ListNode prev = new ListNode(-1);
