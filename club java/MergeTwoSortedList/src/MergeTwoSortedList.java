@@ -140,6 +140,14 @@ public class MergeTwoSortedList {
         return printList.next;
     } // mergeTwoLists
 
+    /*
+     * Link: https://leetcode.com/problems/merge-two-sorted-lists/submissions/
+     * Purpose: Merge two sorted linked lists and return it as a sorted list.
+     * Parameters: ListNode - the first linkedlist contains integer object
+     *           : ListNode - a second linkedlist contains integer object
+     * Returns: ListNode - a merge linkedlist
+     * Post-Condition: none
+     */
     public static ListNode mergeTwoLists_m2(ListNode list1, ListNode list2) {
         // if not last, then compare link1.node with link2.node
         ListNode prev = new ListNode(-1);
@@ -148,11 +156,10 @@ public class MergeTwoSortedList {
 
         while(list1 != null && list2 != null){
             if(list2.val < list1.val) {
-                ListNode temp = list2;
                 prev.next = list2;
+                prev = prev.next;
                 list2 = list2.next;
-                temp.next = list1;
-                prev = temp;
+                prev.next = list1;
             }else{
                 prev = list1;
                 list1 = list1.next;
