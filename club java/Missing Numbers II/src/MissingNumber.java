@@ -15,15 +15,20 @@ public class MissingNumber {
         System.out.println(missingNumber_M1(nums2)); // 2
         System.out.println(missingNumber_M1(nums3)); // 8
 
-        System.out.println("\n === Solution 1 === \n");
+        System.out.println("\n === Solution 2 === \n");
         System.out.println(missingNumber_M2(nums1)); // 2
         System.out.println(missingNumber_M2(nums2)); // 2
         System.out.println(missingNumber_M2(nums3)); // 8
 
-        System.out.println("\n === Solution 1 === \n");
-        System.out.println(missingNumber_M2(nums1)); // 2
-        System.out.println(missingNumber_M2(nums2)); // 2
-        System.out.println(missingNumber_M2(nums3)); // 8
+        System.out.println("\n === Solution 3 === \n");
+        System.out.println(missingNumber_M3(nums1)); // 2
+        System.out.println(missingNumber_M3(nums2)); // 2
+        System.out.println(missingNumber_M3(nums3)); // 8
+
+        System.out.println("\n === Solution 4 === \n");
+        System.out.println(missingNumber_M4(nums1)); // 2
+        System.out.println(missingNumber_M4(nums2)); // 2
+        System.out.println(missingNumber_M4(nums3)); // 8
     }
 
     /*
@@ -98,6 +103,45 @@ public class MissingNumber {
         }
 
         return expectedSum - actualSum;
+    }
+
+    /*
+    * Link: https://leetcode.com/problems/missing-number/
+    * Purpose: Find the only number in the range that is missing from the array.
+    * Parameters: int [] - a sequence of integer from o to n
+    * Returns: int - a missing interger in the sequence
+    * Pre-Condition: n == nums.length
+                   : 1 <= n <= 104
+                   : 0 <= nums[i] <= n
+                   : All the numbers of nums are unique.
+      Post-Condition : None
+    */
+
+    // binary search: runtime: O(nlogn), memory: O(1)
+    public static int missingNumber_M4(int[] nums) {
+        // binary search: sort nums then each num will corespond to its index
+        // so all numbers after the missing number will has more value than its index
+        // we always keep scoping the solution by searching until left <= right
+
+        Arrays.sort(nums);
+        int left = 0;
+        int right = nums.length - 1;
+
+        // The loop continues until left exceeds right.
+        // At this point, left will be positioned at the first index where the index does not match the value
+        while(left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] == mid) {
+                // all numbers from the left up to mid are in their correct positions
+                left = mid + 1;
+            } else {
+                // the missing number is at mid or to the left of mid.
+                right = mid - 1;
+            }
+        }
+
+        return left;
     }
 
 }
