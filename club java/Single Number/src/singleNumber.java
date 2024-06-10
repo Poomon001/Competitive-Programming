@@ -44,7 +44,7 @@ public class singleNumber {
 	 * Pre-Condition: there is always a single integer element in the array
 	 * Post-Condition: none
 	 */
-    // runtime: O(n(log(n))), memory: O(1)
+    // sort - runtime: O(n(log(n))), memory: O(1)
     public static int singleNumber_M1(int[] nums) {
         // sort to make it easier to handle array
         Arrays.sort(nums);
@@ -69,7 +69,7 @@ public class singleNumber {
      * Pre-Condition: there is always a single integer element in the array
      * Post-Condition: none
      */
-    // runtime: O(n), memory: O(n)
+    // ahshMap - runtime: O(n), memory: O(n)
     public static int singleNumber_M2(int[] nums) {
         // {num, frequency}
         HashMap<Integer, Integer> seen = new HashMap();
@@ -99,13 +99,13 @@ public class singleNumber {
      * Pre-Condition: there is always a single integer element in the array
      * Post-Condition: none
      */
-    // runtime: O(n), memory: O(1)
+    // XOR - runtime: O(n), memory: O(1)
     public static int singleNumber_M3(int[] nums) {
-        int ans = nums[0];
-
-        // xor N and N is 0, and xor 0 and N is N
-        for(int i = 1; i < nums.length; i++) {
-            ans = ans^nums[i];
+        // use XOR property I: 2 XOR 2 = 0 AND 2 XOR 0 = 2
+        // use XOR property II: 2 ^ 9 ^ 2 ^ 10 ^ 10 = (2 ^ 2) ^ (10 ^ 10) ^ 9 = 9
+        int ans = 0;
+        for(int num:nums){
+            ans = ans ^ num;
         }
         return ans;
     }
@@ -117,7 +117,7 @@ public class singleNumber {
      * Pre-Condition: there is always a single integer element in the array
      * Post-Condition: none
      */
-    // set: O(n), memory: O(n)
+    // set - O(n), memory: O(n)
     public static int singleNumber_M4(int[] nums) {
         int originalSum = Arrays.stream(nums).sum();
         Set<Integer> numSet = Arrays.stream(nums).boxed().collect(Collectors.toSet());
