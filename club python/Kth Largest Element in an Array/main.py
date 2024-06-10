@@ -83,7 +83,7 @@ def findKthLargest_m2(nums: List[int], k: int) -> int:
 '''
 # min heap - runtime: O(nlog(k)), memory: O(n)
 def findKthLargest_m3(nums: List[int], k: int) -> int:
-    # heap will be small at k size
+    # Create a min heap of K largest element where smallest kth is at top
     # once heap hit the limit of k, we keep replace the smallest element in the heap
     # with the new large element in nums
     heap = []
