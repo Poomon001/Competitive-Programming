@@ -6,12 +6,22 @@ public class ReverseWords {
         String s4 = "the sky is blue";
         String s5 = "  hello world  ";
         String s6 = "a good   example";
-        System.out.println(reverserWords(s1)); // ""
-        System.out.println(reverserWords(s2)); // "hello"
-        System.out.println(reverserWords(s3)); // "world hello"
-        System.out.println(reverserWords(s4)); // "blue is sky the"
-        System.out.println(reverserWords(s5)); // "world hello"
-        System.out.println(reverserWords(s6)); // "example good a"
+
+        System.out.println("\n === solution 1 ===\n");
+        System.out.println(reverserWords_M1(s1)); // ""
+        System.out.println(reverserWords_M1(s2)); // "hello"
+        System.out.println(reverserWords_M1(s3)); // "world hello"
+        System.out.println(reverserWords_M1(s4)); // "blue is sky the"
+        System.out.println(reverserWords_M1(s5)); // "world hello"
+        System.out.println(reverserWords_M1(s6)); // "example good a"
+
+        System.out.println("\n === solution 2 ===\n");
+        System.out.println(reverserWords_M2(s1)); // ""
+        System.out.println(reverserWords_M2(s2)); // "hello"
+        System.out.println(reverserWords_M2(s3)); // "world hello"
+        System.out.println(reverserWords_M2(s4)); // "blue is sky the"
+        System.out.println(reverserWords_M2(s5)); // "world hello"
+        System.out.println(reverserWords_M2(s6)); // "example good a"
     }
 
     /**
@@ -22,7 +32,7 @@ public class ReverseWords {
      * Pre-Condition: 1 <= s.length <= 10^4
      * Post-Condition: none
      **/
-    public static String reverserWords(String s){
+    public static String reverserWords_M1(String s){
         String[] words = s.split(" ");
         String ans = "";
         for(String word:words){
@@ -31,5 +41,19 @@ public class ReverseWords {
             }
         }
         return ans.strip();
+    }
+
+    public static String reverserWords_M2(String s) {
+        String[] words = s.trim().split("\\s+");
+        int i = 0;
+        int j = words.length - 1;
+        while(i < j) {
+            String temp = words[i];
+            words[i] = words[j];
+            words[j] = temp;
+            i++;
+            j--;
+        }
+        return String.join(" ", words);
     }
 }
