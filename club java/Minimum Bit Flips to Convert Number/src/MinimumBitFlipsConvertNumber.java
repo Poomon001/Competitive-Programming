@@ -64,6 +64,4 @@ public class MinimumBitFlipsConvertNumber {
         }
         return counting;
     }
-
-
 }
