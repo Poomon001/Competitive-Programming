@@ -28,6 +28,13 @@ def fib_M2(n: int) -> int:
     fibSum2 = 1
     ans = 0
 
+    ''' 
+        F(3) = F(2) + F(1)
+        F(4) = F(3) + F(2)
+        F(5) = F(4) + F(3)
+        ans1 = first1 + second1
+        ans2 = ans1 + first1
+    '''
     while n != 0:
         n -= 1
         ans = fibSum1 + fibSum2
