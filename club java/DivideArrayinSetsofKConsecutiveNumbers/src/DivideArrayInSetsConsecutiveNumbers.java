@@ -117,10 +117,10 @@ public class DivideArrayInSetsConsecutiveNumbers {
      Link: https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/description/
      Purpose: Determine whether it is possible to divide the nums array into sets of k consecutive numbers.
      parameter: int[] nums - array of integers
-              : int k - an integer
+     : int k - an integer
      return: boolean - true if it is possible. Otherwise, return false
      Pre-Condition: 1 <= k <= nums.length <= 105
-                  : 1 <= nums[i] <= 109
+     : 1 <= nums[i] <= 109
      Post-Condition: none
      **/
     // If the smallest number in the possible-to-split array is V, then numbers V+1, V+2, ... V+k-1 must contain there as well.
