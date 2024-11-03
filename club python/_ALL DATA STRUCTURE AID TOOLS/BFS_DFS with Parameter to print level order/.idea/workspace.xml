@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c22c9be6-64f4-441f-8941-ecbdbafcf583" name="Default Changelist" comment="" />
+    <list default="true" id="c22c9be6-64f4-441f-8941-ecbdbafcf583" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../club java/Moving Average from Data Stream/out/production/Moving Average from Data Stream/MovingAverageDataStream$MovingAverage.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../club java/Moving Average from Data Stream/out/production/Moving Average from Data Stream/MovingAverageDataStream$MovingAverage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../club java/Moving Average from Data Stream/src/MovingAverageDataStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../club java/Moving Average from Data Stream/src/MovingAverageDataStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DFS Deep/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DFS Deep/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DFS Deep/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prime number/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Prime number/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +66,7 @@
       <workItem from="1642016450154" duration="29000" />
       <workItem from="1642019465366" duration="201000" />
       <workItem from="1650190913286" duration="87000" />
+      <workItem from="1730596326316" duration="1459000" />
     </task>
     <servers />
   </component>
