@@ -61,18 +61,18 @@ def printBFSLevelOrder_ByLevel(root):
 
             if currNode.right:
                 temp.appendleft(currNode.right)
-
+        print("")
         queue = temp
 
 ''' transverse bfs only '''
 # basic bfs level-order transversal
 # runtime: O(n), memory: O(n)
-def printBFSLevelOrder(root):
+def printBFS(root):
     if not root:
         return root
 
     queue = deque()
-    queue.append(root)
+    queue.appendleft(root)
 
     while queue:
         child = queue.pop()
@@ -92,7 +92,7 @@ def printBFSLevelOrder(root):
 # basic dfs level-order transversal
 # recursion with parameter
 # runtime: O(n), memory: O(n)
-def printDFSLevelOrder_Recursive(root):
+def printDFS_Recursive(root):
     def dfs(root):
         print(root.val, end = " ")
         if root.left:
@@ -106,7 +106,7 @@ def printDFSLevelOrder_Recursive(root):
 # basic dfs level-order transversal
 # stack and while loop approach
 # runtime: O(n), memory: O(n)
-def printDFSLevelOrder_Stack_M1(root):
+def printDFS_Stack_M1(root):
     stack = deque()
     stack.append(root)
     visited = set()
@@ -126,7 +126,7 @@ def printDFSLevelOrder_Stack_M1(root):
 
 # basic bfs level-order transversal
 # runtime: O(n), memory: O(n)
-def printBFSLevelOrder_Stack_M2(root):
+def printBFS_Stack_M2(root):
     if not root:
         return root
 
@@ -143,6 +143,12 @@ def printBFSLevelOrder_Stack_M2(root):
 
 
 if __name__ == '__main__':
+    '''
+    BST:
+            4
+       2        7
+    1     3   5
+    '''
     root1 = newNode(4)
     insertIntoBST(root1, 2)
     insertIntoBST(root1, 7)
@@ -151,7 +157,7 @@ if __name__ == '__main__':
     insertIntoBST(root1, 5)
 
     print("\n+=== DFS Recursive  ===\n")
-    printDFSLevelOrder_Recursive(root1) # 4 2 1 3 7 5
+    printDFS_Recursive(root1) # 4 2 1 3 7 5
     print("")
 
     root2 = newNode(4)
@@ -162,7 +168,7 @@ if __name__ == '__main__':
     insertIntoBST(root2, 5)
 
     print("\n+=== DFS Stack M1 ===\n")
-    printDFSLevelOrder_Stack_M1(root2) # 4 2 1 3 7 5
+    printDFS_Stack_M1(root2) # 4 2 1 3 7 5
     print("")
 
     root3 = newNode(4)
@@ -173,7 +179,7 @@ if __name__ == '__main__':
     insertIntoBST(root3, 5)
 
     print("\n+=== DFS Stack M2 ===\n")
-    printBFSLevelOrder_Stack_M2(root3)  # 4 2 1 3 7 5
+    printBFS_Stack_M2(root3)  # 4 2 1 3 7 5
     print("")
 
     root4 = newNode(4)
@@ -182,9 +188,12 @@ if __name__ == '__main__':
     insertIntoBST(root4, 1)
     insertIntoBST(root4, 3)
     insertIntoBST(root4, 5)
+    insertIntoBST(root4, 6)
+    insertIntoBST(root4, 8)
+    insertIntoBST(root4, 9)
 
     print("\n+=== BFS By level  ===\n")
-    printBFSLevelOrder_ByLevel(root4)  # 4 2 7 1 3 5
+    printBFSLevelOrder_ByLevel(root4)  # 4 \n 2 7 \n 1 3 5 8 \n 6 9
     print("")
 
     root5 = newNode(4)
@@ -195,7 +204,7 @@ if __name__ == '__main__':
     insertIntoBST(root5, 5)
 
     print("\n+=== BFS Only Transverse  ===\n")
-    printBFSLevelOrder(root5)  # 4 2 7 1 3 5
+    printBFS(root5)  # 4 2 7 1 3 5
     print("")
 
 
