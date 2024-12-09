@@ -117,7 +117,7 @@ public class MissingNumber {
       Post-Condition : None
     */
 
-    // binary search: runtime: O(nlogn), memory: O(1)
+    // binary search (optimize version of M1): runtime: O(nlogn), memory: O(1)
     public static int missingNumber_M4(int[] nums) {
         // binary search: sort nums then each num will corespond to its index
         // so all numbers after the missing number will has more value than its index
