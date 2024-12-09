@@ -24,23 +24,18 @@ def intToRoman_m1(num: int) -> str:
     Post-Condition: none
 '''
 # greedy method: runtime - O(1), memory - O(1)
-def intToRoman_m2( num: int) -> str:
-    dic = {1: "I", 4: "IV", 5: "V", 9: "IX", 10: "X", 40: "XL", 50: "L", 90: "XC", 100: "C", 400: "CD", 500: "D",
-           900: "CM", 1000: "M"}
-    li = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+def intToRoman_m2(num: int) -> str:
+    integerToRoman = [
+        (1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
+        (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'), (10, 'X'),
+        (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')
+    ]
     ans = ""
-
-    # O(1)
-    while num != 0:
-        i = 0
-        # O(1)
-        while i < len(li):
-            n = li[i]
-            if num - n >= 0:
-                ans = ans + str(dic[n])
-                num = num - n
-                break
-            i += 1
+    for integer, roman in integerToRoman:
+        count = num // integer # go from 1000, to 900, to ... to 1
+        value = integer * count
+        ans = ans + (count * roman)
+        num -= value
     return ans
 
 # Press the green button in the gutter to run the script.
