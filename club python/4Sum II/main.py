@@ -31,7 +31,7 @@ def fourSumCount_M1(nums1: List[int], nums2: List[int], nums3: List[int], nums4:
     return ans
 
 '''
-    Link: https://leetcode.com/problems/4sum-ii/
+    Link: https://leetcode.com/problems/4sum-ii
     Purpose: Find the number of tuples that nums1[i] + nums2[j] + nums3[k] + nums4[l] == 0 
            : (count all duplicates tuples eg. (1, 1, -1, -1), (-1, 1, -1, 1), and (-1, -1, 1, 1) is 3)
     parameter: List[int] nums1 - a list of integer with length n
