@@ -11,7 +11,7 @@ from typing import List
     Post-Condition: none
 '''
 # recursive - runtime: O(n*2^n), memory: O(n*2^n) -> we have 2^n subsets each many contain n elements
-# eg.      [1, 2]
+# eg.      [    ]
 #       /          \
 #     [1]          []
 #   /    \       /    \
@@ -22,7 +22,7 @@ def subsets_M1(nums: List[int]) -> List[List[int]]:
 
     def backtrack(i):
         # keep tract of leaf nodes
-        if i >= len(nums):
+        if i > len(nums) - 1:
             subsets.append(subset[:])
             return
 

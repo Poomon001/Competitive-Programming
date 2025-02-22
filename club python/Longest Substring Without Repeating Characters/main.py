@@ -47,45 +47,31 @@ def lengthOfLongestSubstring_M1(s: str) -> int:
     Post-Condition: runtime under O(n^2)
 '''
 
-
-# hashmap: O(2n)
+# hashSet: runtime - O(n), memory - (24)
 def lengthOfLongestSubstring_M2(s: str) -> int:
-    # pointer expanding the window
-    curr = 0
+    word = set()
+    maxLength = 0
+    length = 0
 
-    # pointer at front of the unique list of char
-    front = 0
+    # keep track of the current char index
+    head = 0
+    tail = 0
 
-    # record highest length
-    highestLength = 0
-
-    # hashmap keep track of char
-    mapChar = []
-
-    # 1. if dup char found -> keep moving front pointer up and removing front char from hashmap,
-    # remain curr pointer at the dupli char
-    # 2. then repeat the loop to check if hashmap still contains dupli char: yes, repeat step #1, No, go to step #3
-    # eg: s = "poomon001$" -> "po", (remove p,o) "om", (remove o) "mon0", (remove m, o, n, 0) "01$"
-    while (curr < len(s)):
-        if s[curr] in mapChar:
-            # remove first char in hashmap
-            mapChar.remove(s[front])
-
-            # move the front pointer to the next char
-            front += 1
-
-        # 3. add new char to the hashmap, set current pointer to the next char, and update the max length
+    while (head < len(s)):
+        if s[head] in word:
+            # duplicated char is found, remove tail
+            word.remove(s[tail])
+            tail += 1
+            length -= 1
         else:
-            # add a new char to hashmap
-            mapChar.append(s[curr])
+            # duplicated char is not found, add head
+            word.add(s[head])
+            head += 1
+            length += 1
 
-            # move expanding window pointer to the next char
-            curr += 1
+        maxLength = max(maxLength, length)
 
-            # find the max lenght
-            highestLength = max(highestLength, len(mapChar))
-
-    return highestLength
+    return maxLength
 
 
 '''
@@ -98,8 +84,7 @@ def lengthOfLongestSubstring_M2(s: str) -> int:
     Post-Condition: runtime under O(n^2)
 '''
 
-
-# same as logic as M2 but easier implimentation
+# array: runtime - O(n^2), memory - (24)
 # keep remove element from a list until no duplicate left then continue adding and cheaking maxLength
 def lengthOfLongestSubstring_M3(s: str) -> int:
     word = []
