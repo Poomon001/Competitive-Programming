@@ -102,90 +102,56 @@ def orangesrotten_List(grid: List[List[int]]) -> int:
                  : grid[i][j] is 0, 1, or 2.
     Post-Condition: none
 '''
-# Use set to reduce runtime: runtime: O(n^2), memory: O(n)
+# BFS: runtime: O(n^2), memory: O(n^2)
 def orangesrotten_Set(grid: List[List[int]]) -> int:
-    # map: [x-axis, y-axis]
-    rotten = set() # outer-most visited node
-    good = set() # not visited node
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    rottens = set()
+    goods = set()
 
-    # store the answer
-    min = 0
+    def bfs():
+        queue = deque(rottens)
+        visited = set()
+        level = 0
+        while (len(queue) != 0 and len(goods) > 0):
+            temp = deque()
+            while (len(queue) != 0):
+                i, j = queue.popleft()
 
-    for y in range(len(grid)):
-        for x in range(len(grid[y])):
-            # locate good orange location
-            if grid[y][x] == 1:
-                good.add(f"{x}{y}")
+                if (i, j) in visited:
+                    continue
 
-            # locate rotten orange
-            if grid[y][x] == 2:
-                rotten.add(f"{x}{y}")
+                visited.add((i, j))
+                if (i, j) in goods:
+                    goods.remove((i, j))
 
-    # Do BFS on 4 directions until: 1. no good orange left, or 2. no path to visit good oranges
-    # one BFS hop
-    while good:
-        # Was good and become bad
-        infected = set()  # helper to update outer-most visited nodes
+                for direction in directions:
+                    new_i = i + direction[1]
+                    new_j = j + direction[0]
+                    if 0 <= new_i < len(grid) and 0 <= new_j < len(grid[0]) and (new_i, new_j) not in visited and \
+                            grid[new_i][new_j] == 1:
+                        temp.append((new_i, new_j))
+            queue = temp
+            if len(goods) > 0:
+                level += 1
+        return -1 if len(goods) > 0 else level
 
-        # visit all neighbours of each outer-most visited nodes
-        for r in rotten:
-            x = int(r[0])
-            y = int(r[1])
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if grid[i][j] == 2:
+                rottens.add((i, j))
+            if grid[i][j] == 1:
+                goods.add((i, j))
 
-            # visit left neighbour
-            if x+1 < len(grid[y]) and f"{x+1}{y}" in good:
-                grid[y][x+1] = 2
-                # remove node from unvisited list and put it to outer-most visited list
-                good.remove(f"{x+1}{y}")
-                infected.add(f"{x+1}{y}")
-
-            # visit right neighbour
-            if x - 1 > -1 and f"{x-1}{y}" in good:
-                grid[y][x - 1] = 2
-                # remove node from unvisited list and put it to outer-most visited list
-                good.remove(f"{x-1}{y}")
-                infected.add(f"{x-1}{y}")
-
-            # visit up neighbour
-            if y + 1 < len(grid) and f"{x}{y+1}" in good:
-                grid[y+1][x] = 2
-                # remove node from unvisited list and put it to outer-most visited list
-                good.remove(f"{x}{y+1}")
-                infected.add(f"{x}{y+1}")
-
-            # visit down neighbour
-            if y - 1 > -1 and f"{x}{y-1}" in good:
-                grid[y - 1][x] = 2
-                # remove node from unvisited list and put it to outer-most visited list
-                good.remove(f"{x}{y-1}")
-                infected.add(f"{x}{y-1}")
-
-        # There is still a good orange but there is no path for BFS (infection) to visit. Thus, impossible.
-        if len(infected) == 0:
-            return -1
-
-        min += 1
-
-        # clear rotten list b/c now the elements are visited nodes (not outer-most visited)
-        rotten.clear()
-
-        # update outer-most visited node to the outer-most visited list
-        rotten = infected
-
-    return min
+    return bfs()
 
 
 if __name__ == '__main__':
-    print("\n +===== List solution =====+\n")
     print(orangesrotten_List([[2,1,1],[1,1,0],[0,1,1]])) # 4
     print(orangesrotten_List([[2,1,1],[0,1,1],[1,0,1]])) # -1
     print(orangesrotten_List([[2, 1, 0, 1]])) # -1
     print(orangesrotten_List([[0,2]])) # 0
     print(orangesrotten_List([[2,1,0,2]])) # 1
-
-    print("\n +===== Set solution =====+\n")
-    print(orangesrotten_Set([[2, 1, 1], [1, 1, 0], [0, 1, 1]]))  # 4
-    print(orangesrotten_Set([[2, 1, 1], [0, 1, 1], [1, 0, 1]]))  # -1
-    print(orangesrotten_Set([[2, 1, 0, 1]]))  # -1
-    print(orangesrotten_Set([[0, 2]]))  # 0
-    print(orangesrotten_Set([[2, 1, 0, 2]]))  # 1
+    print(orangesrotten_List([[2,1,1],[0,1,1],[1,0,1]]))  # -1
+    print(orangesrotten_List([[0]]))  # 0
+    print(orangesrotten_List([[1]]))  # -1
+    print(orangesrotten_List([[2,2],[1,1],[0,0],[2,0]]))  # 1
