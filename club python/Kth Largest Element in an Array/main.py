@@ -7,7 +7,7 @@ import heapq
     Purpose: Find the kth largest element in the array
     parameter: List[int] nums - a list of integers
              : int k - an integer
-    return: bool - true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+    return: int - a Kth largest number
     Pre-Condition: 1 <= k <= nums.length <= 10^5
                  : -10^4 <= nums[i] <= 10^4
     Post-Condition: none
@@ -23,7 +23,7 @@ def findKthLargest_m1(nums: List[int], k:int) -> int:
     Purpose: Find the kth largest element in the array
     parameter: List[int] nums - a list of integers
              : int k - an integer
-    return: bool - true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+    return: int - a Kth largest number
     Pre-Condition: 1 <= k <= nums.length <= 10^5
                  : -10^4 <= nums[i] <= 10^4
     Post-Condition: must process in O(n) time complexity
@@ -76,7 +76,7 @@ def findKthLargest_m2(nums: List[int], k: int) -> int:
     Purpose: Find the kth largest element in the array
     parameter: List[int] nums - a list of integers
              : int k - an integer
-    return: bool - true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+    return: int - a Kth largest number
     Pre-Condition: 1 <= k <= nums.length <= 10^5
                  : -10^4 <= nums[i] <= 10^4
     Post-Condition: must process in O(n) time complexity
@@ -104,7 +104,7 @@ def findKthLargest_m3(nums: List[int], k: int) -> int:
     Purpose: Find the kth largest element in the array
     parameter: List[int] nums - a list of integers
              : int k - an integer
-    return: bool - true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+    return: int - a Kth largest number
     Pre-Condition: 1 <= k <= nums.length <= 10^5
                  : -10^4 <= nums[i] <= 10^4
     Post-Condition: must process in O(n) time complexity
@@ -120,6 +120,7 @@ def findKthLargest_m4(nums: List[int], k: int) -> int:
             curr = heapq.heappop(heap)
             heapq.heappush(heap, max(num, curr))
     return heap[0]
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
