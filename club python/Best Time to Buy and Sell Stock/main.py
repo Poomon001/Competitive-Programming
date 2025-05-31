@@ -34,33 +34,24 @@ def maxProfit_M1(prices: List[int]) -> int:
                  : 0 <= k <= 10^5
     Post-Condition: none
 '''
-# two-pointer buy low, sell high: O(n), memory:O(1)
+# Greedy: buy low, sell high: O(n), memory:O(1)
 def maxProfit_M2(prices: List[int]) -> int:
-    left = 0
-    right = 1
-    maxProfit = 0
+    profit = 0
+    bought = prices[0]
+    for i in range(1, len(prices)):
+        price = prices[i]
+        if profit < price - bought:
+            profit = price - bought
+        else:
+            if price < bought:
+                bought = price
 
-    while right < len(prices):
-        buy = prices[left]
-        sell = prices[right]
-        profit = sell - buy
-
-        # not buy low, sell high
-        if buy > sell:
-            # make buy low
-            left = right
-
-        right += 1
-        maxProfit = max(profit, maxProfit)
-
-    return maxProfit
-
-
+    return profit
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print("\n+=== solution 2 ===+\n")
+    print("\n+=== solution 1 ===+\n")
     print(maxProfit_M1([7, 1, 5, 3, 6, 4]))  # 5
     print(maxProfit_M1([7, 1, 5, 3, 0, 6, 4]))  # 6
     print(maxProfit_M1([7]))  # 0
