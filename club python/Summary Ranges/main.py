@@ -29,11 +29,11 @@ def summaryRanges_M1(nums: List[int]) -> List[str]:
 
     # group element into multiple ranges
     for i in range(1, len(nums)):
-        # continuous: append to the same block
         if prev+1 == nums[i]:
+            # continuous: append to the same block
             numList[index].append(nums[i])
-        # not continuous: append to the next block
         else:
+            # not continuous: append to the next block
             index += 1
             numList[index].append(nums[i])
         prev = nums[i]
@@ -62,43 +62,32 @@ def summaryRanges_M1(nums: List[int]) -> List[str]:
 '''
 # runtime: O(n) memory: O(1)
 def summaryRanges_M2(nums: List[int]) -> List[str]:
-    # returned answer doesnt count as a memory usage
-    s = []
-
-    # handle empty case:
+    ans = []
     if len(nums) == 0:
-        return s
+        return []
 
-    # element in each range
-    length = 0
+    if len(nums) == 1:
+        return [f"{nums[0]}"]
 
-    # save the first number of the range
-    head = nums[0]
-
-    # save previous number
-    prev = nums[0]
-
-    # group element into multiple ranges
+    start = nums[0]
     for i in range(1, len(nums)):
-        # continuous: append to the same block
-        if prev+1 == nums[i]:
-            length += 1
+        curr = nums[i]
+        prev = nums[i - 1]
+        if curr - prev != 1:
+            if start == prev:
+                # no range
+                ans.append(f"{start}")
+            else:
+                # there is a range
+                ans.append(f"{start}->{prev}")
+            start = nums[i]
 
-        # not continuous: append to the next block
-        else:
-            ans = f"{head}->{nums[i-1]}" if length != 0 else f"{head}"
-            s.append(ans)
-            head = nums[i]
-            length = 0
+    if start == nums[-1]:
+        ans.append(f"{start}")
+    else:
+        ans.append(f"{start}->{nums[-1]}")
 
-        prev = nums[i]
-
-    # append the last range (loop will not cover the last range)
-    ans = f"{head}->{nums[i]}" if length != 0 else f"{head}"
-    s.append(ans)
-
-    return s
-
+    return ans
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
