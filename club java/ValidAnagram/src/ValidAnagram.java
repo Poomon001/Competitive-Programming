@@ -59,47 +59,29 @@ public class ValidAnagram {
 
     // use hashmap: runtime: O(n), memory: O(n)
     public static boolean validAnagram_M2(String s, String t){
-        Hashtable<Character, Integer> seen = new Hashtable<>();
-
-        // check length
-        if (t.length() != s.length()){
-            return false;
+        HashMap<Character, Integer> charToFreq = new HashMap<>();
+        String longerStr = s;
+        String shorterStr = t;
+        if(s.length() < t.length()) {
+            longerStr = t;
+            shorterStr = s;
         }
 
-        // if both are same
-        if (t.equals(s)){
-            return true;
+        for(char i : longerStr.toCharArray()) {
+            int freq = charToFreq.getOrDefault(i, 0) + 1;
+            charToFreq.put(i, freq);
         }
 
-        // read char in string s
-        for (int i = 0; i < s.length(); i++){
-            // if key exist then add 1 to the value
-            if (seen.containsKey(s.charAt(i))){
-                int counter = seen.get(s.charAt(i));
-                counter++;
-                seen.put(s.charAt(i), counter);
-            // if key doesnt exist then initilize 1 to the value
-            }else {
-                seen.put(s.charAt(i), 1);
+        for (char i: shorterStr.toCharArray()) {
+            if(charToFreq.getOrDefault(i, 0) > 0) {
+                int freq = charToFreq.get(i) - 1;
+                if(freq == 0){
+                    charToFreq.remove(i);
+                }else{
+                    charToFreq.put(i, freq);
+                }
             }
         }
-
-        // cheack char in string t
-        for (int i = 0; i < t.length(); i++){
-            // found the same char (key) subtract one from value
-            if(seen.containsKey(t.charAt(i))){
-                int counter = seen.get(t.charAt(i));
-                counter--;
-                seen.put(t.charAt(i), counter);
-            }
-        }
-
-        // check count and return result
-        for (int i = 0; i < s.length(); i++){
-            if (seen.get(s.charAt(i)) != 0){
-                return false;
-            }
-        }
-        return true;
+        return charToFreq.size() == 0;
     }
 }
