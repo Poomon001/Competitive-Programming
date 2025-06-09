@@ -12,20 +12,19 @@ from typing import List
 '''
 # DP - runtime: O(n), memory: O(1)
 def rob(nums: List[int]) -> int:
-    currMaxMoney = 0
-    prevMaxMoney = 0
+    # max(optimam_before_adj, optimam_with_adj)
+    # formular: optimum = max(curr + optimam_before_adj, optimam_with_adj)
+    optimam_before_adj = 0
+    optimam_with_adj = 0
+    for i in range(len(nums)):
+        prev_optimam_with_adj = optimam_with_adj
+        optimam_with_adj = max(nums[i] + optimam_before_adj, optimam_with_adj)
+        optimam_before_adj = prev_optimam_with_adj
 
-    # pick either:
-    # 1. the curr highest, OR
-    # 2. the curr value(may or may not contain the prev adjacent value) + the prev highest(guarantee not contain the prev adjacent value)
-    for num in nums:
-        temp = currMaxMoney
-        currMaxMoney = max(currMaxMoney, num + prevMaxMoney)
-        prevMaxMoney = temp
-
-    return currMaxMoney
+    return max(optimam_before_adj, optimam_with_adj)
 
 if __name__ == "__main__":
+    print(rob([5, 1, 1, 5]))  # 10
     print(rob([1,400,100,10,100])) # 500
     print(rob([2])) # 2
     print(rob([2, 7])) # 7
