@@ -96,16 +96,15 @@ def minCostClimbingStairs_M3(cost: List[int]) -> int:
 '''
 # dynamic programming: runtime - O(n), memory - O(1)
 def minCostClimbingStairs_M4(cost: List[int]) -> int:
-    cost.append(0)
-    prevMinCost = 0
-    currMinCost = 0
+    minCurr = cost[1]
+    minPrev = cost[0]
 
-    for c in cost:
-        temp = currMinCost
-        currMinCost = c + min(prevMinCost, currMinCost)
-        prevMinCost = temp
+    for i in range(2, len(cost)):
+        temp = minCurr
+        minCurr = min(minCurr, minPrev) + cost[i]
+        minPrev = temp
 
-    return currMinCost
+    return min(minCurr, minPrev)
 
 
 # Press the green button in the gutter to run the script.
@@ -114,7 +113,7 @@ if __name__ == '__main__':
     print(minCostClimbingStairs_M1([10, 15, 20]))  # 15
     print(minCostClimbingStairs_M1([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]))  # 6
     print(minCostClimbingStairs_M1([1, 100, 1, 1, 2, 1, 1, 1, 100, 1]))  # 6
-    print(minCostClimbingStairs_M1([10]))  # 0
+    print(minCostClimbingStairs_M1([10, 0]))  # 0
     print(minCostClimbingStairs_M1([10, 15]))  # 10
     # will take a few second
     print(minCostClimbingStairs_M1([841,462,566,398,243,248,238,650,989,576,361,126,334,729,446,897,953,38,195,679,65,707,196,705,569,275,259,872,630,965,978,109,56])) # 7072
@@ -123,7 +122,7 @@ if __name__ == '__main__':
     print(minCostClimbingStairs_M2([10,15,20])) # 15
     print(minCostClimbingStairs_M2([1,100,1,1,1,100,1,1,100,1])) # 6
     print(minCostClimbingStairs_M2([1,100,1,1,2,1,1,1,100,1])) # 6
-    print(minCostClimbingStairs_M2([10])) # 0
+    print(minCostClimbingStairs_M2([10, 0])) # 0
     print(minCostClimbingStairs_M2([10, 15])) # 10
     print(minCostClimbingStairs_M2([841,462,566,398,243,248,238,650,989,576,361,126,334,729,446,897,953,38,195,679,65,707,196,705,569,275,259,872,630,965,978,109,56])) # 7072
 
@@ -131,7 +130,7 @@ if __name__ == '__main__':
     print(minCostClimbingStairs_M3([10,15,20])) # 15
     print(minCostClimbingStairs_M3([1,100,1,1,1,100,1,1,100,1])) # 6
     print(minCostClimbingStairs_M3([1,100,1,1,2,1,1,1,100,1])) # 6
-    print(minCostClimbingStairs_M3([10])) # 0
+    print(minCostClimbingStairs_M3([10, 0])) # 0
     print(minCostClimbingStairs_M3([10, 15])) # 10
     print(minCostClimbingStairs_M3([841,462,566,398,243,248,238,650,989,576,361,126,334,729,446,897,953,38,195,679,65,707,196,705,569,275,259,872,630,965,978,109,56])) # 7072
 
@@ -139,6 +138,6 @@ if __name__ == '__main__':
     print(minCostClimbingStairs_M4([10,15,20])) # 15
     print(minCostClimbingStairs_M4([1,100,1,1,1,100,1,1,100,1])) # 6
     print(minCostClimbingStairs_M4([1,100,1,1,2,1,1,1,100,1])) # 6
-    print(minCostClimbingStairs_M4([10])) # 0
+    print(minCostClimbingStairs_M4([10, 0])) # 0
     print(minCostClimbingStairs_M4([10, 15])) # 10
     print(minCostClimbingStairs_M4([841,462,566,398,243,248,238,650,989,576,361,126,334,729,446,897,953,38,195,679,65,707,196,705,569,275,259,872,630,965,978,109,56])) # 7072
