@@ -64,6 +64,37 @@ def subsets_M2(nums: List[int]) -> List[List[int]]:
             subsets.append(subset)
     return subsets
 
+'''
+    Link: https://leetcode.com/problems/subsets/
+    Purpose: Find all subsets.
+    parameter: List[int] nums - a list of numbers
+    return: List[List[int]] - all subsets in nums
+    Pre-Condition: 1 <= nums.length <= 10
+                 : -10 <= nums[i] <= 10
+                 : All the numbers of nums are unique.
+    Post-Condition: none
+'''
+# combine/traditional - runtime: O(n*2^n), memory: O(n*2^n) -> we have 2^n subsets each many contain n elements
+#                         []
+#               /          |          \
+#             [1]         [2]         [3]
+#           /     \      /   \         |
+#       [1,2]   [1,3]  [2,3]  ×       ×
+#        /         |     |
+#    [1,2,3]       ×     ×
+def subsets_M3(nums: List[int]) -> List[List[int]]:
+    subsets = []
+
+    def backtrack(i, subset):
+        subsets.append(subset[:])
+        for j in range(i, len(nums)):
+            subset.append(nums[j])
+            backtrack(j + 1, subset)
+            subset.pop()
+
+    backtrack(0, [])
+    return subsets
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print("\n === solution 1 === \n")
