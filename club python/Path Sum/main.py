@@ -20,63 +20,56 @@ class newNode:
                  : -1000 <= targetSum <= 1000
     Post-Condition: none
 '''
-# runtime: O(n), memory: O(depth of tree)
-def hasPathSum(root: Optional[TreeNode], targetSum: int) -> bool:
-    sum = 0
-    answer = False
-
-    # note: b/c a tree can be empty, we must check if root exist
-    if root is None:
+# dfs with nonlocal - runtime: O(n), memory: O(depth of tree)
+def hasPathSum_M1(root: Optional[TreeNode], targetSum: int) -> bool:
+    if not root:
         return False
 
-    def dfs(root):
-        nonlocal sum
-        nonlocal answer
+    ans = False
 
-        sum += root.val
+    def dfs(root, targetSum):
+        nonlocal ans
+        if not root.left and not root.right and targetSum == 0:
+            ans = True
+            return
 
         if root.left:
-            dfs(root.left)
+            dfs(root.left, targetSum - root.left.val)
 
         if root.right:
-            dfs(root.right)
+            dfs(root.right, targetSum - root.right.val)
 
-        # check if sum is equal to the targetSum
-        if not root.left and not root.right and sum == targetSum:
-            answer = True
+    dfs(root, targetSum - root.val)
+    return ans
 
-        sum -= root.val
+'''
+    Link: https://leetcode.com/problems/path-sum/
+    Purpose: Determine if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.
+    parameter: Optional[TreeNode] root - a root of a binary tree
+             : targetSum - int: an integer target
+    return: bool answer -  return true if the tree has a root-to-leaf path such that adding up all the values along     
+          : the path equals targetSum. Otherwise return false.
+    Pre-Condition: The number of nodes in the tree is in the range [0, 5000].
+                 : -1000 <= Node.val <= 1000
+                 : -1000 <= targetSum <= 1000
+    Post-Condition: none
+'''
+# dfs without nonlocal - runtime: O(n), memory: O(depth of tree)
+def hasPathSum_M2(root: Optional[TreeNode], targetSum: int) -> bool:
+    if not root:
+        return False
 
-    dfs(root)
-    return answer
+    def dfs(root, targetSum):
+        if root:
+            targetSum -= root.val
+            if not root.left and not root.right and targetSum == 0:
+                return True
 
-# Credit: https://www.geeksforgeeks.org/insertion-in-a-binary-tree-in-level-order/
-"""function to insert element in binary tree """
-def insert(temp, key):
-    if not temp:
-        root = newNode(key)
-        return
-    q = []
-    q.append(temp)
+            return dfs(root.left, targetSum) or dfs(root.right, targetSum)
 
-    # Do level order traversal until we find
-    # an empty place.
-    while (len(q)):
-        temp = q[0]
-        q.pop(0)
+        return False
 
-        if (not temp.left):
-            temp.left = newNode(key)
-            break
-        else:
-            q.append(temp.left)
-
-        if (not temp.right):
-            temp.right = newNode(key)
-            break
-        else:
-            q.append(temp.right)
-
+    return dfs(root, targetSum)
 
 if __name__ == "__main__":
     root1 = newNode(3)
@@ -84,10 +77,6 @@ if __name__ == "__main__":
     root1.right = newNode(20)
     root1.right.left = newNode(15)
     root1.right.right = newNode(7)
-
-    print(hasPathSum(root1, 3)) # False
-    print(hasPathSum(root1, 12)) # True
-    print(hasPathSum(root1, 27)) # False
 
     root2 = newNode(5)
     root2.left = newNode(4)
@@ -99,10 +88,22 @@ if __name__ == "__main__":
     root2.left.left.right = newNode(2)
     root2.right.right.right = newNode(1)
 
-    print(hasPathSum(root2, 22))  # True
-    print(hasPathSum(root2, 26))  # True
-    print(hasPathSum(root2, 4))  # False
-    print(hasPathSum(root2, 0))  # False
+    print("\n === Solution 1 === \n")
+    print(hasPathSum_M1(root1, 3))  # False
+    print(hasPathSum_M1(root1, 12))  # True
+    print(hasPathSum_M1(root1, 27))  # False
+    print(hasPathSum_M1(root2, 22))  # True
+    print(hasPathSum_M1(root2, 26))  # True
+    print(hasPathSum_M1(root2, 4))  # False
+    print(hasPathSum_M1(root2, 0))  # False
 
+    print("\n === Solution 2 === \n")
+    print(hasPathSum_M2(root1, 3))  # False
+    print(hasPathSum_M2(root1, 12))  # True
+    print(hasPathSum_M2(root1, 27))  # False
+    print(hasPathSum_M2(root2, 22))  # True
+    print(hasPathSum_M2(root2, 26))  # True
+    print(hasPathSum_M2(root2, 4))  # False
+    print(hasPathSum_M2(root2, 0))  # False
 
 

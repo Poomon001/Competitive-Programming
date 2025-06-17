@@ -217,26 +217,26 @@ if __name__ == '__main__':
     ))  # True
 
     print("\n === Iterative Optimization === \n")
-    # print(WordSearch_Iterative_Optimize(
-    #     [["A", "B", "C", "E"],
-    #      ["S", "F", "C", "S"],
-    #      ["A", "D", "E", "E"]],
-    #     "ABCCED"
-    # ))  # True
-    #
-    # print(WordSearch_Iterative_Optimize(
-    #     [["A", "B", "C", "E"],
-    #      ["S", "F", "C", "S"],
-    #      ["A", "D", "E", "E"]],
-    #     "SEE"
-    # ))  # True
-    #
-    # print(WordSearch_Iterative_Optimize(
-    #     [["A", "B", "C", "E"],
-    #      ["S", "F", "C", "S"],
-    #      ["A", "D", "E", "E"]],
-    #     "ABCB"
-    # ))  # False
+    print(WordSearch_Iterative_Optimize(
+        [["A", "B", "C", "E"],
+         ["S", "F", "C", "S"],
+         ["A", "D", "E", "E"]],
+        "ABCCED"
+    ))  # True
+
+    print(WordSearch_Iterative_Optimize(
+        [["A", "B", "C", "E"],
+         ["S", "F", "C", "S"],
+         ["A", "D", "E", "E"]],
+        "SEE"
+    ))  # True
+
+    print(WordSearch_Iterative_Optimize(
+        [["A", "B", "C", "E"],
+         ["S", "F", "C", "S"],
+         ["A", "D", "E", "E"]],
+        "ABCB"
+    ))  # False
 
     print(WordSearch_Iterative_Optimize(
         [["A", "B", "C", "E"],
@@ -252,11 +252,11 @@ if __name__ == '__main__':
         "ABCESEEEFS"
     ))  # False
 
-    # print(WordSearch_Iterative_Optimize(
-    #     [["A", "B"],
-    #      ["S", "F"]],
-    #     "ABCB"
-    # ))  # False
+    print(WordSearch_Iterative_Optimize(
+        [["A", "B"],
+         ["S", "F"]],
+        "ABCB"
+    ))  # False
 
     print(WordSearch_Iterative_Optimize(
         [["A", "B", "C", "E"],

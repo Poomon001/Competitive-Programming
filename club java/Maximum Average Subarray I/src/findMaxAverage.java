@@ -25,7 +25,7 @@ public class findMaxAverage {
     *              : -104 <= nums[i] <= 104
     * Post-Condition : None
     */
-    // window slicing - runtime: O(n*m), memory:O(1)
+    // sliding window - runtime: O(n*m), memory:O(1)
     public static double findMaxAverage_M1(int[] nums, int k) {
         int maxSum = Integer.MIN_VALUE;
 
@@ -46,7 +46,7 @@ public class findMaxAverage {
     *              : -104 <= nums[i] <= 104
     * Post-Condition : None
     */
-    // window slicing - runtime: O(n), memory:O(1)
+    // sliding window - runtime: O(n), memory:O(1)
     public static double findMaxAverage_M2(int[] nums, int k) {
         int sum = Arrays.stream(nums, 0, k).sum();
         int maxSum = sum;
