@@ -38,6 +38,7 @@ def productExceptSelf_M1(nums: List[int]) -> List[int]:
 # prefix * suffix - runtime: O(n), memory: O(n)
 def productExceptSelf_M2(nums: List[int]) -> List[int]:
     # using this fact: answer[i] = math.prod(nums[:i]) * math.prod(nums[i+1:])
+    # curr = product of all except itself = product of left * product of right
     # prefix = [1,  1,  2, 6]
     # suffix = [24, 12, 4, 1]
     # answer = [24, 12, 8, 6]
