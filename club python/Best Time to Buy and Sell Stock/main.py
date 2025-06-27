@@ -43,8 +43,7 @@ def maxProfit_M2(prices: List[int]) -> int:
         if profit < price - bought:
             profit = price - bought
         else:
-            if price < bought:
-                bought = price
+            bought = min(bought, price)
 
     return profit
 
