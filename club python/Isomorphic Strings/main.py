@@ -10,11 +10,8 @@
                  : s and t consist of any valid ascii character.
     Post-Condition: none
 '''
-# 1:1 check solution - Runtime: O(n), Memory: O(n)
+# 1:1 check solution - Runtime: O(n), Memory: O(1)
 def isIsomorphic_M1(s: str, t: str) -> bool:
-    if len(set(s)) != len(set(t)):
-        return False
-
     # {s char, t cahr}
     sTot = {}
 
@@ -48,8 +45,9 @@ def isIsomorphic_M1(s: str, t: str) -> bool:
                  : s and t consist of any valid ascii character.
     Post-Condition: none
 '''
-# hashmap solution - Runtime: O(n), Memory: O(n)
+# hashset solution - Runtime: O(n), Memory: O(1)
 def isIsomorphic_M2(s: str, t: str) -> bool:
+    # check if characters have 1:1 mapping
     if len(set(s)) != len(set(t)):
         return False
 
@@ -65,6 +63,34 @@ def isIsomorphic_M2(s: str, t: str) -> bool:
         newS += sTot[i]
 
     return newS == t
+
+'''
+    Link: https://leetcode.com/problems/isomorphic-strings/
+    Purpose: Given two strings s and t, determine if they are isomorphic.
+           : Two strings s and t are isomorphic if the characters in s can be replaced to get t.
+    Parameter: str s: the first string
+             : str t: the second string
+    Returns: bool: true if isomorphic. Otherwise, false
+    Pre-Condition: 1 <= s.length <= 5 * 104
+                 : t.length == s.length
+                 : s and t consist of any valid ascii character.
+    Post-Condition: none
+'''
+# hashmap solution - Runtime: O(n), Memory: O(1)
+def isIsomorphic_M3(s: str, t: str) -> bool:
+    tToS = {}
+    sToT = {}
+    newT = ""
+    newS = ""
+    for i in range(len(s)):
+        tToS[t[i]] = s[i]
+        sToT[s[i]] = t[i]
+
+    for i in range(len(s)):
+        newT += tToS[t[i]]
+        newS += sToT[s[i]]
+
+    return newT == s and newS == t
 
 if __name__ == '__main__':
     print("=== solution 1 ===\n")
@@ -86,3 +112,13 @@ if __name__ == '__main__':
     print(isIsomorphic_M2(s="100", t="987"))  # False
     print(isIsomorphic_M2(s="bbbaaaba", t="aaabbbba"))  # False
     print(isIsomorphic_M2(s="aaabbbba", t="bbbaaaba"))  # False
+
+    print("=== solution 3 ===\n")
+    print(isIsomorphic_M3(s="egg", t="add"))  # True
+    print(isIsomorphic_M3(s="foo", t="bar"))  # False
+    print(isIsomorphic_M3(s="paper", t="title"))  # True
+    print(isIsomorphic_M3(s="badc", t="baba"))  # False
+    print(isIsomorphic_M3(s="233", t="011"))  # True
+    print(isIsomorphic_M3(s="100", t="987"))  # False
+    print(isIsomorphic_M3(s="bbbaaaba", t="aaabbbba"))  # False
+    print(isIsomorphic_M3(s="aaabbbba", t="bbbaaaba"))  # False
