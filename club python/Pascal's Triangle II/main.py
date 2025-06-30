@@ -11,26 +11,18 @@ from typing import List
 
 # run-time: O(n^2), memory: O(n)
 def getRow(rowIndex: int) -> List[int]:
-    # row 0
-    ans = [1]
-    # store previous row
-    temp = []
-
-    # get thought each row index
-    for i in range(rowIndex):
+    prevRow = [1]
+    for _ in range(rowIndex):
+        row = []
         prev = 0
-        # create a new row from the previous row (temp)
-        for j in range(len(temp)):
-            ans[j] = temp[j] + prev
-            prev = temp[j]
+        for i in range(len(prevRow)):
+            value = prevRow[i] + prev
+            prev = prevRow[i]
+            row.append(value)
+        row.append(1)
+        prevRow = row[:]
 
-        # at the end of the list we append 1
-        ans.append(1)
-
-        # set curr row to prev row
-        temp = ans[:]
-
-    return ans
+    return prevRow
 
 if __name__ == '__main__':
     print(getRow(0)) # [1]
