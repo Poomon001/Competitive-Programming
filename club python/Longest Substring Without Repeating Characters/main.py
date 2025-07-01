@@ -51,25 +51,22 @@ def lengthOfLongestSubstring_M1(s: str) -> int:
 def lengthOfLongestSubstring_M2(s: str) -> int:
     word = set()
     maxLength = 0
-    length = 0
 
     # keep track of the current char index
-    head = 0
-    tail = 0
+    right = 0
+    left = 0
 
-    while (head < len(s)):
-        if s[head] in word:
+    while (right < len(s)):
+        if s[right] in word:
             # duplicated char is found, remove tail
-            word.remove(s[tail])
-            tail += 1
-            length -= 1
+            word.remove(s[left])
+            left += 1
         else:
             # duplicated char is not found, add head
-            word.add(s[head])
-            head += 1
-            length += 1
+            word.add(s[right])
+            right += 1
 
-        maxLength = max(maxLength, length)
+        maxLength = max(maxLength, right - left)
 
     return maxLength
 
@@ -109,6 +106,7 @@ def lengthOfLongestSubstring_M3(s: str) -> int:
 
 
 if __name__ == '__main__':
+    print("=== finish M1 ===")
     print(lengthOfLongestSubstring_M1("abcabcbb"))  # 3 ("abc")
     print(lengthOfLongestSubstring_M1("aaaa"))  # 1 ("a")
     print(lengthOfLongestSubstring_M1("pwwkew"))  # 3 ("wke")
@@ -120,7 +118,7 @@ if __name__ == '__main__':
     print(lengthOfLongestSubstring_M1("aab"))  # 2 ("ab")
     print(lengthOfLongestSubstring_M1("abb"))  # 2 ("ab")
 
-    print("=== finish M1 ===")
+    print("=== finish M2 ===")
 
     print(lengthOfLongestSubstring_M2("abcabcbb"))  # 3 ("abc")
     print(lengthOfLongestSubstring_M2("aaaa"))  # 1 ("a")
@@ -133,7 +131,7 @@ if __name__ == '__main__':
     print(lengthOfLongestSubstring_M2("aab"))  # 2 ("ab")
     print(lengthOfLongestSubstring_M2("abb"))  # 2 ("ab")
 
-    print("=== finish M2 ===")
+    print("=== finish M3 ===")
 
     print(lengthOfLongestSubstring_M3("abcabcbb"))  # 3 ("abc")
     print(lengthOfLongestSubstring_M3("aaaa"))  # 1 ("a")
@@ -146,4 +144,3 @@ if __name__ == '__main__':
     print(lengthOfLongestSubstring_M3("aab"))  # 2 ("ab")
     print(lengthOfLongestSubstring_M3("abb"))  # 2 ("ab")\
 
-    print("=== finish M2 ===")
