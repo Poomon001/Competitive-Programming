@@ -1,41 +1,97 @@
+from collections import defaultdict, deque
 '''
-    Purpose: Determine a friend of friend for a target person
+    Purpose: Determine a friend of friend that a target person not yet connected with - 1-level relationship only
+           : e.g B has friends of A, B, C, D.
+           :     A has friends of B, C
+           :     C has friends of A, B, K
+           : if target is A it return [D, K] where D, K is a friend of B, C who A doesnt yet connect with.
     parameter: str target - a person
-            : list[list] friendList - a pari of relation where [person, person's friend]
+            : list[list] friendList - a pair of relation where [person, person's friend]
     return: list[str] - non-duplicate a friend of friend that a person doesnt yet connected with
     Pre-Condition: none
     Post-Condition: none
 '''
-# hashSet - runtime: O(n^2), memory: O(n)
-def recommend(target, friendList):
+# hashmap - runtime: O(f * fof), memory: O(n) where n = all nodes, f = friends of targets, and fof friends of friends of targets
+def recommend_M1(target, friendList):
     ans = set()
+    friendToFriends = defaultdict(set)
 
-    # {"person", set(their friends)}
-    friendToConnection = {}
+    for person, friend in friendList:
+        friendToFriends[person].add(friend)
+        friendToFriends[friend].add(person)
 
-    for relation in friendList:
-        person = relation[0]
-        friend = relation[1]
-        if person not in friendToConnection:
-            friendToConnection[person] = set(friend)
-        else:
-            friendToConnection[person].add(friend)
+    targetFriends = friendToFriends[target]
 
-    # add friend of friend to ans
-    for myFriend in friendToConnection[target]:
-        if myFriend in friendToConnection:
-            relatedFriendSet = friendToConnection[myFriend]
-            for relatedFriend in relatedFriendSet:
-                if relatedFriend not in friendToConnection[target] and relatedFriend != target:
-                    ans.add(relatedFriend)
+    for friend in targetFriends:
+        for friendOfFriend in friendToFriends[friend]:
+            if friendOfFriend != target and friendOfFriend not in targetFriends:
+                ans.add(friendOfFriend)
 
-    return ans
+    return list(ans)
+
+'''
+    Purpose: Determine a friend of friend that a target person not yet connected with - 1-level relationship only
+           : e.g B has friends of A, B, C, D.
+           :     A has friends of B, C
+           :     C has friends of A, B, K
+           : if target is A it return [D, K] where D, K is a friend of B, C who A doesnt yet connect with.
+    parameter: str target - a person
+            : list[list] friendList - a pair of relation where [person, person's friend]
+    return: list[str] - non-duplicate a friend of friend that a person doesnt yet connected with
+    Pre-Condition: none
+    Post-Condition: none
+'''
+# graph - runtime: O(f * fof), memory: O(n) where n = all nodes, f = friends of targets, and fof friends of friends of targets
+# note can be scaled to N-level
+def recommend_M2(target, friendList):
+    ans = set()
+    friendToFriends = defaultdict(set)
+
+    for person, friend in friendList:
+        friendToFriends[person].add(friend)
+        friendToFriends[friend].add(person)
+
+    visited = set()
+    level = 0
+
+    def bfs(target, level):
+        queue = deque(target)
+        while queue and level <= 1:
+            temp = deque()
+            while queue and level <= 1:
+                person = queue.popleft()
+                if person not in visited:
+                    visited.add(person)
+
+                    neighbors = friendToFriends[person]
+                    for neighbor in neighbors:
+                        temp.append(neighbor)
+                        if neighbor != target:
+                            ans.add(neighbor)
+
+            queue = temp
+            level += 1
+
+    bfs(target, level)
+
+    return list(ans - friendToFriends[target])
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print(recommend("A", [["A", "B"], ["A", "C"], ["A", "D"], ["B", "A"], ["B", "F"]])) # F
-    print(recommend("A", [["A", "C"], ["A", "D"], ["B", "A"], ["B", "F"]])) # {}
-    print(recommend("B", [["A", "B"], ["A", "C"], ["A", "D"], ["B", "A"], ["B", "F"]])) # "C", "D"
-    print(recommend("F", [["A", "B"], ["A", "C"], ["A", "D"], ["B", "A"], ["B", "F"], ["F", "A"], ["A", "F"]])) # "C","B","D"
-    print(recommend("F", [["A", "B"], ["A", "C"], ["A", "D"], ["B", "A"], ["B", "F"],["B", "K"], ["F", "A"], ["A", "F"], ["F","B"]])) # "K","D","C"
+    relation1 = [["A", "B"], ["A", "C"], ["A", "D"]] # a friend of friends has no other friends
+    relation2 = [["A", "B"], ["A", "C"], ["A", "D"], ["B", "F"]] # a friend of friends has all exclusive friends
+    relation3 = [["A", "B"], ["A", "C"], ["A", "D"], ["B", "F"], ["C", "F"], ["F", "D"], ["F", "A"]]  # a friend of friends has all exclusive friends
+    relation4 = [["A", "B"], ["A", "C"], ["A", "D"], ["B", "F"], ["F", "A"], ["F", "E"], ["E", "K"], ["E", "A"]] # a friend of friends has a mix of mutual and exclusive friends
+
+    print("\n === Solution 1 === \n")
+    print(recommend_M1("A", relation1)) # set()
+    print(recommend_M1("B", relation2)) # "C", "D"
+    print(recommend_M1("F", relation3)) # set()
+    print(recommend_M1("F", relation4)) # "K", "D", "C"
+
+    print("\n === Solution 2 === \n")
+    print(recommend_M2("A", relation1))  # set()
+    print(recommend_M2("B", relation2))  # "C", "D"
+    print(recommend_M2("F", relation3))  # set()
+    print(recommend_M2("F", relation4))  # "K", "D", "C"
