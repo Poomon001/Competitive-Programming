@@ -17,9 +17,9 @@ def rob(nums: List[int]) -> int:
     optimam_before_adj = 0
     optimam_with_adj = 0
     for i in range(len(nums)):
-        prev_optimam_with_adj = optimam_with_adj
+        temp = optimam_with_adj
         optimam_with_adj = max(nums[i] + optimam_before_adj, optimam_with_adj)
-        optimam_before_adj = prev_optimam_with_adj
+        optimam_before_adj = temp
 
     return max(optimam_before_adj, optimam_with_adj)
 
