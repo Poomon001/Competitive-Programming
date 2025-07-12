@@ -20,10 +20,9 @@ def combine_M1(m: int, k: int) -> List[List[int]]:
             return
 
         for i in range(n, len(nums)):
-            if nums[i] not in combination:
-                combination.append(nums[i])
-                backtrack(i, combination)
-                combination.pop()
+            combination.append(nums[i])
+            backtrack(i + 1, combination)
+            combination.pop()
 
     backtrack(0, [])
     return combinations
@@ -48,10 +47,9 @@ def combine_M2(m: int, k: int) -> List[List[int]]:
             return
 
         for num in range(n, m + 1):
-            if num not in combination:
-                combination.append(num)
-                backtrack(num + 1, combination)
-                combination.pop()
+            combination.append(num)
+            backtrack(num + 1, combination)
+            combination.pop()
 
     backtrack(1, [])
     return combinations
