@@ -1,4 +1,16 @@
 from typing import List
+
+'''
+    Link: https://leetcode.com/problems/combinations
+    Purpose: Given two integers m and k, return all possible combinations of k numbers chosen from the range [1, n]
+    parameter: int m - an integer
+             : int k - an integer
+    return: List[List[int]] combinations - all possible combinations of k numbers chosen from the range [1, n]
+    Pre-Condition: 1 <= n <= 20
+                 : 1 <= k <= n
+    Post-Condition: none
+'''
+# runtime: O(k * (m pick k)), memory: O(k * (m pick k))
 def combine_M1(m: int, k: int) -> List[List[int]]:
     combinations = []
     nums = [num for num in range(1, m + 1)]
@@ -16,6 +28,17 @@ def combine_M1(m: int, k: int) -> List[List[int]]:
     backtrack(0, [])
     return combinations
 
+'''
+    Link: https://leetcode.com/problems/combinations
+    Purpose: Given two integers m and k, return all possible combinations of k numbers chosen from the range [1, n]
+    parameter: int m - an integer
+             : int k - an integer
+    return: List[List[int]] combinations - all possible combinations of k numbers chosen from the range [1, n]
+    Pre-Condition: 1 <= n <= 20
+                 : 1 <= k <= n
+    Post-Condition: none
+'''
+# runtime: O(k * (m pick k)), memory: O(k * (m pick k))
 def combine_M2(m: int, k: int) -> List[List[int]]:
     combinations = []
 
