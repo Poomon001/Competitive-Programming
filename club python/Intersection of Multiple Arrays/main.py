@@ -11,7 +11,7 @@ from typing import List
                  : All the values of nums[i] are unique.
     Post-Condition: none
 '''
-# bst property: runtime: O(n), memory: O(log(n))
+# runtime: O(n), memory: O(n)
 def intersection(nums: List[List[int]]) -> List[int]:
     numToFreq = {}
     for li in nums:
