@@ -53,32 +53,21 @@ public class RevertLinkedList {
      */
     public static ListNode revertLinkedList(ListNode head) {
         // no need to reverse if head is null or there is only 1 node.
-        if (head == null || head.next == null) {
+        if (head == null) {
             return head;
         }
 
-        /** remomber these 3 lines **/
+        // unlink and prepare a reverse head
         ListNode reversedList = head;
-        ListNode toDo = head.next;
-
-        // initialize a reversed list
+        head = head.next;
         reversedList.next = null;
-        /** remomber these 3 lines **/
 
-        while(toDo != null){
-            // re-initialize/initialize helping node
-            ListNode dummy = toDo;
-
-            // point toDo to the next node
-            toDo = dummy.next;
-
-            // link the secound element to a reversed list
-            dummy.next = reversedList;
-
-            // move reversedList to the head of the list
-            reversedList = dummy;
+        while(head != null){
+            ListNode dummy = head.next;
+            head.next = reversedList;
+            reversedList = head;
+            head = dummy;
         }
-
 
         return reversedList;
     }
