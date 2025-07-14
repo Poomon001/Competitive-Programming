@@ -54,38 +54,26 @@ def findAnagrams_M1(s: str, p: str) -> List[int]:
 '''
 # slicing window and compare two dictionaries solution - runtime: O(s), memory: O(1) excluding the returned answer
 def findAnagrams_M2(s: str, p: str) -> List[int]:
-    pCounter = Counter(p)
-    sCounter = Counter()
+    size = len(p)
+    pToCount = Counter(p)
+    subToCount = {}
     ans = []
-    left = 0
-    right = 0
+    l = 0
+    r = 0
 
-    if len(p) > len(s):
-        return []
+    while r < len(s):
+        subToCount[s[r]] = subToCount.get(s[r], 0) + 1
 
-    # move right pointer and init dictionary
-    while right < len(p)-1:
-        sCounter.update({s[right]:1})
-        right += 1
+        if r - l >= size:
+            subToCount[s[l]] = subToCount.get(s[l], 0) - 1
+            if subToCount[s[l]] <= 0:
+                del subToCount[s[l]]
+            l += 1
 
+        if pToCount == subToCount:
+            ans.append(l)
 
-    while right < len(s):
-        # add right-most char from dic
-        sCounter.update({s[right]: 1})
-
-        # compare 2 dic
-        if sCounter == pCounter:
-            ans.append(left)
-
-        # remove left-most char from dic
-        sCounter[s[left]] -= 1
-        if sCounter[s[left]] == 0:
-            char = s[left]
-            del sCounter[char] # O(1)
-
-        # slicing window by 1 char
-        left += 1
-        right +=1
+        r += 1
 
     return ans
 
