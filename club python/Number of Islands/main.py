@@ -11,6 +11,7 @@ from typing import List
                  : grid[i][j] is '0' or '1'.
     Post-Condition: None
 '''
+# dfs - runtime: O(n*m), memory: O(n*m)
 def numIslands(grid: List[List[str]]) -> int:
     directions = ((1, 0), (-1, 0), (0, 1), (0, -1))
     visited = set()
