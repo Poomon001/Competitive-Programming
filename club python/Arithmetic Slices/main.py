@@ -15,37 +15,31 @@ from typing import List
 # dynamic programming solution - use the result from a smaller sub-problem to solve the larger problem
 # runtime: O(n), memory: O(1)
 def numberOfArithmeticSlices(nums: List[int]) -> int:
-    # sequence of 3 = (0) + (1)
-    # sequence of 4 = (0 + 1) + (2)
-    # sequence of 5 = (0 + 1 + 2) + (3)
-    # sequence of 6 = (0 + 1 + 2 + 3) + (4)
-    # note that it is (previous answer) + (Nth term)
+    # Tip:
+    # Arithmetic sequence of 3, totalsubarray = 1
+    # Arithmetic sequence of 4, totalsubarray = 1 + 2
+    # Arithmetic sequence of 5, totalsubarray = 1 + 2 + 3
+    # Arithmetic sequence of 6, totalsubarray = 1 + 2 + 3 + 4
+    # Arithmetic sequence of N, totalsubarray = 1 + 2 + 3 + 4 + ... + (N - 2)
 
+    # find the length of Arithmetic sequence
     # keep track of total answer
-    total = 0
-
-    # keep track of Nth term
-    N = 1
-
     if len(nums) < 3:
         return 0
 
-    # keep track of difference
+    total = 0
+    sequence = 1
     diff = nums[1] - nums[0]
 
-    for i in range(len(nums)-1):
-        # if the difference is same, add 1 Nth term
-        if diff == nums[i + 1] - nums[i]:
-            N += 1
-        # otherwise, set a new difference, reset Nth term to 1, and add 1 Nth term for the current number pair
-        else:
+    for i in range(len(nums) - 1):
+        if not (diff == nums[i + 1] - nums[i]):
             diff = nums[i + 1] - nums[i]
-            N = 1
-            N += 1
+            sequence = 1
 
-        # when find 3 or more Arithmetic subarray, do: answer = (previous answer) + (Nth term)
-        if N >= 3:
-            total = total + (N - 2)
+        sequence += 1
+
+        if sequence >= 3:
+            total = total + (sequence - 2)
 
     return total
 
