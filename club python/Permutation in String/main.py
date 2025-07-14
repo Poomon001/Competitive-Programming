@@ -12,42 +12,26 @@ from collections import Counter
 '''
 # slicing window algo - rumtime: O(n), memory: O(m) where m is len(s1)
 def checkInclusion(s1: str, s2: str) -> bool:
-    # {char : occurance}
-    dic1 = Counter(s1)
-    dic2 = Counter()
+    s1Count = Counter(s1)
+    subCount = Counter()
+    size = len(s1)
 
-    # keep tract of chars in s1
-    left = 0
-    right = 0
+    i = 0
+    j = 0
 
-    # make sure that s2 is equal or longer than s1
-    if len(s1) > len(s2):
-        return False
+    while j < len(s2):
+        subCount[s2[j]] = subCount.get(s2[j], 0) + 1
 
-    # move right pointer and init dic2
-    while right < len(s1) - 1:
-        dic2.update({s2[right]: 1})
-        right += 1
-
-    # perform slicing window
-    while right < len(s2):
-        # add the next right element
-        dic2.update({s2[right]: 1})
-
-        # compare if they are permutation
-        if dic1 == dic2:
+        if subCount == s1Count:
             return True
 
-        # remove left most element from a dic
-        leftChar = s2[left]
-        if dic2[leftChar] > 1:
-            dic2.update({leftChar: -1})
-        else:
-            del dic2[leftChar]
+        if j - i == size - 1:
+            subCount[s2[i]] = subCount.get(s2[i], 0) - 1
+            if subCount[s2[i]] == 0:
+                del subCount[s2[i]]
+            i += 1
 
-        left += 1
-        right += 1
-
+        j += 1
     return False
 
 
