@@ -35,27 +35,22 @@ def maxArea_M1(height: List[int]) -> int:
                 : 0 <= height[i] <= 104
     Post-Condition: none
 '''
-# two pointer + algo: O(n), memory: O(1)
-# 1. we determine maxArea from 1. highest distance, 2. a shorter height of 2 bars.
-# 2. Distance will decrease by 1 at max but height can increase by more than 1 (eg. [1, 10, 6] first d=2, h=1, second d=1, h=6)
-#    If no higher height is found, the first iteration with the highest distance is the answer.
-# We should start with the highest distance (0 and length-1). Then decrease distance by 1 in hope to find a higher height
-# To search higher height, we move pointer of a shorter height of two bar.
+# two pointer + greedy: O(n), memory: O(1)
 def maxArea_M2(height: List[int]) -> int:
-    front = 0
-    back = len(height) - 1
-    distance = len(height) - 1
-    maxArea = 0
-    while (front < back):
-        currHeight = min(height[front], height[back])
-        maxArea = max(maxArea, currHeight * distance)
-        if height[front] < height[back]:
-            front += 1
+    left = 0
+    right = len(height) - 1
+    maxStorage = 0
+
+    while left != right:
+        storage = (right - left) * min(height[left], height[right])
+        if height[left] > height[right]:
+            right -= 1
         else:
-            back -= 1
-        # decreae distance by 1 every iteration
-        distance -= 1
-    return maxArea
+            left += 1
+
+        maxStorage = max(maxStorage, storage)
+
+    return maxStorage
 
 
 if __name__ == '__main__':
