@@ -32,27 +32,27 @@ class Trie:
         return True
 
     def delete(self, word: str) -> None:
-        def _delete(curr, word, index):
+        def _delete(curr, index):
             # based case at the leaf
             if index == len(word):
                 if not curr.end:
                     return False  # word doesn't exist
-                curr.end = False
+                curr.end = False # simply remove word in case we cannot purge the node
                 return len(curr.children) == 0  # if no children, delete this node
 
             char = word[index]
             if char not in curr.children:
                 return False  # word doesn't exist
 
-            should_delete = _delete(curr.children[char], word, index + 1)
+            should_delete = _delete(curr.children[char], index + 1)
 
             if should_delete:
-                # recursively delete
                 del curr.children[char]
+                # delete the parent node if it is not a word and has no children
                 return not curr.end and len(curr.children) == 0
             return False
 
-        _delete(self.root, word, 0)
+        _delete(self.root, 0)
 
 
 if __name__ == '__main__':
@@ -72,3 +72,10 @@ if __name__ == '__main__':
     print(trie.search("app"))  # True
     print(trie.search("apple"))  # False
     print(trie.startsWith("appl"))  # False
+    trie.insert("apples")
+    print(trie.search("apple"))  # False
+    print(trie.search("apples"))  # True
+    trie.insert("apple")
+    print(trie.search("apple"))  # True
+    trie.delete("apple")
+    print(trie.search("apple"))  # False
