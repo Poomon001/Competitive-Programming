@@ -44,12 +44,12 @@ def recommend_M1(target, friendList):
 # graph - runtime: O(f * fof), memory: O(n) where n = all nodes, f = friends of targets, and fof friends of friends of targets
 # note can be scaled to N-level
 def recommend_M2(target, friendList):
-    ans = set()
-    friendToFriends = defaultdict(set)
+    friendOfFriends = set()
+    personToFriends = defaultdict(set)
 
     for person, friend in friendList:
-        friendToFriends[person].add(friend)
-        friendToFriends[friend].add(person)
+        personToFriends[person].add(friend)
+        personToFriends[friend].add(person)
 
     visited = set()
     level = 0
@@ -63,18 +63,18 @@ def recommend_M2(target, friendList):
                 if person not in visited:
                     visited.add(person)
 
-                    neighbors = friendToFriends[person]
+                    neighbors = personToFriends[person]
                     for neighbor in neighbors:
                         temp.append(neighbor)
                         if neighbor != target:
-                            ans.add(neighbor)
+                            friendOfFriends.add(neighbor)
 
             queue = temp
             level += 1
 
     bfs(target, level)
 
-    return list(ans - friendToFriends[target])
+    return list(friendOfFriends - personToFriends[target])
 
 
 # Press the green button in the gutter to run the script.
