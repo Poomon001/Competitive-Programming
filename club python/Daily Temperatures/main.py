@@ -12,28 +12,20 @@ from typing import List
 '''
 # The next greater algo: runtime: O(n), memory: O(n)
 def dailyTemperatures_M1(temperatures: List[int]) -> List[int]:
-    # answer[index] = temperature
     answer = [0] * len(temperatures)
+    stack = deque() # (temperature, index)
 
-    # store a list of (index, temperature) in a stack waiting for a higher temperature
-    stack = deque()
+    for i, temperature in enumerate(temperatures):
+        if not stack:
+            stack.append((temperature, i))
+            continue
 
-    # current temperature's index
-    i = 0
-
-    while i < len(temperatures):
-        # if a top-most temp of stack (lowest temp in the stack) is lower than the curr temp. The day is warmer!
-        while len(stack) != 0 and stack[-1][1] < temperatures[i]:
-            # get a stack top-most-temp's index
-            data = stack.pop()
-            index = data[0]
-            # add the difference to the top-most temp of stack's index in answer
+        while stack and temperature > stack[-1][0]:
+            top_stack = stack.pop()
+            index = top_stack[1]
             answer[index] = i - index
 
-        # place a curr temp onto the stack (it is the lowest temp in the stack)
-        collection = (i, temperatures[i])
-        stack.append(collection)
-        i += 1
+        stack.append((temperature, i))
 
     return answer
 
