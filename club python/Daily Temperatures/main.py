@@ -10,7 +10,7 @@ from typing import List
                  : 30 <= temperatures[i] <= 100
     Post-Condition: none
 '''
-# The next greater algo: runtime: O(n), memory: O(n)
+# Stack: runtime: O(n), memory: O(n)
 def dailyTemperatures_M1(temperatures: List[int]) -> List[int]:
     answer = [0] * len(temperatures)
     stack = deque() # (temperature, index)
