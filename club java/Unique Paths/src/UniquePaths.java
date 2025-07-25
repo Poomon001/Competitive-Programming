@@ -5,7 +5,7 @@ public class UniquePaths {
         System.out.println(uniquePaths(3, 1)); // 1
         System.out.println(uniquePaths(2, 2)); // 2
         System.out.println(uniquePaths(3, 3)); // 6
-        System.out.println(uniquePaths(4, 4)); // 12
+        System.out.println(uniquePaths(4, 4)); // 20
         System.out.println(uniquePaths(3, 7)); // 28
         System.out.println(uniquePaths(7, 3)); // 28
     }
@@ -28,25 +28,17 @@ public class UniquePaths {
         [1 3 6]
         so matrix[m][n] = matrix[m][n-1] + matrix[m-1][n]
         */
-        int[][] matrix = new int[m][n];
-
-        // define the top most row
-        for(int i = 0; i < n;i++){
-            matrix[0][i] = 1;
-        }
-
-        // define the front most column
-        for(int i = 0; i < m;i++){
-            matrix[i][0] = 1;
-        }
-
-        // build a full matrix
-        for(int i = 1; i < m; i++){
-            for(int j = 1; j < n; j++){
-                matrix[i][j] = matrix[i][j-1] + matrix[i-1][j];
+        int[][] grids = new int[m][n];
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                if(i == 0 || j == 0) {
+                    grids[i][j] = 1;
+                }else{
+                    grids[i][j] = grids[i-1][j] + grids[i][j-1];
+                }
             }
         }
 
-        return matrix[m-1][n-1];
+        return grids[m - 1][n - 1];
     }
 }
