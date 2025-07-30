@@ -12,22 +12,21 @@ from typing import List
 '''
 # run-time: O(n), memory: O(n)
 def merge(intervals: List[List[int]]) -> List[List[int]]:
-    intervals = sorted(intervals, key=lambda x: x[0])
-    ans = [intervals[0]]
+    intervals.sort()
+    answer = [intervals[0]]
+
     for interval in intervals:
-        head = ans[-1]  # the last element in answer list
+        start = interval[0]
+        end = interval[1]
 
-        # update end only
-        if head[0] <= interval[0] <= head[1]:
-            update = [head[0], max(interval[1], head[1])]
-            ans.pop()
-            ans.append(update)
+        prev_interval = answer[-1]
 
-        # start a new interval
-        elif head[1] < interval[0]:
-            ans.append(interval)
-
-    return ans
+        if prev_interval[0] <= start <= prev_interval[1]:
+            # if they are in the same interval, merge
+            answer[-1] = [min(start, prev_interval[0]), max(end, prev_interval[-1])]
+        else:
+            answer.append(interval)
+    return answer
 
 
 if __name__ == '__main__':
