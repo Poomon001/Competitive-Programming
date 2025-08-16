@@ -59,23 +59,20 @@ def depthSum(nestedList: List[NestedInteger]) -> int:
     # 1. only add (num * multi) to answer
     # 2. if it is not a num but a list, then unpack the list and add it back to the end of queue
     # 3. repeat until queue is empty
-    queue = deque(nestedList)
-
-    answer = 0
-    multi = 1
-
-    while queue:
-        temp = deque()
-        while queue:
-            # print(queue)
-            element = queue.popleft()  # element is NestedInteger, not iterable
-            if element.isInteger():
-                answer += element.getInteger() * multi
+    total_sum = 0
+    level = 1
+    while nestedList:
+        temp = []
+        while nestedList:
+            numList = nestedList.pop()
+            if numList.isInteger():
+                total_sum += numList.getInteger() * level
             else:
-                temp.extend(element.getList())  # add entire NestedInteger to deque
-        multi += 1
-        queue = temp
-    return answer
+                temp.extend(numList.getList())
+        nestedList = temp
+        level += 1
+
+    return total_sum
 
 
 if __name__ == "__main__":
@@ -91,7 +88,7 @@ if __name__ == "__main__":
     nestedList = [n1, n_list]
 
     print("Nested List:", nestedList)
-    # print("Depth Sum:", depthSum(nestedList))  # Expected: 1*1 + 4*2 + 6*3 = 27
+    print("Depth Sum:", depthSum(nestedList))  # Expected: 1*1 + 4*2 + 6*3 = 27
 
     # Example 2: [ [1,1], 2, [1,1] ]
     n_1a = NestedInteger(1)
