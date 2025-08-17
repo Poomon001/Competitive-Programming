@@ -23,7 +23,6 @@ def minimumTotalWeight(weights, d):
 
     return -sum(max_heap)
 
-
 if __name__ == '__main__':
     print(minimumTotalWeight([30, 20, 25], 4)) # 29
     print(minimumTotalWeight([30, 20, 25], 0))  # 75

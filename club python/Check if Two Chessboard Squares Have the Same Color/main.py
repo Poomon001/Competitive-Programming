@@ -1,35 +1,49 @@
-'''
-    Link: https://leetcode.com/problems/check-if-two-chessboard-squares-have-the-same-color
-    Purpose: Given an 8 x 8 chessboard with black/white colors and two coordinates, find if both coordinates have the same color.
-    Parameter: str coordinate1 - a valid chessboard coordinate ([1-8][a-h])
-             : str coordinate2 - a valid chessboard coordinate ([1-8][a-h])
-    Returns: bool - True if both coordinates have the same color. Otherwise False.
-    Pre-Condition: coordinate1.length == coordinate2.length == 2
-                 : 'a' <= coordinate1[0], coordinate2[0] <= 'h'
-                 : '1' <= coordinate1[1], coordinate2[1] <= '8'
-    Post-Condition: none
-'''
-# rumtime: O(1), memory: O(1)
-def checkTwoChessboards(coordinate1: str, coordinate2: str) -> bool:
-    # first = odd, second = even => white
-    # first = odd, second = odd => black
-    # first = even, second = even => black
-    # first = even, second = odd => white
+# Online Python compiler (interpreter) to run Python online.
+def print_all_codes(n, m):
 
-    # black = True
-    # white = False
-    def findColor(coordinate: str) -> bool:
-        first = ord(coordinate[0]) - ord('a') + 1
-        second = int(coordinate[1])
+    upper_bound = m + n
 
-        return first % 2 == second % 2
+    # Print all codes for n and m
 
-    return findColor(coordinate1) == findColor(coordinate2)
+    def print_01_codes(current, num_digits):
 
+        if num_digits == 0:
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print(checkTwoChessboards("a1", "a1")) # True
-    print(checkTwoChessboards("a1", "c3")) # True
-    print(checkTwoChessboards("a1", "h3")) # False
+            # Print only the current
 
+            print(current)
+
+        else:
+
+            if upper_bound > m or upper_bound < 1 or m == n == 0:
+
+                print_01_codes('1' + current, num_digits - 1)
+
+                print_01_codes('0' + current, num_digits - 1)
+
+                print_01_codes('1' + current, num_digits - 1)
+
+                print_01_codes('0' + current, num_digits - 1)
+
+            else:
+
+                print_01_codes('1' + current, num_digits - 1)
+
+                print_01_codes('0' + current, num_digits - 1)
+
+                print_01_codes('1' + current, num_digits - 1)
+
+    upper_bound = 0
+
+    while True:
+
+        for i in range(upper_bound):
+
+            print_01_codes('', n)
+
+        if upper_bound == m:
+
+            break
+        upper_bound += 1
+
+print_all_codes(3, 7)
