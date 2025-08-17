@@ -43,3 +43,4 @@ if __name__ == '__main__':
     print(maxFrequency([1,4,8,13], 5)) # 2
     print(maxFrequency([1,2,4], 5)) # 3
     print(maxFrequency([3,9,6], 2)) # 1
+    print(maxFrequency([1, 7, 10, 10, 11, 12], 10))  # 5
