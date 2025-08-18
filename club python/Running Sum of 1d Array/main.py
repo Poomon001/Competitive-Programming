@@ -2,24 +2,18 @@ from typing import List
 
 '''
     Link: https://leetcode.com/problems/running-sum-of-1d-array/
-    Purpose: We define a running sum of an array
+    Purpose: Find a running sum of an array
     parameter: List[int] nums - an integer list
     return: List[int] answer: a list of running sum
     Pre-Condition: 1 <= nums.length <= 1000
                  : -10^6 <= nums[i] <= 10^6
     Post-Condition: none
 '''
+# array prefix - runtime: O(n), space: O(1)
 def runningSum(nums: List[int]) -> List[int]:
-    answer = []
-
-    for num in nums:
-        if answer:
-            length = len(answer) - 1
-            answer.append(answer[length] + num)
-        else:
-            answer.append(num)
-
-    return answer
+    for i in range(1, len(nums)):
+        nums[i] += nums[i - 1]
+    return nums
 
 
 # Press the green button in the gutter to run the script.
