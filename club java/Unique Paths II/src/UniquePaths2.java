@@ -90,10 +90,10 @@ public class UniquePaths2 {
 
                 if(i == 0){
                     // if curr is at the edge, the edge is 0 + adjacent non-edge entry
-                    obstacleGrid[0][j] += obstacleGrid[0][j - 1];
+                    obstacleGrid[0][j] = obstacleGrid[0][j - 1];
                 } else if (j == 0){
                     // if curr is at the edge, the edge is 0 + adjacent non-edge entry
-                    obstacleGrid[i][0] += obstacleGrid[i - 1][0];
+                    obstacleGrid[i][0] = obstacleGrid[i - 1][0];
                 } else {
                     // if curr is 0 flip to top + right
                     obstacleGrid[i][j] = obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1];
