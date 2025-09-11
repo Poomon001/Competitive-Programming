@@ -36,40 +36,26 @@ public class FindMinimuminRotatedSortedArray {
      **/
     // runtime: O(log(n)), memory: O(1)
     public static int findMin(int[] nums) {
-        // left and right most index
+        // If nums[mid] < nums[right], the right half [mid, right] is sorted,
+        // The minimum number is in [left, mid], including mid because mid could be the lowest in the sorted
+        // e.g [1, 2, 3, 4, 5] and [4, 5, 1, 2, 3]
+        //
+        // 2. If nums[mid] >= nums[right], the rotation range is from the left half to the mid [left, mid].
+        // The minimum cannot be in the rotation range [left, mid], so the minimum so is in (mid, right].
+        // e.g [3, 4, 5, 1, 2] and [2, 3, 4, 5, 1]
+
         int left = 0;
-        int right = nums.length-1;
+        int right = nums.length - 1;
+        int mid = 0;
+        while (left <= right) {
+            mid = (right - left) / 2 + left;
 
-        // keep cutting a sorted part of an array (an answer will be a part that is not sorted) [4,5,6,7,0,1,2,3] -> [7,0]
-        // eg. [4,5,6,7,0,1,2,3] -> [0,1,2,3] -> 0
-        while(left < right){
-            int middle = left + (right - left) / 2;
-
-            // array is in a sorted order
-            if(nums[left] < nums[right]){
-                return nums[left];
-            }
-
-            // we divide array by 2 until the 2 last elements left
-            if(right-left == 1){
-                return Math.min(nums[left], nums[right]);
-            }
-
-            /** left < middle < right is sorted **/
-            // sorted on left side, remove the left side
-            if(nums[left] <= nums[middle] && nums[middle] > nums[right]){
-                    left = middle;
-                    continue;
-            }
-
-            // sorted on right side, remove the right side
-            if(nums[left] > nums[middle] && nums[middle] <= nums[right]){
-                right = middle;
-                continue;
+            if(nums[mid] < nums[right]) {
+                right = mid;
+            } else {
+                left = mid + 1;
             }
         }
-
-        // in case left == right, we return left or right is fine
-        return nums[left];
+        return nums[mid];
     }
 }
