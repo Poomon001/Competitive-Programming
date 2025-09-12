@@ -33,6 +33,7 @@ def longestPalindrome(s: str) -> str:
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    print(longestPalindrome("bbbab"))  # bbb
     print(longestPalindrome("abc"))  # a
     print(longestPalindrome("a"))  # a
     print(longestPalindrome("aa"))  # aa
