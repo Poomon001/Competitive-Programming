@@ -37,30 +37,21 @@ def productExceptSelf_M1(nums: List[int]) -> List[int]:
 '''
 # prefix * suffix - runtime: O(n), memory: O(n)
 def productExceptSelf_M2(nums: List[int]) -> List[int]:
-    # using this fact: answer[i] = math.prod(nums[:i]) * math.prod(nums[i+1:])
-    # curr = product of all except itself = product of left * product of right
-    # prefix = [1,  1,  2, 6]
-    # suffix = [24, 12, 4, 1]
-    # answer = [24, 12, 8, 6]
-    length = len(nums)
-    prefix = [0] * length
-    suffix = [0] * length
-    l_product = 1
-    r_product = 1
+    # prefix[i] = product from [0 to i - 1]
+    # suffix[i] = product from [i - 1 to 0]
+    # Thus, prefix[i] * suffix[i] = product of all, excluding the integer at i-th
+    # [1, 2, 3, 4] = [1,           1*1,   1*1*2,   1*1*2*3]
+    # [1, 2, 3, 4] = [2*3*4*1,   3*4*1,     4*1,         1]
 
-    for i in range(length):
-        j = -i - 1  # e.g i = 0, j = -1 ... i = 1, j = -2
-        prefix[i] = l_product
-        suffix[j] = r_product
+    prefix = [1] * len(nums)
+    suffix = [1] * len(nums)
+    for n in range(len(nums) - 1):
+        i = n + 1
+        j = len(nums) - n - 2
+        prefix[i] = prefix[i - 1] * nums[n]
+        suffix[j] = suffix[j + 1] * nums[len(nums) - n - 1]
 
-        l_product *= nums[i]
-        r_product *= nums[j]
-
-    answer = []
-    for pre, suf in zip(prefix, suffix):
-        answer.append(pre * suf)
-
-    return answer
+    return [x * y for x, y in zip(prefix, suffix)]
 
 if __name__ == '__main__':
     print("\n === Solution 1 === \n")
