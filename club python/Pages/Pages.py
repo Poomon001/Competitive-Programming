@@ -7,12 +7,12 @@ from typing import List
            : 3. page_num is where we continue off
            : 4. page is empty if we start repeating the first_content
            : 5. need to pick up all content (e.g loop back if necessary) 
-    parameter: TreeNode root1 - a root of a binary search tree
-             : TreeNode root2 - a root of a binary search tree
-    return: List[int] ans - a list containing all the integers from two trees sorted in ascending order
-    Pre-Condition: The number of nodes in each tree is in the range [1, 5000].
-                 : -10^5 <= Node.val <= 10^5
-                 : root1 and root2 are a root of BST
+    parameter: List[int] content_list - a list of unique integers
+             : int first_content: the first target content to start with in page 0th
+             : int page_size: the maximum size of the page
+             : int page_num: the index tracking pagination progress
+    return: List[int] page - an array containing page contents
+    Pre-Condition: none
     Post-Condition: none
 '''
 # array: runtime: O(n), memory: O(1)
@@ -21,6 +21,7 @@ def pages(content_list: List[int], first_content: int, page_size: int, page_num:
     page = []
     start_index = 0
 
+    # (req 4.)
     if page_num * page_size >= size:
         return []
 
