@@ -1,6 +1,19 @@
 from functools import cache
 from typing import List
 
+'''
+    Link: https://leetcode.com/problems/word-break/
+    Purpose: Find if s string can be segmented into a space-separated sequence of one or more dictionary words.
+    parameter: str s - a string
+             : List[str] wordDict - a list of strings
+    return: bool - True if s can be segmented. otherwise, False
+    Pre-Condition: 1 <= s.length <= 300
+                 : 1 <= wordDict.length <= 1000
+                 : 1 <= wordDict[i].length <= 20
+                 : s and wordDict[i] consist of only lowercase English letters.
+                 : All the strings of wordDict are unique.
+    Post-Condition: none
+'''
 # bruteforce[without @cache] - runtime: O(2^n), space: O(1)
 def wordBreak_m1(s: str, wordDict: List[str]) -> bool:
     wordDict = set(wordDict)
@@ -18,6 +31,19 @@ def wordBreak_m1(s: str, wordDict: List[str]) -> bool:
 
     return recursive(0)
 
+'''
+    Link: https://leetcode.com/problems/word-break/
+    Purpose: Find if s string can be segmented into a space-separated sequence of one or more dictionary words.
+    parameter: str s - a string
+             : List[str] wordDict - a list of strings
+    return: bool - True if s can be segmented. otherwise, False
+    Pre-Condition: 1 <= s.length <= 300
+                 : 1 <= wordDict.length <= 1000
+                 : 1 <= wordDict[i].length <= 20
+                 : s and wordDict[i] consist of only lowercase English letters.
+                 : All the strings of wordDict are unique.
+    Post-Condition: none
+'''
 # top-up dp - runtime: O(n^2), memory: O(n)
 def wordBreak_m2(s: str, wordDict: List[str]) -> bool:
     dp = {} # {start_index, is_match_from_start_index_to_end_string}
@@ -39,6 +65,19 @@ def wordBreak_m2(s: str, wordDict: List[str]) -> bool:
 
     return recursive(0)
 
+'''
+    Link: https://leetcode.com/problems/word-break/
+    Purpose: Find if s string can be segmented into a space-separated sequence of one or more dictionary words.
+    parameter: str s - a string
+             : List[str] wordDict - a list of strings
+    return: bool - True if s can be segmented. otherwise, False
+    Pre-Condition: 1 <= s.length <= 300
+                 : 1 <= wordDict.length <= 1000
+                 : 1 <= wordDict[i].length <= 20
+                 : s and wordDict[i] consist of only lowercase English letters.
+                 : All the strings of wordDict are unique.
+    Post-Condition: none
+'''
 # bottom-down - runtime: O(n^2), memory: O(n)
 def wordBreak_m3(s: str, wordDict: List[str]) -> bool:
     dp = [False] * (len(s) + 1)
