@@ -14,7 +14,7 @@ from typing import List
                  : All the strings of wordDict are unique.
     Post-Condition: none
 '''
-# bruteforce[without @cache] - runtime: O(2^n), space: O(1)
+# bruteforce[without @cache] else top-down dp - runtime: O(2^n), space: O(1)
 def wordBreak_m1(s: str, wordDict: List[str]) -> bool:
     wordDict = set(wordDict)
     @cache
