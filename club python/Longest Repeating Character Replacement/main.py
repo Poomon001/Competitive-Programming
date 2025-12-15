@@ -1,7 +1,17 @@
 # This is a sample Python script.
 from collections import defaultdict
 
-
+'''
+    Link: https://leetcode.com/problems/longest-repeating-character-replacement/
+    Purpose: find the longest common character in a string. you can replace a character with an y character k times
+    Parameter:  string s - a string
+             : int - an integer
+    return: int ans - the longest common character in a string
+    Pre-Condition: 1 <= s.length <= 105
+                 : s consists of only uppercase English letters.
+                 : 0 <= k <= s.length
+    Post-Condition: None
+'''
 # sliding window - runtime: O(n), memory: O(1)
 def characterReplacement(s: str, k: int) -> int:
     # tips: we can expand window as long as we the window_size <= k + max_fre_char
@@ -25,6 +35,10 @@ def characterReplacement(s: str, k: int) -> int:
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    print(characterReplacement("AABABBA", 1)) # 4
+    print(characterReplacement("ABAB", 2))  # 4
+    print(characterReplacement("ABAB", 0))  # 1
+    print(characterReplacement("Z", 1))  # 4
+    print(characterReplacement("ABABACCCCCA", 2))  # 7
+    print(characterReplacement("AAAA", 3))  # 4
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
