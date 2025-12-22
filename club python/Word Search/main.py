@@ -93,8 +93,8 @@ def WordSearch_Iterative_Optimize(board: List[List[str]], word: str):
 
             visited.add((i, j))
 
-            # Just preventing a re-visit during exploration,
-            # later will be removed right away during backtrack to allow re-visit from a different path
+            # Add (i, j) to stack as a reference.
+            # Later, this (i, j) is used to find (i, j) from visited and remove for backtrack
             stack.append((i, j, index, True))
 
             if index == len(word) - 1:

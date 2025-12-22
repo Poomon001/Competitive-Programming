@@ -10,7 +10,6 @@ import typing
     Post-Condition: None
 '''
 
-
 # brute force: O(n^2log(n))
 def lengthOfLongestSubstring_M1(s: str) -> int:
     # record highest length
@@ -47,7 +46,7 @@ def lengthOfLongestSubstring_M1(s: str) -> int:
     Post-Condition: runtime under O(n^2)
 '''
 
-# hashSet: runtime - O(n), memory - (24)
+# sliding window I: runtime - O(n), memory - (1)
 def lengthOfLongestSubstring_M2(s: str) -> int:
     word = set()
     maxLength = 0
@@ -81,26 +80,19 @@ def lengthOfLongestSubstring_M2(s: str) -> int:
     Post-Condition: runtime under O(n^2)
 '''
 
-# array: runtime - O(n^2), memory - (24)
-# keep remove element from a list until no duplicate left then continue adding and cheaking maxLength
+# sliding window II: runtime - O(n), memory - (1)
 def lengthOfLongestSubstring_M3(s: str) -> int:
-    word = []
+    word = set()
     maxLength = 0
+    tail = 0
 
-    # keep track of the current char index
-    i = 0
+    for head in range(len(s)):
+        while s[head] in word:
+            word.remove(s[tail])
+            tail += 1
 
-    while (i < len(s)):
-        if s[i] in word:
-            # duplicated char is found
-            word.pop(0)
-        else:
-            # duplicated char is not found
-            word.append(s[i])
-            i += 1
-
-            # record maxLength
-            maxLength = max(len(word), maxLength)
+        word.add(s[head])
+        maxLength = max(maxLength, head - tail + 1)
 
     return maxLength
 
