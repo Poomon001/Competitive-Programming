@@ -20,19 +20,18 @@ class TreeNode:
 '''
 # dfs - runtime: O(n), memory: O(n)
 def findTarget_m1(root: Optional[TreeNode], k: int) -> bool:
-    # {k - number}
-    pair = set()
+    if root.left is None and root.right is None:
+        return False
+
+    node_to_pair = {}
     ans = False
 
     def dfs(root):
         nonlocal ans
-        diff = k - root.val
-
-        if root.val in pair:
+        if k - root.val in node_to_pair:
             ans = True
-            return
         else:
-            pair.add(diff)
+            node_to_pair[root.val] = k - root.val
 
         if root and root.left:
             dfs(root.left)
@@ -43,33 +42,36 @@ def findTarget_m1(root: Optional[TreeNode], k: int) -> bool:
     dfs(root)
     return ans
 
-# use inOrder transversal property - runtime: O(n), memory: O(n)
+'''
+    Link: https://leetcode.com/problems/two-sum-iv-input-is-a-bst/
+    Purpose: Determine if BST contain a pair of integer whose sum is a target
+    parameter: Optional[TreeNode] root - a binary search tree
+             : int k - a target integer
+    return: bool - true if the pair exist. Otherwise false
+    Pre-Condition: The number of nodes in the tree is in the range [1, 104].
+                 : -10^4 <= Node.val <= 10^4
+                 : root is guaranteed to be a valid binary search tree.
+                 : -10^5 <= k <= 10^5
+    Post-Condition: none
+'''
+# dfs - runtime: O(n), memory: O(n)
 def findTarget_m2(root: Optional[TreeNode], k: int) -> bool:
-    members = []
+    if root.left is None and root.right is None:
+        return False
 
-    # left -> node -> right
-    def inOrder(root):
-        if root and root.left:
-            inOrder(root.left)
+    node_to_pair = {}
+    def dfs(root):
+        if root is None:
+            return False
 
-        members.append(root.val)
-
-        if root and root.right:
-            inOrder(root.right)
-
-    inOrder(root)
-
-    i = 0
-    j = len(members) - 1
-    while i < j:
-        if members[i] + members[j] > k:
-            j -= 1
-        elif members[i] + members[j] < k:
-            i += 1
-        else:
+        if k - root.val in node_to_pair:
             return True
+        else:
+            node_to_pair[root.val] = k - root.val
 
-    return False
+        return dfs(root.left) or dfs(root.right)
+
+    return dfs(root)
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
