@@ -1,3 +1,4 @@
+from math import inf
 from typing import List
 
 li1 = ["fol", "flower", "flow", "fly", "flown"] #f
@@ -14,33 +15,58 @@ li3 = ["flower", "flow", "fly", "cat" ,"flown"] #""
                  : number of chars in a word is between 0 and 200
     Post-Condition: none
 '''
+# two for...loop: runtime - O(n), memory - O(1)
+def commonLongestPrefix_m1(strs: List[str]) -> str:
+    target = ""
+    length = inf
+    for s in strs:
+        if length > len(s):
+            target = s
+            length = len(s)
 
-# this is solution 1. Solution 2 is in java
-def commonLongestPrefix(words: List[str]) -> str:
-    globalLongestPrefix = words[0]
-    for word in words:
-        currLongestPrefix = ""
-        j = 0
-        for char in word:
-            # reach the end of globalLongestPrefix, then exit
-            if(j == len(globalLongestPrefix)):
-                break
+    longest_common_prefix = ""
+    for i in range(len(target)):
+        for s in strs:
+            if s[i] != target[i]:
+                return longest_common_prefix
 
-            # Add char to currLongestPrefix if the char match the current globalLongestPrefix char
-            if (char == globalLongestPrefix[j]):
-                currLongestPrefix = currLongestPrefix + char
-                j += 1
+        longest_common_prefix += target[i]
+    return longest_common_prefix
 
-            # found an unmatching character break out of the loop, then exit
-            else:
-                break
+'''
+    Link: https://leetcode.com/problems/longest-common-prefix/
+    Purpose: find the longest common prefix string amongst an array of strings.
+    parameter: array - contains words
+    return: string - longest common prefix
+    Pre-Condition: only lower-case English letters.
+                 : number of words is between 1 and 200
+                 : number of chars in a word is between 0 and 200
+    Post-Condition: none
+'''
+# onw for...loop: runtime - O(n), memory - O(1)
+def commonLongestPrefix_m2(strs: List[str]) -> str:
+    longest_common_prefix = ""
+    for i in range(len(strs[0])):
+        c = strs[0][i]
+        for s in strs:
+            if len(s) <= i:
+                return longest_common_prefix
 
-        # update globalLongestPrefix
-        globalLongestPrefix = currLongestPrefix
-    return globalLongestPrefix
+            if s[i] != c:
+                return longest_common_prefix
 
-print(commonLongestPrefix(li1))
-print(commonLongestPrefix(li2))
-print(commonLongestPrefix(li3))
+        longest_common_prefix += c
+    return longest_common_prefix
+
+
+print("\n === Solution 1 === \n")
+print(commonLongestPrefix_m1(li1)) # "f"
+print(commonLongestPrefix_m1(li2)) # "fl"
+print(commonLongestPrefix_m1(li3)) # ""
+
+print("\n === Solution 2 === \n")
+print(commonLongestPrefix_m2(li1)) # "f"
+print(commonLongestPrefix_m2(li2)) # "fl"
+print(commonLongestPrefix_m2(li3)) # ""
 
 
