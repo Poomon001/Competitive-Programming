@@ -17,27 +17,23 @@ class Node:
 '''
 # recursive non-local solution: runtime: O(n), memory: O(depth of tree)
 def maxDepth_M1(root: Optional[Node]) -> int:
-    depth = 0
-    maxDepth = 0
+    if not root:
+        return 0
+    max_depth = 0
 
     def dfs(root):
-        nonlocal depth
-        nonlocal maxDepth
+        nonlocal max_depth
+        if not root:
+            return 0
 
-        if root:
-            depth += 1
-            maxDepth = max(maxDepth, depth)
+        left_level = dfs(root.left) + 1
+        right_level = dfs(root.right) + 1
+        max_depth = max(max_depth, left_level, right_level)
 
-        if root and root.left:
-            dfs(root.left)
-            depth -= 1
-
-        if root and root.right:
-            dfs(root.right)
-            depth -= 1
+        return max(left_level, right_level)
 
     dfs(root)
-    return maxDepth
+    return max_depth
 
 '''
     Link: https://leetcode.com/problems/maximum-depth-of-binary-tree/
