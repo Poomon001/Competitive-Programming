@@ -1,5 +1,7 @@
 import math
 
+# Note: if A / B and has a remainder of 0, then gcd is B
+# b/c the largest number that divides B and results in a remainder of 0 is B itself.
 def gcd(a, b):
     while b:
         temp = a
