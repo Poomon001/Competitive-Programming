@@ -33,25 +33,25 @@ def networkDelayTime(times: List[List[int]], n: int, k: int) -> int:
     pq = [(0, k)]  # (weight, node) to order by min weight
 
     # build a node_to_distances
-    for i in range(1, n + 1):
-        node_to_distances[i] = inf
+    for node in range(1, n + 1):
+        node_to_distances[node] = inf
     node_to_distances[k] = 0
 
     while pq:
         curr_lightest_weight, curr_lightest_node = heapq.heappop(pq)
 
-        # If we already found a shorter path, skip
+        # we already found a shorter path from source to curr_node
+        # e.g 1 → 2 (10), 1 → 3 (1), 3 → 2 (1)
         if curr_lightest_weight > node_to_distances[curr_lightest_node]:
             continue
 
         neighbors = graph[curr_lightest_node]
         for neighbor in neighbors:
-            node = neighbor[0]
-            weight = neighbor[1]
+            neighbor_node, connecting_distanace = neighbor
             # Relaxation: if a shorter path is found
-            if weight + curr_lightest_weight < node_to_distances[node]:
-                node_to_distances[node] = weight + curr_lightest_weight
-                heapq.heappush(pq, (weight + curr_lightest_weight, node))
+            if node_to_distances[neighbor_node] > curr_lightest_weight + connecting_distanace:
+                node_to_distances[neighbor_node] = connecting_distanace + curr_lightest_weight
+                heapq.heappush(pq, (node_to_distances[neighbor_node], neighbor_node))
 
     ans = max(node_to_distances.values())
     return -1 if ans == inf else ans
