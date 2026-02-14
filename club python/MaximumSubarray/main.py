@@ -1,3 +1,4 @@
+from math import inf
 from typing import NewType
 from typing import List
 
@@ -35,20 +36,18 @@ def maxSubArrayBruteForce(nums: List[int]) -> int:
 # KadaneAlgo (take the current highest value: max(currNum, prevSum + currNum))
 # runtime: O(n), memory: O(1)
 def maxSubArrayKadaneAlgo(nums: List[int]) -> int:
-    maxSum = nums[0]
-    maxCurr = nums[0]
+    ans = -inf
+    curr_max = 0
 
     ''' 
         From KadaneAlgo the max sum in contiguous subarray is either 
-        "nums[i]" or "nums[i] + previous max sum of contiguous subarray to nums[i-1]" 
+        "nums[i]" or "nums[i] + previous max sum of contiguous subarray to nums[i-1]"
+        dynamic formula: max(curr, optimal sum + curr)
     '''
-    for i in range(1, len(nums)):
-        # find curr max sum
-        maxCurr = max(nums[i], maxCurr+nums[i])
-
-        # find global max sum
-        maxSum = max(maxCurr, maxSum)
-    return maxSum
+    for num in nums:
+        curr_max = max(num, num + curr_max)
+        ans = max(ans, curr_max)
+    return ans
 
 '''
     Link: https://leetcode.com/problems/maximum-subarray/
