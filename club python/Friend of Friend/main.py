@@ -41,7 +41,7 @@ def recommend_M1(target, friendList):
     Pre-Condition: none
     Post-Condition: none
 '''
-# graph - runtime: O(f * fof), memory: O(n) where n = all nodes, f = friends of targets, and fof friends of friends of targets
+# bfs - runtime: O(f * fof), memory: O(n) where n = all nodes, f = friends of targets, and fof friends of friends of targets
 # note can be scaled to N-level
 def recommend_M2(target, friendList):
     friendOfFriends = set()
@@ -76,6 +76,42 @@ def recommend_M2(target, friendList):
 
     return list(friendOfFriends - personToFriends[target])
 
+'''
+    Purpose: Determine a friend of friend that a target person not yet connected with - 1-level relationship only
+           : e.g B has friends of A, B, C, D.
+           :     A has friends of B, C
+           :     C has friends of A, B, K
+           : if target is A it return [D, K] where D, K is a friend of B, C who A doesnt yet connect with.
+    parameter: str target - a person
+            : list[list] friendList - a pair of relation where [person, person's friend]
+    return: list[str] - non-duplicate a friend of friend that a person doesnt yet connected with
+    Pre-Condition: none
+    Post-Condition: none
+'''
+# dfs - runtime: O(f * fof), memory: O(n) where n = all nodes, f = friends of targets, and fof friends of friends of targets
+# note can be scaled to N-level
+def recommend_M3(target, friendList):
+    graph = defaultdict(list)
+    visited = set()
+    for p1, p2 in friendList:
+        graph[p1].append(p2)
+        graph[p2].append(p1)
+
+    ans = set()
+
+    def dfs(person: str, level: int):
+        if person != target and level == 2:
+            ans.add(person)
+
+        friends = graph[person]
+        for friend in friends:
+            # 0-level is target, 1-level is target's friend, and 2-level is target's friends of friend
+            if friend != target and level + 1 <= 2:
+                dfs(friend, level + 1)
+
+    dfs(target, 0)
+    return list(ans - set(graph[target]))
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -95,3 +131,9 @@ if __name__ == '__main__':
     print(recommend_M2("B", relation2))  # "C", "D"
     print(recommend_M2("F", relation3))  # set()
     print(recommend_M2("F", relation4))  # "K", "D", "C"
+
+    print("\n === Solution 2 === \n")
+    print(recommend_M3("A", relation1))  # set()
+    print(recommend_M3("B", relation2))  # "C", "D"
+    print(recommend_M3("F", relation3))  # set()
+    print(recommend_M3("F", relation4))  # "K", "D", "C"
