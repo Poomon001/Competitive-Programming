@@ -12,33 +12,25 @@ from collections import deque
                  : s does not contain '\"' or '\\'.
     Post-Condition: none
 '''
-
-# hashmap: memory and runtime are O(n)
+# two pointer: memory and runtime are O(n)
 def reverseOnlyLetters_M1(s: str) -> str:
-    reverseOnlyLetters = ""
-    nonEnglish = {} # non-alphabet:position
-    result = ""
-
-    # remove and get all non-alphabet char
-    for i in range(len(s)):
-        if not s[i].isalpha():
-            nonEnglish[i] = s[i]
+    l = 0
+    r = len(s) - 1
+    chars = [c for c in s]
+    while l <= r:
+        if chars[l].isalpha() and chars[r].isalpha():
+            temp = chars[l]
+            chars[l] = chars[r]
+            chars[r] = temp
+        elif(chars[l].isalpha()):
+            r -= 1
+            continue
         else:
-            reverseOnlyLetters += s[i]
-
-    # reverse alphabet letter only
-    reverseOnlyLetters = reverseOnlyLetters[::-1]
-
-    # insert special character back
-    i = 0
-    for j in range(len(s)):
-        if j in nonEnglish.keys():
-            result = result + nonEnglish.get(j)
-        else:
-            result = result + reverseOnlyLetters[i]
-            i += 1
-
-    return result
+            l += 1
+            continue
+        r -= 1
+        l += 1
+    return "".join(chars)
 
 
 '''
@@ -53,7 +45,6 @@ def reverseOnlyLetters_M1(s: str) -> str:
                  : s does not contain '\"' or '\\'.
     Post-Condition: none
 '''
-
 # stack: memory and runtime are O(n)
 def reverseOnlyLetters_M2(s: str) -> str:
     reverseOnlyLetters = deque() # store only alphabet char
@@ -77,12 +68,14 @@ def reverseOnlyLetters_M2(s: str) -> str:
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print(reverseOnlyLetters_M1("ab-cd"))
-    print(reverseOnlyLetters_M1("a-bC-dEf-ghIj"))
-    print(reverseOnlyLetters_M1("Test1ng-Leet=code-Q!"))
     print("\n === end M1 ===\n")
-    print(reverseOnlyLetters_M2("ab-cd"))
-    print(reverseOnlyLetters_M2("a-bC-dEf-ghIj"))
-    print(reverseOnlyLetters_M2("Test1ng-Leet=code-Q!"))
+    print(reverseOnlyLetters_M1("ab-cd")) # dc-ba
+    print(reverseOnlyLetters_M1("a-bC-dEf-ghIj")) # j-Ih-gfE-dCba
+    print(reverseOnlyLetters_M1("Test1ng-Leet=code-Q!")) # Qedo1ct-eeLg=ntse-T!
+
     print("\n === end M2 ===")
+    print(reverseOnlyLetters_M2("ab-cd")) # dc-ba
+    print(reverseOnlyLetters_M2("a-bC-dEf-ghIj")) # j-Ih-gfE-dCba
+    print(reverseOnlyLetters_M2("Test1ng-Leet=code-Q!")) # Qedo1ct-eeLg=ntse-T!
+
 
