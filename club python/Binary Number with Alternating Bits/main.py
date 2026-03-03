@@ -6,6 +6,7 @@
     Pre-Condition: 1 <= n <= 2^31 - 1
     Post-Condition: none
 '''
+# bit manipulation: runtime - O(n), space: O(1)
 def hasAlternatingBits(n: int) -> bool:
     mask = 1  # 0000 0001
     temp = mask & n
