@@ -1,5 +1,18 @@
 from typing import List
 
+'''
+    Link: https://leetcode.com/problems/encode-and-decode-strings/
+    Purpose: Design an algorithm to encode a list of strings to a string. 
+           : to decoded back to the original list of strings.
+    parameter: str strs - a list of strings
+             : str s - an encoded string 
+    return: str strs - a list of strings
+          : str s - an encoded string 
+    Pre-Condition: 1 <= strs.length <= 200
+                 : 10 <= strs[i].length <= 200
+                 : strs[i] contains any possible characters out of 256 valid ASCII characters.
+    Post-Condition: none
+'''
 class NetworkTransferEncoding:
     @staticmethod
     def encode(strs: List[str]) -> str:
